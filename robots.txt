@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://onemoregrab.github.io/sitemap.xml
