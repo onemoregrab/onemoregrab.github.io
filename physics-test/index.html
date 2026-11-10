@@ -136,24 +136,22 @@ controls.maxDistance = 5.0;
 controls.target.set(0, 0.2, 0);
 
 // ---------- Lighting ----------
-const ambientLight = new THREE.AmbientLight(0xfff1e0, 0.7);
+const ambientLight = new THREE.AmbientLight(0xffeedd, 0.45);
 scene.add(ambientLight);
 
-const mainSpot = new THREE.SpotLight(0xfff8ee, 1.8);
+const mainSpot = new THREE.SpotLight(0xffeedd, 1.2);
 mainSpot.position.set(1.5, 4.0, 2.5);
 mainSpot.angle = Math.PI / 4;
 mainSpot.penumbra = 0.4;
 mainSpot.castShadow = true;
-mainSpot.shadow.mapSize.width = 1024;
-mainSpot.shadow.mapSize.height = 1024;
 scene.add(mainSpot);
 
-const backRimLight = new THREE.DirectionalLight(0x7dd3fc, 0.9);
-backRimLight.position.set(-2, 2.5, -2);
+const backRimLight = new THREE.DirectionalLight(0x38bdf8, 0.8);
+backRimLight.position.set(-2, 2.0, -2);
 scene.add(backRimLight);
 
-const warmFill = new THREE.PointLight(0xfb923c, 0.8, 4);
-warmFill.position.set(0, -0.4, 1.2);
+const warmFill = new THREE.PointLight(0xf59e0b, 0.6, 4);
+warmFill.position.set(0, -0.2, 1.4);
 scene.add(warmFill);
 
 // ---------- Arcade Machine Glass & Floor ----------
@@ -217,9 +215,9 @@ function createVelvetMaterial(baseColorHex, roughness = 0.82) {
 }
 
 // Materials for Mongle Bear
-const furMat = createVelvetMaterial(0xc98e5a);
-const creamMat = createVelvetMaterial(0xf7e6c8);
-const noseMat = new THREE.MeshStandardMaterial({ color: 0x3a2418, roughness: 0.2 });
+const furMat = createVelvetMaterial(0xb46b38, 0.75); // Rich warm Mongle honey brown
+const creamMat = createVelvetMaterial(0xfde68a, 0.75); // Warm cream
+const noseMat = new THREE.MeshStandardMaterial({ color: 0x2b1810, roughness: 0.15 });
 const eyeMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.05 });
 const eyePupilMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
@@ -508,30 +506,30 @@ function animate(time) {
   if (isGrabCycle) {
     const elapsed = (time - cycleStartTime) / 1000; // seconds
     
-    if (elapsed < 1.2) {
-      // Phase 1: Descend (0 to 1.2s)
-      const p = elapsed / 1.2;
-      clawTargetY = 1.35 - p * 0.82;
-      targetPinch = Math.max(0, (p - 0.6) * 1.8);
+    if (elapsed < 1.4) {
+      // Phase 1: Descend (0 to 1.4s)
+      const p = elapsed / 1.4;
+      clawTargetY = 1.35 - p * 0.98; // Lower deep grip
+      targetPinch = Math.max(0, (p - 0.4) * 1.6);
       hudStatus.innerHTML = `상태: <b style="color:#38bdf8;">집게 하강 & 몽글곰 접촉 중</b>`;
-    } else if (elapsed < 2.4) {
-      // Phase 2: Peak Pinch Hold (1.2 to 2.4s)
-      clawTargetY = 0.53;
-      targetPinch = 0.85;
+    } else if (elapsed < 3.0) {
+      // Phase 2: Peak Pinch Hold (1.4 to 3.0s)
+      clawTargetY = 0.37;
+      targetPinch = 0.92;
       hudStatus.innerHTML = `상태: <b style="color:#f97316;">쇠집게 국소 핀치 압축 (볼살 빵빵하게 융기)</b>`;
-    } else if (elapsed < 3.8) {
-      // Phase 3: Lift up with plushie (2.4 to 3.8s)
-      const p = (elapsed - 2.4) / 1.4;
-      clawTargetY = 0.53 + p * 0.65;
-      plushieGroup.position.y = -0.05 + p * 0.65;
-      targetPinch = 0.65; // slightly relaxed hang
+    } else if (elapsed < 4.6) {
+      // Phase 3: Lift up with plushie (3.0 to 4.6s)
+      const p = (elapsed - 3.0) / 1.6;
+      clawTargetY = 0.37 + p * 0.75;
+      plushieGroup.position.y = -0.05 + p * 0.75;
+      targetPinch = 0.75; // slightly relaxed hang
       hudStatus.innerHTML = `상태: <b style="color:#a855f7;">인양 중 (중력 탄성 반응)</b>`;
-    } else if (elapsed < 5.0) {
-      // Phase 4: Release & Elastic Restore (3.8 to 5.0s)
-      const p = (elapsed - 3.8) / 1.2;
+    } else if (elapsed < 6.0) {
+      // Phase 4: Release & Elastic Restore (4.6 to 6.0s)
+      const p = (elapsed - 4.6) / 1.4;
       plushieGroup.position.y = -0.05;
-      targetPinch = Math.max(0, 0.65 * (1.0 - p * 2.0));
-      clawTargetY = 1.18 + p * 0.17;
+      targetPinch = Math.max(0, 0.75 * (1.0 - p * 2.0));
+      clawTargetY = 1.12 + p * 0.23;
       hudStatus.innerHTML = `상태: <b style="color:#22c55e;">집게 해제 & 솜 탄성 복원 완료</b>`;
     } else {
       // Cycle complete
