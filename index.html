@@ -20,17 +20,22 @@
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="top">
-  <a class="brand" href="/"><img src="/assets/img/icon-192.png" alt="" width="40" height="40"><span>한 판 더! 인형뽑기</span></a>
-  <details class="menu" id="menu">
-    <summary aria-label="메뉴"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></summary>
-    <nav class="menu-panel" aria-label="주 메뉴">
-      <a href="/game/">게임 소개</a>
-      <a href="/notice/">공지</a>
-      <a href="/support/">고객문의</a>
-    </nav>
-  </details>
-</header>
+<div class="top-bar" id="top-bar">
+  <header class="top">
+    <a class="brand" href="/"><img src="/assets/img/icon-192.png" alt="" width="40" height="40"><span>한 판 더! 인형뽑기</span></a>
+    <div class="top-actions">
+      <div class="sticky-cta" id="sticky-cta" data-cta-sticky></div>
+      <details class="menu" id="menu">
+        <summary aria-label="메뉴"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></summary>
+        <nav class="menu-panel" aria-label="주 메뉴">
+          <a href="/game/">게임 소개</a>
+          <a href="/notice/">공지</a>
+          <a href="/support/">고객문의</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+</div>
 
 <main id="main">
 <section class="hero">
@@ -56,13 +61,18 @@
 <section class="sec" id="features">
   <div class="wrap split">
     <div class="vis">
-      <div class="phone"><img src="/assets/img/play-korea.webp" alt="한국 스테이지 플레이 화면: 집게가 매달려 있고 아래에 곰과 토끼 인형이 쌓여 있어요" width="720" height="1280" loading="lazy"></div>
+      <div class="phone">
+        <video class="phone-video" autoplay loop muted playsinline poster="/assets/img/play-korea.webp" aria-label="진짜 기계처럼 흔들리는 집게와 3D 물리 인형뽑기 플레이 영상">
+          <source src="/assets/img/ingame-physics-play.mp4" type="video/mp4">
+          <img src="/assets/img/play-korea.webp" alt="한국 스테이지 플레이 화면: 집게가 매달려 있고 아래에 곰과 토끼 인형이 쌓여 있어요" width="720" height="1280" loading="lazy">
+        </video>
+      </div>
     </div>
     <div class="txt">
-      <p class="eyebrow">집게</p>
-      <h2 class="big">진짜 기계처럼<br>흔들리는 집게</h2>
-      <p>조이스틱으로 집게를 움직이고, 버튼을 눌러 내려서 귀여운 인형을 출구까지 옮겨 보세요. 집게는 움직이면 진자처럼 흔들리고, 인형이 무거울수록 힘이 더 필요해요.</p>
-      <p>같은 조작이면 같은 결과예요. 인형 배치와 집게 힘, 보상에 무작위 요소가 없어서 실력과 판단으로 도전하는 게임이에요.</p>
+      <p class="eyebrow">집게 물리</p>
+      <h2 class="big">진짜 기계처럼<br>흔들리는 손맛</h2>
+      <p>조이스틱으로 집게를 움직이고, 버튼을 눌러 내려서 귀여운 인형을 출구까지 옮겨 보세요. 관성에 따라 진자처럼 흔들리는 크레인과 무게 중심에 따라 미끄러지는 솜털 인형의 물리를 그대로 구현했어요.</p>
+      <p>조작한 그대로 결과가 나오는 100% 물리 기반 시스템이에요. 확률 조작이나 눈속임 없이, 오직 각도와 타이밍, 실력으로 인형을 낚아채는 짜릿한 성취감을 느껴보세요.</p>
     </div>
   </div>
 </section>
@@ -70,14 +80,70 @@
 <section class="sec">
   <div class="wrap split rev">
     <div class="txt">
-      <p class="eyebrow">수집</p>
+      <p class="eyebrow">수집 도감</p>
       <h2 class="big">뽑을수록<br>채워지는 도감</h2>
-      <p>곰, 토끼, 펭귄&hellip; 폭신한 인형들이 한 판마다 기다리고 있어요. 얻은 인형은 도감에 모이고, 인형마다 ★ 등급이 표시돼요. 등급은 수집용 표시이고 게임 결과와는 관계없어요.</p>
-      <p>나라의 마지막 스테이지에는 덩치 큰 보스 인형이 나와요.</p>
+      <p>곰, 토끼, 펭귄부터 파리지앵 푸들까지 폭신폭신 귀여운 인형들이 한 판마다 기다리고 있어요. 얻은 인형은 도감에 모이고, 인형마다 ★ 등급과 숙련도 마스터 배지가 표시돼요.</p>
+      <p>나라의 마지막 20스테이지에는 1.9배 묵직한 대형 보스 인형이 등장해요.</p>
     </div>
     <div class="vis duo">
       <div class="phone"><img src="/assets/img/home-menu.webp" alt="게임 첫 화면: 곰, 토끼, 펭귄 인형이 든 기계와 게임 시작 버튼" width="540" height="960" loading="lazy"></div>
       <div class="phone lift"><img src="/assets/img/collection.webp" alt="도감 화면: 얻은 인형 카드가 등급 배지와 함께 모여 있어요" width="540" height="960" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="wrap world-wrap">
+    <div class="world-head">
+      <p class="eyebrow">세계 오락실 투어</p>
+      <h3 class="big-sub">한국에서 일본, 프랑스까지 세계를 여행해요</h3>
+      <p class="muted">나라마다 다른 배경 음악과 오락실 테마, 고유 인형 컬렉션을 만나보세요.</p>
+    </div>
+    <div class="world-grid">
+      <article class="world-card">
+        <div class="world-card-vis">
+          <img src="/assets/img/world-korea.webp" alt="한국 전통 테마 한복 몽글곰" width="600" height="750" loading="lazy">
+          <span class="world-pill">한국 &middot; 20스테이지</span>
+        </div>
+        <div class="world-card-body">
+          <h4 class="world-card-title">몽글곰 &amp; 달토끼</h4>
+          <p class="world-card-desc">전통 한복과 복주머니, 송편 말랑이 인형이 반기는 시작의 무대</p>
+        </div>
+      </article>
+      <article class="world-card">
+        <div class="world-card-vis">
+          <img src="/assets/img/world-japan.webp" alt="일본 벚꽃 테마 기모노 시바견" width="600" height="750" loading="lazy">
+          <span class="world-pill">일본 &middot; 20스테이지</span>
+        </div>
+        <div class="world-card-body">
+          <h4 class="world-card-title">시바견 &amp; 사쿠라모찌</h4>
+          <p class="world-card-desc">벚꽃 흩날리는 네온 골목과 볼살 통통한 시바 인형 컬렉션</p>
+        </div>
+      </article>
+      <article class="world-card">
+        <div class="world-card-vis">
+          <img src="/assets/img/world-france.webp" alt="프랑스 파리 테마 에펠탑과 푸들" width="600" height="750" loading="lazy">
+          <span class="world-pill">프랑스 &middot; 20스테이지</span>
+        </div>
+        <div class="world-card-body">
+          <h4 class="world-card-title">프렌치 푸들 &amp; 마카롱</h4>
+          <p class="world-card-desc">빨간 베레모의 푸들과 황혼의 에펠탑이 반기는 낭만적인 파리 거리</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-isle">
+  <div class="wrap split">
+    <div class="vis">
+      <div class="phone">
+        <img src="/assets/img/secret-isle.webp" alt="3D 비밀의 섬 신전 제단과 황금 트로피 전시대 화면" width="600" height="800" loading="lazy">
+      </div>
+    </div>
+    <div class="txt">
+      <p class="eyebrow">새로운 탐험</p>
+      <h2 class="big">3D 비밀의 섬과<br>황금 신전 트로피</h2>
+      <p>스테이지를 넘어 3D로 펼쳐지는 비밀의 섬을 자유롭게 걸어 다니며 탐험하세요. 에메랄드빛 바다와 신비로운 고대 신전이 여러분을 기다립니다.</p>
+      <p>수집한 인형과 달성한 업적으로 신전 제단에 눈부신 황금 트로피를 세우고 나만의 아바타로 섬을 산책해 보세요.</p>
     </div>
   </div>
 </section>
@@ -108,6 +174,61 @@
       <li><span class="inline-h">퀘스트와 출석</span>퀘스트, 출석 보상, 시간이 지나며 차오르는 코인으로 코인을 모아요.</li>
       <li><span class="inline-h">내게 맞는 화질</span>기기 사양에 맞춰 그래픽 품질을 설정에서 바꿔요.</li>
     </ul>
+  </div>
+</section>
+
+<section class="sec sec-community">
+  <div class="wrap center">
+    <p class="eyebrow">공식 커뮤니티</p>
+    <h2 class="big">소식과 이벤트를 함께해요</h2>
+    <p class="lead center-lead">매일 새로운 인형뽑기 공략 팁과 개발 비하인드, 출시 이벤트 소식을 전해드려요.</p>
+    <div class="sns-grid">
+      <a class="sns-card" href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">
+        <span class="sns-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </span>
+        <span class="sns-info">
+          <span class="sns-name">Instagram</span>
+          <span class="sns-sub">@njstudio.official.kr</span>
+        </span>
+      </a>
+      <a class="sns-card" href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">
+        <span class="sns-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        <span class="sns-info">
+          <span class="sns-name">YouTube</span>
+          <span class="sns-sub">@onemoregrab</span>
+        </span>
+      </a>
+      <a class="sns-card" href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">
+        <span class="sns-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </span>
+        <span class="sns-info">
+          <span class="sns-name">TikTok</span>
+          <span class="sns-sub">@ongmoregrab</span>
+        </span>
+      </a>
+      <a class="sns-card" href="https://x.com/njstudio_kr" target="_blank" rel="noopener">
+        <span class="sns-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </span>
+        <span class="sns-info">
+          <span class="sns-name">X (Twitter)</span>
+          <span class="sns-sub">@njstudio_kr</span>
+        </span>
+      </a>
+      <a class="sns-card" href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">
+        <span class="sns-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+        </span>
+        <span class="sns-info">
+          <span class="sns-name">Naver Blog</span>
+          <span class="sns-sub">njstudio_official</span>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
