@@ -2,19 +2,33 @@
 (function () {
   'use strict'
 
-  // 출시 버튼: config.js 의 launched 가 true 면 Google Play 링크 버튼으로 바꾼다
+  // 출시 버튼: config.js 의 launched 가 true 면 스토어 링크 버튼으로 바꾼다
   var cfg = window.OMG || {}
   var ctas = document.querySelectorAll('[data-cta]')
-  if (cfg.launched && /^https:\/\/play\.google\.com\//.test(cfg.playUrl || '')) {
+  if (cfg.launched) {
     Array.prototype.forEach.call(ctas, function (cta) {
-      var a = document.createElement('a')
-      a.className = 'btn'
-      if (cta.id) a.id = cta.id
-      a.setAttribute('data-cta', '')
-      a.href = cfg.playUrl
-      a.rel = 'noopener'
-      a.textContent = 'Google Play에서 받기'
-      cta.replaceWith(a)
+      var frag = document.createDocumentFragment()
+      if (cfg.appStoreUrl && /^https:\/\/apps\.apple\.com\//.test(cfg.appStoreUrl)) {
+        var aIos = document.createElement('a')
+        aIos.className = 'btn'
+        aIos.href = cfg.appStoreUrl
+        aIos.rel = 'noopener'
+        aIos.target = '_blank'
+        aIos.textContent = 'App Store에서 받기'
+        frag.appendChild(aIos)
+      }
+      if (cfg.playUrl && /^https:\/\/play\.google\.com\//.test(cfg.playUrl)) {
+        var aAos = document.createElement('a')
+        aAos.className = 'btn'
+        aAos.href = cfg.playUrl
+        aAos.rel = 'noopener'
+        aAos.target = '_blank'
+        aAos.textContent = 'Google Play에서 받기'
+        frag.appendChild(aAos)
+      }
+      if (frag.childNodes.length > 0) {
+        cta.replaceWith(frag)
+      }
     })
   }
 
