@@ -146,4 +146,46 @@
       ul.appendChild(li)
     })
   }
+
+  // QR 코드 모달 동작
+  var qrModal = document.getElementById('qr-modal')
+  var openQrBtn = document.getElementById('open-qr-btn')
+  var closeQrBtn = document.getElementById('close-qr-btn')
+  if (qrModal && openQrBtn) {
+    openQrBtn.addEventListener('click', function () {
+      qrModal.classList.add('is-open')
+    })
+  }
+  if (qrModal && closeQrBtn) {
+    closeQrBtn.addEventListener('click', function () {
+      qrModal.classList.remove('is-open')
+    })
+  }
+  if (qrModal) {
+    qrModal.addEventListener('click', function (e) {
+      if (e.target === qrModal) qrModal.classList.remove('is-open')
+    })
+  }
+
+  // 도감 탭 필터링
+  var dollTabs = document.querySelectorAll('.doll-tab')
+  var dollItems = document.querySelectorAll('.doll-item')
+  if (dollTabs.length > 0 && dollItems.length > 0) {
+    Array.prototype.forEach.call(dollTabs, function (tab) {
+      tab.addEventListener('click', function () {
+        var country = this.getAttribute('data-tab')
+        Array.prototype.forEach.call(dollTabs, function (t) { t.classList.remove('is-active') })
+        this.classList.add('is-active')
+
+        Array.prototype.forEach.call(dollItems, function (item) {
+          if (country === 'all' || item.getAttribute('data-country') === country) {
+            item.style.display = 'flex'
+          } else {
+            item.style.display = 'none'
+          }
+        })
+      })
+    })
+  }
+
 })()
