@@ -30,7 +30,12 @@
         frag.appendChild(aAos)
       }
       if (frag.childNodes.length > 0) {
-        cta.replaceWith(frag)
+        if (cta.tagName === 'SPAN') {
+          cta.replaceWith(frag)
+        } else {
+          cta.innerHTML = ''
+          cta.appendChild(frag)
+        }
       }
     })
 
