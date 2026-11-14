@@ -25,6 +25,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--navy-bg);
   color: var(--text-light);
   font-family: var(--font-ui);
@@ -35,6 +38,7 @@ body {
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
+main { flex: 1 0 auto; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 /* 고정 상단 바에 섹션 제목이 가려지지 않도록 */
@@ -354,6 +358,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   font-weight: 800;
   color: var(--ink-dark);
 }
+.qa > summary::after {
+  content: "+";
+  flex: none;
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+.qa[open] > summary::after { content: "\2013"; }
 .qa > summary::-webkit-details-marker { display: none; }
 .qa > summary::before {
   content: "Q";
