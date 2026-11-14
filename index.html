@@ -628,8 +628,8 @@
 
   /* 모바일 상단 바: 좌우 요소가 절대 겹치지 않게 압축 */
   @media (max-width: 600px) {
-    .riot-bar { height: 58px; }
-    .riot-bar-inner { gap: 10px; }
+    .riot-bar { height: auto; }
+    .riot-bar-inner { gap: 10px; height: auto; min-height: 58px; }
     .bar-left { gap: 0; }
     .bar-right { gap: 8px; }
     .game-mark { gap: 8px; font-size: 14.5px; }
@@ -905,6 +905,13 @@
       mobBtn.addEventListener('click', function () {
         var open = mobDrawer.classList.toggle('is-open');
         mobBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // 모바일 메뉴에서 항목을 고르면 드로어를 닫는다
+      Array.prototype.forEach.call(mobDrawer.querySelectorAll('a'), function (link) {
+        link.addEventListener('click', function () {
+          mobDrawer.classList.remove('is-open');
+          mobBtn.setAttribute('aria-expanded', 'false');
+        });
       });
     }
     var tabs = document.querySelectorAll('.tab-btn');
