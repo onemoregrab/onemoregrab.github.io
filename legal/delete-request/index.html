@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데이터 삭제 요청 — 한 판 더! 인형뽑기</title>
+<meta name="description" content="한 판 더! 인형뽑기 데이터 삭제 요청 안내. 기기에 저장된 게임 기록 삭제와 운영자 보유 정보의 삭제 요청 방법을 안내합니다.">
+<link rel="canonical" href="https://onemoregrab.github.io/legal/delete-request/">
+<meta name="theme-color" content="#0A0D14">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="한 판 더! 인형뽑기">
+<meta property="og:title" content="데이터 삭제 요청 — 한 판 더! 인형뽑기">
+<meta property="og:description" content="한 판 더! 인형뽑기 데이터 삭제 요청 안내. 기기에 저장된 게임 기록 삭제와 운영자 보유 정보의 삭제 요청 방법을 안내합니다.">
+<meta property="og:url" content="https://onemoregrab.github.io/legal/delete-request/">
+<meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
+<link rel="icon" type="image/png" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/assets/portal.css">
+<style>
+  .legal-wrap { max-width: 880px; }
+  .legal-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+  .legal-nav a {
+    display: inline-flex; align-items: center;
+    min-height: 36px; padding: 0 14px;
+    border: 1px solid var(--cream-line); border-radius: 2px;
+    background: #FFFFFF;
+    font-size: 12.5px; font-weight: 800; letter-spacing: 0.01em;
+    color: var(--ink-muted);
+  }
+  .legal-nav a:hover { border-color: var(--accent-main); color: var(--accent-main); }
+  .legal-nav a[aria-current="page"] { background: var(--accent-main); border-color: var(--accent-main); color: #fff; }
+
+  .legal-doc { font-size: 15px; line-height: 1.78; color: #2A2E37; }
+  .legal-doc h2 {
+    margin: 34px 0 12px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent-main);
+    font-size: 19px; font-weight: 900; letter-spacing: -0.01em;
+    color: var(--ink-dark);
+  }
+  .legal-doc h2.chapter { margin-top: 44px; font-size: 22px; border-bottom-width: 3px; }
+  .legal-doc h2:first-child, .legal-doc h2.chapter:first-of-type { margin-top: 8px; }
+  .legal-doc h3 { margin: 22px 0 8px; font-size: 15.5px; font-weight: 900; color: var(--ink-dark); }
+  .legal-doc section { margin: 0; }
+  .legal-doc p { margin: 0 0 12px; }
+  .legal-doc ul, .legal-doc ol { margin: 0 0 14px; padding-left: 1.3em; }
+  .legal-doc li { margin: 5px 0; }
+  .legal-doc li > ul, .legal-doc li > ol { margin: 5px 0 2px; }
+  .legal-doc b, .legal-doc strong { font-weight: 800; color: #111318; }
+  .legal-doc a { color: var(--accent-main); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; word-break: break-all; }
+  .legal-doc a.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 2px; background: var(--accent-main); color: #fff; text-decoration: none; font-weight: 800; font-size: 13.5px; }
+  .legal-doc a.btn:hover { background: var(--accent-hi); }
+  .legal-doc table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13.5px; display: block; overflow-x: auto; }
+  .legal-doc th, .legal-doc td { border: 1px solid var(--cream-line); padding: 9px 11px; text-align: left; vertical-align: top; min-width: 96px; }
+  .legal-doc th { background: #EEF2FF; font-weight: 800; color: var(--ink-dark); }
+  .legal-doc code { background: #F1EFE9; border: 1px solid var(--cream-line); padding: 1px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  .legal-doc .meta { font-size: 13px; color: var(--ink-muted); }
+  .legal-doc .tbd { background: #FFF1A8; padding: 0 4px; font-weight: 700; }
+  .legal-doc details { margin: 18px 0 0; padding: 12px 14px; background: #FCFCFA; border: 1px solid var(--cream-line); border-radius: 2px; }
+  .legal-doc details > summary { cursor: pointer; font-size: 12.5px; font-weight: 800; color: var(--ink-muted); list-style: none; }
+  .legal-doc details > summary::-webkit-details-marker { display: none; }
+  .legal-doc details > summary::after { content: " ＋"; color: var(--accent-main); }
+  .legal-doc details[open] > summary::after { content: " －"; }
+  .legal-doc details > ul { margin: 10px 0 2px; padding-left: 1.1em; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .legal-doc details > p { font-size: 12.5px; color: var(--ink-muted); }
+
+  @media (max-width: 600px) {
+    .legal-doc { font-size: 14.5px; line-height: 1.75; }
+    .legal-doc h2 { font-size: 17px; margin-top: 28px; }
+    .legal-doc h2.chapter { font-size: 19px; }
+    .legal-doc table { font-size: 12.5px; }
+    .legal-nav a { min-height: 34px; padding: 0 11px; font-size: 12px; }
+  }
+</style>
+</head>
+<body class="page-shell">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="riot-bar">
+  <div class="riot-bar-inner">
+    <div class="bar-left">
+      <a class="studio-mark" href="/">NJ STUDIO</a>
+      <a class="game-mark" href="/">
+        <img src="/assets/img/icon-192.png" alt="한 판 더! 인형뽑기 아이콘" width="28" height="28">
+        <span>한 판 더!</span>
+      </a>
+      <nav class="nav-list" aria-label="주 메뉴">
+        <div class="nav-item">
+          <a class="nav-link" href="/#news">새소식 ▾</a>
+          <div class="nav-dropdown">
+            <a href="/notice/">전체 공지</a>
+            <a href="/notice/#launch">출시 · 이벤트</a>
+            <a href="/notice/#worldtour">업데이트 내역</a>
+          </div>
+        </div>
+        <div class="nav-item"><a class="nav-link" href="/#collection">인형 도감</a></div>
+        <div class="nav-item"><a class="nav-link" href="/notice/">패치 노트</a></div>
+        <div class="nav-item"><a class="nav-link" href="/support/">고객센터</a></div>
+        <div class="nav-item"><a class="nav-link" href="/#physics">세계 여행</a></div>
+        <div class="nav-item">
+          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">공식 SNS ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X (트위터)</a>
+            <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">네이버 블로그</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="bar-right">
+      <a class="bar-btn-cta" href="/#start">지금 다운로드</a>
+      <button class="mob-toggle" id="mob-btn" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="mob-drawer">☰</button>
+    </div>
+  </div>
+  <nav class="mob-drawer" id="mob-drawer">
+    <a href="/#news">새소식</a>
+    <a href="/#collection">인형 도감</a>
+    <a href="/notice/">패치 노트</a>
+    <a href="/support/">고객센터</a>
+    <a href="/#physics">세계 여행</a>
+    <div class="mob-sns">
+      <span class="mob-sns-title">공식 SNS</span>
+      <div class="mob-sns-links">
+        <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X</a>
+        <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">블로그</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap legal-wrap">
+      <p class="page-kicker">DATA DELETION</p>
+      <h1 class="page-title">데이터 삭제 요청</h1>
+      <p class="page-lead">앱에 저장된 기록은 앱을 지우면 바로 지워지고, 운영자가 보관하는 문의·구매 기록은 메일로 삭제를 요청할 수 있어요.</p>
+    </div>
+  </section>
+
+  <section class="sec-paper">
+    <div class="wrap legal-wrap">
+      <nav class="legal-nav" aria-label="약관과 정책 문서">
+        <a href="/legal/terms/">이용약관</a>
+        <a href="/legal/privacy/">개인정보처리방침</a>
+        <a href="/legal/refund/">환불정책</a>
+        <a href="/legal/delete-request/" aria-current="page">데이터 삭제 요청</a>
+      </nav>
+      <article class="legal-doc">
+<section>
+    <h2>1. 앱에 저장된 데이터 (앱 삭제로 직접 지우기)</h2>
+    <p>이 앱에는 회원가입·로그인(계정)이 없습니다. 게임 진행 정보(코인, 스테이지, 도감, 설정, 연령 확인 결과)는 <b>이용자의 기기에만 저장</b>되며 운영자의 서버로 전송되지 않습니다. 앱을 삭제하거나 기기의 설정에서 앱 데이터를 삭제하면 이 정보가 모두 지워집니다.</p>
+    <ul>
+      <li>삭제하면 코인과 진행도는 복구되지 않습니다.</li>
+      <li>광고 제거·프리미엄 패스·국가 해금권 같은 유료 상품은 삭제 후 다시 설치해 앱의 [구매 복원]을 누르면 되살릴 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. 운영자가 보유한 정보의 삭제 요청</h2>
+    <p>운영자가 보유할 수 있는 정보는 이용자가 직접 보낸 <b>문의 이메일(이메일 주소와 문의 내용)</b>과 결제 확인에 필요한 구매 기록(결제 서비스 RevenueCat에 저장되는 익명 이용자 ID와 구매 정보)뿐입니다. 이 정보의 삭제를 원하시면 아래 이메일로 요청해 주세요.</p>
+    <p><a class="btn" href="mailto:njstudio0603@gmail.com?subject=%5B%ED%95%9C%20%ED%8C%90%20%EB%8D%94!%20%EC%9D%B8%ED%98%95%EB%BD%91%EA%B8%B0%5D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">삭제 요청 메일 보내기</a></p>
+    <ol>
+      <li>받는 주소: <a href="mailto:njstudio0603@gmail.com">njstudio0603@gmail.com</a></li>
+      <li>제목에 "데이터 삭제 요청"을 적고, 본문에 삭제를 원하는 정보(문의 내용, 구매 기록 등)를 적어 주세요. 구매 기록 삭제를 원하시면 구글 주문번호(GPA...)가 있으면 함께 적어 주세요.</li>
+      <li>본인 확인이 필요한 경우 추가로 문의드릴 수 있습니다. 비밀번호·카드번호 등은 요청하지 않으며 보내지 마세요.</li>
+      <li>지체 없이(영업일 기준 최대 10일 이내) 처리하고 결과를 회신합니다. 법령에 따라 보관해야 하는 결제 기록은 해당 기간 동안만 보관 후 삭제합니다.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>3. 구글 계정·광고 정보</h2>
+    <p>광고 식별자(광고 ID)와 Google AdMob이 수집한 정보는 Google이 보유합니다. 기기 설정(Google 또는 개인정보 보호 &gt; 광고)에서 광고 ID를 삭제·재설정할 수 있고, <a href="https://myaccount.google.com/data-and-privacy?hl=ko" rel="noopener">Google 계정 데이터 및 개인정보 보호</a>에서 Google이 보유한 정보를 관리할 수 있습니다. 자세한 내용은 <a href="/legal/privacy/">개인정보처리방침</a>을 참고하세요.</p>
+  </section>
+
+  <section>
+    <h2>Delete your data (English)</h2>
+    <p>This app has no accounts or login. Game data (coins, progress, collection, settings, age-check result) is stored only on your device and is never sent to our servers. Uninstalling the app or clearing its data in your device settings deletes it. Paid items (Remove Ads, Premium Pass, country unlock tickets) can be restored after reinstalling with the in-app "Restore purchases" button.</p>
+    <p>To request deletion of information we may hold (support emails, purchase records handled by RevenueCat with an anonymous ID), email <a href="mailto:njstudio0603@gmail.com">njstudio0603@gmail.com</a> with the subject "Data deletion request" and, if available, your Google Play order number (GPA...). We respond and complete deletion without undue delay (within 10 business days), keeping only payment records that the law requires us to retain.</p>
+  </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand-col">
+      <p class="foot-brand">한 판 더! 인형뽑기 · NJ Studio</p>
+      <p class="foot-note">NJ Studio가 만드는 3D 물리 인형뽑기 게임. 진짜 기계처럼 흔들리는 집게로 인형을 뽑아 모으는 즐거움을 전합니다.<br>이 게임은 광고를 포함하며 앱 내 구매가 있어요. 게임 코인은 게임 안에서만 쓰는 가상 재화이고, 실제 인형은 배송되지 않아요.</p>
+      <div class="foot-sns">
+        <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X</a>
+        <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">Naver Blog</a>
+      </div>
+    </div>
+    <div class="foot-right">
+      <nav class="foot-links" aria-label="약관과 정책">
+        <a href="/legal/terms/">이용약관</a>
+        <a href="/legal/privacy/">개인정보처리방침</a>
+        <a href="/legal/refund/">환불정책</a>
+        <a href="/legal/delete-request/">데이터 삭제 요청</a>
+        <a href="/support/">고객센터</a>
+      </nav>
+      <div class="foot-biz">
+        <p>상호: 엔제이스튜디오(NJ Studio) · 대표: 김종욱 · 사업자등록번호: 840-37-01529</p>
+        <p>통신판매업신고: 2026-서울강동-1664 · 게임제작업등록: 제2026-000010호</p>
+        <p>주소: 서울특별시 강동구 성내로15길 64-11 · 전화: 010-9426-4567 · 문의: njstudio0603@gmail.com</p>
+      </div>
+      <p class="foot-copy">&copy; 2026 NJ Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/portal.js?v=20261114" defer></script>
+
+</body>
+</html>
