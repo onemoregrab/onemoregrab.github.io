@@ -3,50 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[시안 v2] 한 판 더! 인형뽑기 — 아케이드 오렌지 & 크림</title>
+<title>[시안] 한 판 더! 인형뽑기 — 공식 게임 포털 (레드 &amp; 네이비)</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  @font-face {
-    font-family: "Jua";
-    src: url("/assets/fonts/jua-site.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   :root {
-    --bar-bg: #111111;
-    --dark-bg: #141418;
-    --dark-card: #1E1E24;
-    --orange-1: #FF6B00;
-    --orange-2: #FF9E00;
-    --cream-bg: #FAF8F3;
+    --bar-bg: #0A0D14;
+    --navy-bg: #0D1321;
+    --navy-card: #131B2E;
+    --red-main: #D92638;
+    --red-hi: #F03548;
+    --gold: #E5B842;
+    --cream-bg: #F4F3EF;
     --cream-card: #FFFFFF;
-    --cream-line: #E5E0D5;
-    --ink-dark: #18181B;
-    --ink-muted: #52525B;
-    --text-light: #FFFEF9;
-    --muted-light: #A1A1AA;
-    --gold: #FFB800;
-    --line-dark: rgba(255, 255, 255, 0.12);
+    --cream-line: #DCDAD2;
+    --ink-dark: #111318;
+    --ink-muted: #555A66;
+    --text-light: #F7F7F5;
+    --muted-light: #9CA3B5;
+    --line-dark: rgba(255, 255, 255, 0.14);
     --max: 1240px;
     --pad: clamp(18px, 4vw, 44px);
     --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    --font-brand: "Jua", "Pretendard", sans-serif;
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--dark-bg);
+    background: var(--navy-bg);
     color: var(--text-light);
     font-family: var(--font-ui);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 15.5px;
+    line-height: 1.6;
     word-break: keep-all;
     -webkit-font-smoothing: antialiased;
   }
@@ -54,14 +45,14 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
-  /* 1. TFT 스타일 완전 블랙 상단 바 (#111111) */
+  /* 1. 상단 바: 완전 각진 블랙-네이비 바 */
   .riot-bar {
     position: sticky;
     top: 0;
     z-index: 200;
-    height: 72px;
+    height: 68px;
     background: var(--bar-bg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .riot-bar-inner {
     max-width: 1400px;
@@ -76,213 +67,216 @@
   .bar-left {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 26px;
   }
   .studio-mark {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
+    font-size: 12.5px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
     color: #fff;
     padding-right: 18px;
-    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
     white-space: nowrap;
   }
   .game-mark {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    font-size: 16px;
+    gap: 10px;
+    font-size: 15px;
     font-weight: 800;
-    color: var(--gold);
+    letter-spacing: -0.01em;
+    color: #fff;
     white-space: nowrap;
   }
   .game-mark img {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
   }
 
   .nav-list {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
   }
-  .nav-item {
-    position: relative;
-  }
+  .nav-item { position: relative; }
   .nav-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    height: 40px;
-    padding: 0 13px;
-    border-radius: 6px;
+    height: 68px;
+    padding: 0 14px;
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.03em;
-    color: #F4F4F5;
-    transition: background 0.15s, color 0.15s;
+    letter-spacing: 0.04em;
+    color: #D1D5DB;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
     white-space: nowrap;
   }
   .nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--gold);
+    color: #fff;
+    border-bottom-color: var(--red-main);
   }
   .nav-dropdown {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 170px;
-    padding: 8px;
-    background: #1C1C21;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 6px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    min-width: 176px;
+    padding: 6px;
+    background: #121726;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
   }
   .nav-item:hover .nav-dropdown { display: flex; flex-direction: column; }
   .nav-dropdown a {
-    padding: 9px 12px;
+    padding: 10px 12px;
     font-size: 13px;
     font-weight: 600;
-    color: #D4D4D8;
-    border-radius: 4px;
+    color: #D1D5DB;
   }
   .nav-dropdown a:hover {
-    background: rgba(255, 107, 0, 0.18);
+    background: var(--red-main);
     color: #fff;
   }
 
   .bar-right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
   .bar-btn-ghost {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 34px;
+    height: 36px;
     padding: 0 14px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.24);
     font-size: 12.5px;
     font-weight: 700;
+    letter-spacing: 0.03em;
     color: #fff;
     white-space: nowrap;
   }
-  .bar-btn-ghost:hover { background: rgba(255, 255, 255, 0.16); }
+  .bar-btn-ghost:hover { border-color: #fff; }
   .bar-btn-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 34px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #FF6B00, #FF9500);
+    height: 36px;
+    padding: 0 18px;
+    border-radius: 2px;
+    background: var(--red-main);
     font-size: 12.5px;
     font-weight: 800;
-    color: #111;
+    letter-spacing: 0.04em;
+    color: #fff;
     white-space: nowrap;
   }
-  .bar-btn-cta:hover { filter: brightness(1.08); }
+  .bar-btn-cta:hover { background: var(--red-hi); }
 
   .mob-toggle {
     display: none;
-    background: rgba(255, 255, 255, 0.08);
-    border: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.24);
     color: #fff;
     width: 38px;
-    height: 38px;
-    border-radius: 6px;
-    font-size: 18px;
+    height: 36px;
+    border-radius: 2px;
+    font-size: 17px;
     cursor: pointer;
   }
   .mob-drawer {
     display: none;
-    background: #18181D;
+    background: #101524;
     border-bottom: 1px solid var(--line-dark);
-    padding: 12px var(--pad) 18px;
+    padding: 10px var(--pad) 16px;
   }
-  .mob-drawer.is-open { display: flex; flex-direction: column; gap: 4px; }
+  .mob-drawer.is-open { display: flex; flex-direction: column; }
   .mob-drawer a {
-    padding: 10px 6px;
-    font-size: 14.5px;
-    font-weight: 600;
-    color: #F4F4F5;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 11px 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #E5E7EB;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  /* 2. TFT 스타일 풀스크린 중앙 정렬 히어로 */
+  /* 2. 풀스크린 중앙 정렬 히어로 — Pretendard 900 각진 타이포 */
   .hero {
     position: relative;
-    min-height: 600px;
+    min-height: 580px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 72px 0 64px;
+    padding: 68px 0 60px;
     overflow: hidden;
-    background: #141418;
+    background: var(--navy-bg);
   }
   .hero-bg {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(17, 17, 20, 0.68) 0%, rgba(17, 17, 20, 0.56) 50%, rgba(17, 17, 20, 0.92) 100%),
+      linear-gradient(180deg, rgba(10, 13, 20, 0.78) 0%, rgba(13, 19, 33, 0.72) 55%, rgba(13, 19, 33, 0.96) 100%),
       url("/assets/img/play-korea.webp") center/cover no-repeat;
-    filter: blur(2px) saturate(1.15);
-    transform: scale(1.04);
+    filter: grayscale(20%) contrast(1.08);
     z-index: 0;
   }
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 var(--pad);
   }
   .hero-kicker {
     display: inline-block;
-    margin-bottom: 12px;
-    font-size: 12.5px;
+    margin-bottom: 14px;
+    padding: 4px 12px;
+    border: 1px solid rgba(229, 184, 66, 0.5);
+    font-size: 11.5px;
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     color: var(--gold);
   }
   .hero-logo-title {
     margin: 0;
-    font-family: var(--font-brand);
-    font-size: clamp(50px, 7.5vw, 84px);
-    line-height: 1.04;
-    color: #FFFEF9;
-    text-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
+    font-family: var(--font-ui);
+    font-weight: 900;
+    font-size: clamp(44px, 6.8vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    text-transform: uppercase;
   }
   .hero-logo-title span {
     display: block;
-    font-size: 0.52em;
+    font-size: 0.44em;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     color: var(--gold);
-    margin-top: 4px;
+    margin-top: 8px;
   }
   .hero-desc {
-    margin: 20px auto 0;
-    max-width: 32em;
-    font-size: clamp(16px, 2vw, 19px);
-    font-weight: 600;
-    line-height: 1.55;
-    color: #FFFEF9;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+    margin: 22px auto 0;
+    max-width: 34em;
+    font-size: clamp(15.5px, 1.8vw, 18px);
+    font-weight: 500;
+    line-height: 1.6;
+    color: #E2E8F0;
   }
 
-  /* TFT 시그니처 이중 테두리 각진 버튼 */
+  /* 이중 테두리 각진 버튼 */
   .tft-btn-wrap {
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 32px;
     padding: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.65);
     transition: border-color 0.18s;
   }
   .tft-btn-wrap:hover { border-color: var(--gold); }
@@ -290,131 +284,135 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 220px;
-    height: 52px;
+    min-width: 230px;
+    height: 50px;
     padding: 0 32px;
-    background: var(--orange-1);
-    color: #FFFEF9;
-    font-size: 15px;
+    background: var(--red-main);
+    color: #FFFFFF;
+    font-size: 14.5px;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     transition: background 0.18s;
   }
-  .tft-btn:hover { background: #FF7F1F; }
+  .tft-btn:hover { background: var(--red-hi); }
 
   .hero-platforms {
-    margin-top: 36px;
+    margin-top: 34px;
   }
   .hero-platforms p {
     margin: 0 0 12px;
-    font-size: 13.5px;
+    font-size: 12.5px;
     font-weight: 700;
-    color: #E4E4E7;
+    letter-spacing: 0.06em;
+    color: var(--muted-light);
   }
   .store-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
   }
-  .store-pill {
+  .store-rect {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    height: 40px;
-    padding: 0 16px;
-    border-radius: 6px;
-    background: rgba(17, 17, 20, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    justify-content: center;
+    height: 38px;
+    padding: 0 18px;
+    border-radius: 2px;
+    background: rgba(10, 13, 20, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     font-size: 13px;
     font-weight: 700;
     color: #fff;
   }
-  .store-pill:hover { border-color: var(--gold); color: var(--gold); }
+  .store-rect:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* 3. TFT 스타일 고채도 오렌지-골드 섹션 (최후의 승자 -> 100% 리얼 물리) */
-  .sec-orange {
-    background: linear-gradient(135deg, #FF6B00 0%, #FF9E00 100%);
-    color: #181005;
-    padding: 68px 0;
+  /* 3. 레드 딥 그라데이션 핵심 시스템 섹션 */
+  .sec-red {
+    background: linear-gradient(135deg, #B81D2C 0%, #D92638 60%, #9E1826 100%);
+    color: #FFFFFF;
+    padding: 72px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
-  .orange-grid {
+  .red-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     gap: clamp(28px, 5vw, 64px);
     align-items: center;
   }
-  .orange-kicker {
-    margin: 0 0 6px;
-    font-size: 13px;
+  .red-kicker {
+    margin: 0 0 8px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #4A1E00;
+    letter-spacing: 0.14em;
+    color: #FFE0B2;
   }
-  .orange-title {
+  .red-title {
     margin: 0;
-    font-size: clamp(32px, 4.4vw, 48px);
+    font-size: clamp(30px, 4.2vw, 44px);
     font-weight: 900;
-    line-height: 1.15;
+    line-height: 1.16;
     letter-spacing: -0.025em;
-    color: #181005;
+    color: #FFFFFF;
   }
-  .orange-lead {
+  .red-lead {
     margin: 18px 0 0;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15.5px;
+    font-weight: 400;
     line-height: 1.65;
-    color: #291400;
+    color: rgba(255, 255, 255, 0.9);
   }
-  .orange-points {
-    margin-top: 26px;
+  .red-specs {
+    margin-top: 28px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(10, 13, 20, 0.24);
   }
-  .op-card {
-    background: rgba(255, 255, 255, 0.24);
-    border: 1px solid rgba(24, 16, 5, 0.14);
-    border-radius: 6px;
+  .spec-cell {
     padding: 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .op-card strong {
+  .spec-cell:last-child { border-right: 0; }
+  .spec-cell strong {
     display: block;
-    font-size: 15px;
+    font-size: 15.5px;
     font-weight: 800;
+    color: #fff;
     margin-bottom: 4px;
   }
-  .op-card span {
-    font-size: 13px;
-    line-height: 1.45;
-    color: #2D1800;
+  .spec-cell span {
     display: block;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.45;
   }
-  .orange-visual {
+  .red-visual {
     display: flex;
     justify-content: center;
     gap: 16px;
   }
-  .phone-clean {
-    width: min(240px, 46%);
-    padding: 8px;
-    border-radius: 28px;
-    background: #141418;
-    box-shadow: 0 24px 52px rgba(24, 16, 5, 0.35);
+  .frame-sharp {
+    width: min(235px, 46%);
+    padding: 6px;
+    border-radius: 4px;
+    background: #0A0D14;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
   }
-  .phone-clean img {
+  .frame-sharp img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 2px;
     aspect-ratio: 9 / 16;
     object-fit: cover;
   }
-  .phone-clean.shift { margin-top: 32px; }
+  .frame-sharp.shift { margin-top: 28px; }
 
-  /* 4. 밝은 크림 화이트 섹션 (#FAF8F3) — TFT 최신 소식 스타일 */
+  /* 4. 밝은 오프화이트 최신 소식 섹션 */
   .sec-cream {
     background: var(--cream-bg);
     color: var(--ink-dark);
-    padding: 68px 0;
+    padding: 72px 0;
   }
   .cream-header {
     display: flex;
@@ -422,142 +420,144 @@
     justify-content: space-between;
     gap: 16px;
     margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink-dark);
   }
   .cream-kicker {
-    margin: 0 0 6px;
-    font-size: 12.5px;
+    margin: 0 0 4px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--orange-1);
+    letter-spacing: 0.14em;
+    color: var(--red-main);
   }
   .cream-title {
     margin: 0;
-    font-size: clamp(28px, 3.8vw, 42px);
+    font-size: clamp(26px, 3.6vw, 38px);
     font-weight: 900;
     letter-spacing: -0.025em;
     color: var(--ink-dark);
   }
   .cream-more {
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 800;
-    color: var(--orange-1);
+    color: var(--red-main);
     white-space: nowrap;
   }
   .cream-more:hover { text-decoration: underline; }
   .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
   .news-card {
     background: var(--cream-card);
     border: 1px solid var(--cream-line);
-    border-radius: 6px;
+    border-radius: 2px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.18s, box-shadow 0.18s;
+    transition: border-color 0.18s, transform 0.18s;
   }
   .news-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 32px rgba(24, 24, 27, 0.08);
+    border-color: var(--ink-dark);
+    transform: translateY(-3px);
   }
   .news-thumb {
     aspect-ratio: 16 / 9;
     position: relative;
     overflow: hidden;
-    background: #141418;
+    background: #0D1321;
   }
   .news-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .news-badge {
     position: absolute;
-    left: 12px;
+    left: 0;
     top: 12px;
-    padding: 4px 10px;
-    background: var(--orange-1);
+    padding: 4px 12px;
+    background: var(--red-main);
     color: #fff;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 800;
-    border-radius: 3px;
+    letter-spacing: 0.06em;
   }
   .news-body { padding: 20px; }
   .news-meta { font-size: 12px; font-weight: 700; color: var(--ink-muted); }
   .news-head {
     margin: 6px 0 8px;
-    font-size: 18px;
+    font-size: 17.5px;
     font-weight: 800;
     line-height: 1.35;
     color: var(--ink-dark);
   }
   .news-txt {
     margin: 0;
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--ink-muted);
     line-height: 1.55;
   }
 
-  /* 5. 다크 차콜 인형 도감 & 세계 여행 섹션 */
+  /* 5. 딥 네이비 인형 도감 섹션 */
   .sec-dark {
-    background: var(--dark-bg);
+    background: var(--navy-bg);
     color: var(--text-light);
-    padding: 68px 0;
+    padding: 72px 0;
     border-top: 1px solid var(--line-dark);
   }
   .tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     margin: 22px 0;
   }
   .tab-btn {
     height: 36px;
     padding: 0 16px;
-    border-radius: 4px;
-    background: var(--dark-card);
+    border-radius: 2px;
+    background: var(--navy-card);
     border: 1px solid var(--line-dark);
     color: var(--muted-light);
     font-family: var(--font-ui);
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
   }
   .tab-btn.is-active {
-    background: var(--orange-1);
-    border-color: var(--orange-1);
+    background: var(--red-main);
+    border-color: var(--red-main);
     color: #fff;
   }
   .doll-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
   .doll-card {
-    background: var(--dark-card);
+    background: var(--navy-card);
     border: 1px solid var(--line-dark);
-    border-radius: 6px;
+    border-radius: 2px;
     padding: 16px 12px;
     text-align: center;
   }
-  .doll-card img { width: 88px; height: 88px; object-fit: contain; margin: 0 auto 10px; }
+  .doll-card img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 10px; }
   .doll-grade { font-size: 11px; font-weight: 800; color: var(--gold); }
   .doll-name { margin: 4px 0 2px; font-size: 14.5px; font-weight: 700; color: #fff; }
   .doll-stage { font-size: 12px; color: var(--muted-light); }
 
-  /* 6. TFT 스타일 지금 시작하세요 & 푸터 */
+  /* 6. 하단 시작하기 & 푸터 */
   .sec-start {
-    background: linear-gradient(180deg, #1A1A20 0%, #111114 100%);
+    background: #0A0D14;
     padding: 72px 0;
     text-align: center;
     border-top: 1px solid var(--line-dark);
   }
-  .start-kicker { margin: 0 0 6px; font-size: 14px; font-weight: 800; color: var(--gold); letter-spacing: 0.1em; }
-  .start-title { margin: 0; font-size: clamp(36px, 5vw, 56px); font-weight: 900; color: #FFFEF9; }
-  .start-sub { margin: 12px auto 0; max-width: 30em; font-size: 15.5px; color: var(--muted-light); }
+  .start-kicker { margin: 0 0 6px; font-size: 12.5px; font-weight: 800; color: var(--gold); letter-spacing: 0.14em; }
+  .start-title { margin: 0; font-size: clamp(32px, 4.8vw, 50px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF; }
+  .start-sub { margin: 12px auto 0; max-width: 30em; font-size: 15px; color: var(--muted-light); }
 
   .foot {
-    background: #0B0B0D;
+    background: #06080D;
     padding: 36px 0;
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--muted-light);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
@@ -570,58 +570,21 @@
   .foot-links { display: flex; flex-wrap: wrap; gap: 16px; }
   .foot-links a:hover { color: #fff; }
 
-  /* 테마 2: 레트로 오락실 레드 & 네이비 */
-  body[data-theme="red"] {
-    --dark-bg: #0D1321;
-    --dark-card: #161F33;
-    --orange-1: #E63946;
-    --orange-2: #FF6B6B;
-    --cream-bg: #F8F7F4;
-    --cream-card: #FFFFFF;
-    --cream-line: #E2E0D8;
-    --gold: #FFD166;
-  }
-  body[data-theme="red"] .bar-btn-cta { background: linear-gradient(90deg, #E63946, #FF6B6B); color: #fff; }
-  body[data-theme="red"] .sec-orange { background: linear-gradient(135deg, #D62828 0%, #F77F00 100%); color: #FFFEF9; }
-  body[data-theme="red"] .orange-kicker { color: #FFE8CC; }
-  body[data-theme="red"] .orange-title { color: #FFFEF9; }
-  body[data-theme="red"] .orange-lead { color: rgba(255, 254, 249, 0.9); }
-  body[data-theme="red"] .op-card { background: rgba(13, 19, 33, 0.28); border-color: rgba(255, 255, 255, 0.22); }
-  body[data-theme="red"] .op-card span { color: rgba(255, 254, 249, 0.85); }
-
-  /* 테마 3: 에메랄드 민트 & 딥 슬레이트 */
-  body[data-theme="mint"] {
-    --dark-bg: #0B191E;
-    --dark-card: #132830;
-    --orange-1: #00B894;
-    --orange-2: #2ED8B6;
-    --cream-bg: #F4F9F7;
-    --cream-card: #FFFFFF;
-    --cream-line: #D8EAE3;
-    --gold: #FDCB6E;
-  }
-  body[data-theme="mint"] .bar-btn-cta { background: linear-gradient(90deg, #00B894, #2ED8B6); color: #071A15; }
-  body[data-theme="mint"] .sec-orange { background: linear-gradient(135deg, #009E7E 0%, #1ED2AC 100%); color: #06211A; }
-  body[data-theme="mint"] .orange-kicker { color: #04382B; }
-  body[data-theme="mint"] .orange-title { color: #042119; }
-  body[data-theme="mint"] .orange-lead { color: #083328; }
-  body[data-theme="mint"] .op-card { background: rgba(255, 255, 255, 0.28); border-color: rgba(4, 33, 25, 0.14); }
-  body[data-theme="mint"] .op-card span { color: #083328; }
-
   @media (max-width: 960px) {
     .nav-list, .bar-btn-ghost { display: none; }
     .mob-toggle { display: inline-flex; align-items: center; justify-content: center; }
-    .orange-grid { grid-template-columns: 1fr; }
-    .orange-points { grid-template-columns: 1fr; }
+    .red-grid { grid-template-columns: 1fr; }
+    .red-specs { grid-template-columns: 1fr; }
+    .spec-cell { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+    .spec-cell:last-child { border-bottom: 0; }
     .news-grid { grid-template-columns: 1fr; }
     .doll-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero { min-height: 500px; padding: 52px 0; }
+    .hero { min-height: 480px; padding: 48px 0; }
   }
 </style>
 </head>
 <body>
 
-<!-- 1. TFT 스타일 블랙 상단 바 -->
 <header class="riot-bar">
   <div class="riot-bar-inner">
     <div class="bar-left">
@@ -636,7 +599,7 @@
           <div class="nav-dropdown">
             <a href="/notice/">전체 공지</a>
             <a href="/notice/">출시 · 이벤트</a>
-            <a href="/notice/">업데이트 소식</a>
+            <a href="/notice/">업데이트 내역</a>
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection">인형 도감</a></div>
@@ -663,57 +626,54 @@
 </header>
 
 <main>
-  <!-- 2. 풀스크린 중앙 정렬 히어로 -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
       <span class="hero-kicker">100% REAL PHYSICS ARCADE</span>
-      <h1 class="hero-logo-title">한 판 더!<span>인형뽑기</span></h1>
-      <p class="hero-desc">진짜 기계처럼 흔들리는 집게와 솜털 물리 손맛.<br>확률 조작 없는 100% 실력 승부로 48종 세계 인형을 모아보세요.</p>
+      <h1 class="hero-logo-title">한 판 더!<span>인형뽑기 · ONE MORE GRAB</span></h1>
+      <p class="hero-desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 전 세계 48종의 인형을 확보하세요.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">무료로 플레이하기</a>
       </div>
       <div class="hero-platforms">
-        <p>모바일과 웹에서 무료로 플레이하세요</p>
+        <p>iOS · Android · Web 지원</p>
         <div class="store-row">
-          <a class="store-pill" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">App Store</a>
-          <a class="store-pill" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener">Google Play</a>
-          <a class="store-pill" href="/game/">웹 체험판</a>
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">App Store</a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener">Google Play</a>
+          <a class="store-rect" href="/game/">웹 체험판</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. 선명한 오렌지-골드 섹션 (TFT 최후의 승자가 되세요 자리) -->
-  <section class="sec-orange" id="physics">
-    <div class="wrap orange-grid">
+  <section class="sec-red" id="physics">
+    <div class="wrap red-grid">
       <div>
-        <p class="orange-kicker">100% 순수 물리 승부</p>
-        <h2 class="orange-title">마지막 1초까지<br>손끝으로 뽑아내세요</h2>
-        <p class="orange-lead">관성에 따라 흔들리는 3D 크레인 집게와 무게 중심이 살아있는 인형 물리. 한국, 일본, 프랑스, 미국까지 나라마다 20스테이지와 3D 비밀의 섬 탐험이 기다립니다.</p>
-        <div class="orange-points">
-          <div class="op-card">
+        <p class="red-kicker">SYSTEM OVERVIEW</p>
+        <h2 class="red-title">조작한 그대로 반응하는<br>100% 리얼 물리 엔진</h2>
+        <p class="red-lead">관성에 따라 흔들리는 3D 크레인 집게와 무게 중심에 따라 움직이는 인형 물리. 한국, 일본, 프랑스, 미국까지 나라별 20스테이지와 3D 비밀의 섬을 정복하세요.</p>
+        <div class="red-specs">
+          <div class="spec-cell">
             <strong>48종 세계 인형</strong>
-            <span>나라별 테마 기계와 보스 인형 수집</span>
+            <span>국가별 테마 기계 및 보스 인형 수록</span>
           </div>
-          <div class="op-card">
+          <div class="spec-cell">
             <strong>8개국+ 투어</strong>
-            <span>스테이지별 기믹과 3D 비밀의 섬</span>
+            <span>스테이지 기믹 및 3D 비밀의 섬 탐험</span>
           </div>
-          <div class="op-card">
+          <div class="spec-cell">
             <strong>146개국 출시</strong>
-            <span>로그인 없이 설치 즉시 바로 시작</span>
+            <span>별도 로그인 없이 설치 즉시 플레이</span>
           </div>
         </div>
       </div>
-      <div class="orange-visual">
-        <div class="phone-clean"><img src="/assets/img/play-korea.webp" alt="인게임 화면"></div>
-        <div class="phone-clean shift"><img src="/assets/img/secret-isle.webp" alt="비밀의 섬 화면"></div>
+      <div class="red-visual">
+        <div class="frame-sharp"><img src="/assets/img/play-korea.webp" alt="인게임 화면"></div>
+        <div class="frame-sharp shift"><img src="/assets/img/secret-isle.webp" alt="비밀의 섬 화면"></div>
       </div>
     </div>
   </section>
 
-  <!-- 4. 밝은 크림 화이트 섹션 (TFT 최신 소식 자리) -->
   <section class="sec-cream" id="news">
     <div class="wrap">
       <div class="cream-header">
@@ -743,7 +703,7 @@
           <div class="news-body">
             <span class="news-meta">2026. 11. 14</span>
             <h3 class="news-head">미국 뉴욕 브로드웨이 등 8개국 투어</h3>
-            <p class="news-txt">한국, 일본, 프랑스에 이어 미국·브라질까지 다양한 나라의 인형뽑기를 즐겨보세요.</p>
+            <p class="news-txt">한국, 일본, 프랑스에 이어 미국·브라질까지 각국의 특색 있는 기계를 확인하세요.</p>
           </div>
         </a>
         <a class="news-card" href="/game/">
@@ -753,18 +713,17 @@
           </div>
           <div class="news-body">
             <span class="news-meta">상시 운영</span>
-            <h3 class="news-head">설치 전 브라우저 웹 체험판 오픈</h3>
-            <p class="news-txt">PC와 모바일 웹에서 3D 집게의 흔들리는 손맛을 지금 바로 테스트해 보세요.</p>
+            <h3 class="news-head">브라우저 웹 체험판 상시 오픈</h3>
+            <p class="news-txt">PC와 모바일 웹에서 3D 집게 물리 조작을 즉시 테스트해 볼 수 있습니다.</p>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 5. 다크 인형 도감 섹션 -->
   <section class="sec-dark" id="collection">
     <div class="wrap">
-      <p class="hero-kicker" style="margin-bottom:4px">COLLECTION</p>
+      <p class="red-kicker" style="color:var(--gold)">COLLECTION</p>
       <h2 class="cream-title" style="color:#fff">48종 세계 인형 도감</h2>
       <div class="tabs">
         <button class="tab-btn is-active" data-tab="all" type="button">전체 대표</button>
@@ -815,12 +774,11 @@
     </div>
   </section>
 
-  <!-- 6. 지금 시작하세요 -->
   <section class="sec-start" id="start">
     <div class="wrap">
       <p class="start-kicker">PLAY NOW</p>
       <h2 class="start-title">지금 시작하세요</h2>
-      <p class="start-sub">App Store와 Google Play에서 무료로 다운로드하고 48종 세계 인형 도감을 완성해 보세요.</p>
+      <p class="start-sub">App Store와 Google Play에서 무료로 다운로드하고 48종 세계 인형 도감을 완성하세요.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">무료로 플레이하기</a>
       </div>
@@ -842,11 +800,6 @@
 
 <script>
   (function () {
-    var params = new URLSearchParams(location.search);
-    var t = params.get('theme');
-    if (t === 'red' || t === 'mint' || t === 'orange') {
-      document.body.setAttribute('data-theme', t);
-    }
     var mobBtn = document.getElementById('mob-btn');
     var mobDrawer = document.getElementById('mob-drawer');
     if (mobBtn && mobDrawer) {
