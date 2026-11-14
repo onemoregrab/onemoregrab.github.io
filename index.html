@@ -611,6 +611,10 @@
   @media (max-width: 960px) {
     .nav-list, .bar-btn-ghost { display: none; }
     .mob-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .bar-left { min-width: 0; flex-shrink: 1; gap: 18px; }
+    .bar-right { flex-shrink: 0; }
+    .game-mark { min-width: 0; }
+    .game-mark span { display: block; overflow: hidden; text-overflow: ellipsis; }
     .red-grid { grid-template-columns: 1fr; }
     .red-specs { grid-template-columns: 1fr; }
     .spec-cell { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
@@ -620,6 +624,41 @@
     .hero { min-height: 480px; padding: 48px 0; }
     .cream-header { flex-direction: column; align-items: flex-start; }
     .foot-inner { flex-direction: column; }
+  }
+
+  /* 모바일 상단 바: 좌우 요소가 절대 겹치지 않게 압축 */
+  @media (max-width: 600px) {
+    .riot-bar { height: 58px; }
+    .riot-bar-inner { gap: 10px; }
+    .bar-left { gap: 0; }
+    .bar-right { gap: 8px; }
+    .game-mark { gap: 8px; font-size: 14.5px; }
+    .game-mark img { width: 26px; height: 26px; }
+    .bar-btn-cta { height: 32px; padding: 0 12px; font-size: 12px; letter-spacing: 0.02em; }
+    .mob-toggle { width: 34px; height: 32px; font-size: 15px; line-height: 1; }
+    .mob-drawer { padding: 8px var(--pad) 14px; }
+    .hero { min-height: 0; padding: 44px 0 52px; }
+    .hero-logo-title { font-size: clamp(38px, 10.4vw, 52px); }
+    .hero-desc { margin-top: 18px; font-size: 15px; }
+    .sec-red, .sec-cream, .sec-dark, .sec-start { padding: 52px 0; }
+    .red-specs { margin-top: 22px; }
+    .red-visual { gap: 10px; }
+    .frame-sharp.shift { margin-top: 22px; }
+    .foot { padding: 30px 0; }
+    .foot-links { gap: 14px 16px; }
+  }
+
+  /* 아주 좁은 화면: 스튜디오 표기는 숨기고 게임 마크만 남긴다 */
+  @media (max-width: 560px) {
+    .studio-mark { display: none; }
+  }
+
+  /* 320px 안전장치: 남은 요소도 줄어들 수 있게 */
+  @media (max-width: 360px) {
+    .riot-bar-inner { gap: 8px; }
+    .bar-btn-cta { padding: 0 10px; font-size: 11.5px; }
+    .mob-toggle { width: 32px; }
+    .hero-logo-title { font-size: 34px; }
   }
 </style>
 </head>
@@ -842,10 +881,10 @@
     </div>
     <div class="foot-right">
       <nav class="foot-links" aria-label="약관과 정책">
-        <a href="/legal/terms/">이용약관</a>
-        <a href="/legal/privacy/">개인정보처리방침</a>
-        <a href="/legal/refund/">환불정책</a>
-        <a href="/legal/delete-request/">데이터 삭제 요청</a>
+        <a href="https://onemoregrab.github.io/omg-policy/terms.html">이용약관</a>
+        <a href="https://onemoregrab.github.io/omg-policy/privacy.html">개인정보처리방침</a>
+        <a href="https://onemoregrab.github.io/omg-policy/refund.html">환불정책</a>
+        <a href="https://onemoregrab.github.io/omg-policy/delete.html">데이터 삭제 요청</a>
         <a href="/support/">고객센터</a>
       </nav>
       <div class="foot-biz">
