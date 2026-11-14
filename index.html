@@ -402,6 +402,212 @@
   @media (max-width: 360px) {
     .hero-logo-title { font-size: 34px; }
   }
+
+  /* ==== 이번 개선: 기기별 CTA · 스토어 버튼 · QR · 나라 스포트라이트 · 실제 플레이 영상 ==== */
+  .hero-os-hint {
+    margin: 10px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(226, 232, 240, 0.72);
+  }
+
+  /* 두 줄 스토어 버튼 (위: 작은 안내, 아래: 스토어 이름) */
+  .store-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .store-rect {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 170px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 2px;
+    background: rgba(10, 13, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    line-height: 1.15;
+    text-align: left;
+  }
+  .store-rect .sr-top {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #9CA3B5;
+    text-transform: uppercase;
+  }
+  .store-rect .sr-name {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .store-rect:hover { border-color: var(--gold); }
+  .store-rect:hover .sr-name { color: var(--gold); }
+
+  /* 시작 섹션: 스토어 버튼 두 개 + PC 용 QR */
+  .start-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .start-store { display: flex; flex-wrap: wrap; gap: 10px; }
+  .start-store .store-rect {
+    min-width: 200px;
+    height: 58px;
+    padding: 0 20px;
+    background: var(--accent-main);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .start-store .store-rect .sr-top { color: rgba(255, 255, 255, 0.82); }
+  .start-store .store-rect .sr-name { font-size: 16.5px; }
+  .start-store .store-rect:hover { background: var(--accent-hi); border-color: var(--gold); }
+  .start-store .store-rect:hover .sr-name { color: #fff; }
+  .qr-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: #0D1321;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: 3px solid var(--gold);
+  }
+  .qr-box img {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    padding: 4px;
+    background: #fff;
+  }
+  .qr-box p {
+    margin: 0;
+    max-width: 15em;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--muted-light);
+    text-align: left;
+  }
+  .qr-box strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  /* 나라별 스포트라이트 배너 */
+  .country-banner {
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--navy-card);
+    border: 1px solid var(--line-dark);
+    border-left: 3px solid var(--gold);
+  }
+  .cb-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+  }
+  .cb-name {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .cb-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted-light);
+  }
+  .cb-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-dark);
+  }
+  .cb-facts > div { min-width: 0; }
+  .cb-facts dt {
+    margin: 0 0 3px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  .cb-facts dd {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #E5E7EB;
+    word-break: keep-all;
+  }
+
+  .doll-card {
+    position: relative;
+    transition: border-color 0.18s, opacity 0.18s, filter 0.18s, background 0.18s;
+  }
+  .doll-card.is-dim { opacity: 0.4; filter: grayscale(0.65); }
+  .doll-card.is-hot { border-color: var(--gold); background: #16203A; }
+  .doll-card.is-hot::after {
+    content: "이 나라";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 7px;
+    background: var(--gold);
+    color: #1A1206;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  /* 실제 인게임 영상 프레임 */
+  .frame-sharp { position: relative; }
+  .frame-sharp video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #0A0D14;
+  }
+  .frame-tag {
+    position: absolute;
+    left: 6px;
+    bottom: 6px;
+    padding: 3px 8px;
+    background: rgba(10, 13, 20, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .start-actions { flex-direction: column; gap: 18px; margin-top: 26px; }
+    .start-store { width: 100%; }
+    .start-store .store-rect { flex: 1 1 140px; min-width: 0; height: 54px; padding: 0 14px; }
+    .start-store .store-rect .sr-name { font-size: 15px; }
+    .qr-box { width: 100%; padding: 12px 14px; }
+    .qr-box img { width: 84px; height: 84px; }
+    .qr-box p { max-width: none; font-size: 11.5px; }
+    .store-rect { flex: 1 1 140px; min-width: 0; }
+    .cb-facts { grid-template-columns: 1fr; gap: 10px; }
+    .country-banner { padding: 16px; }
+    .cb-name { font-size: 17px; }
+    .cb-desc { font-size: 12.5px; }
+    .frame-tag { font-size: 10px; padding: 2px 6px; }
+  }
 </style>
 </head>
 <body>
@@ -420,15 +626,24 @@
           <a class="nav-link" href="#news">새소식 ▾</a>
           <div class="nav-dropdown">
             <a href="/notice/">전체 공지</a>
-            <a href="/notice/">출시 · 이벤트</a>
-            <a href="/notice/">업데이트 내역</a>
+            <a href="/notice/#launch">출시 · 이벤트</a>
+            <a href="/notice/#worldtour">업데이트 내역</a>
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection">인형 도감</a></div>
         <div class="nav-item"><a class="nav-link" href="/notice/">패치 노트</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/">고객센터</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics">세계 여행</a></div>
-        <div class="nav-item"><a class="nav-link" href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">공식 SNS ↗</a></div>
+        <div class="nav-item">
+          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">공식 SNS ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X (트위터)</a>
+            <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">네이버 블로그</a>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="bar-right">
@@ -442,6 +657,16 @@
     <a href="/notice/">패치 노트</a>
     <a href="/support/">고객센터</a>
     <a href="#physics">세계 여행</a>
+    <div class="mob-sns">
+      <span class="mob-sns-title">공식 SNS</span>
+      <div class="mob-sns-links">
+        <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X</a>
+        <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">블로그</a>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -453,13 +678,14 @@
       <h1 class="hero-logo-title">한 판 더!<span>인형뽑기 · ONE MORE GRAB</span></h1>
       <p class="hero-desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 전 세계 48종의 인형을 확보하세요.</p>
       <div class="tft-btn-wrap">
-        <a class="tft-btn" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">무료로 플레이하기</a>
+        <a class="tft-btn" id="hero-cta" href="#start" data-cta data-appstore="https://apps.apple.com/app/id6832755431" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame">무료로 플레이하기</a>
       </div>
+      <p class="hero-os-hint" id="hero-os-hint">기기에 맞는 스토어로 바로 이동해요</p>
       <div class="hero-platforms">
         <p>iOS · Android 지원</p>
         <div class="store-row">
-          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">App Store</a>
-          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener">Google Play</a>
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name">App Store</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name">Google Play</span></a>
         </div>
       </div>
     </div>
@@ -487,7 +713,10 @@
         </div>
       </div>
       <div class="red-visual">
-        <div class="frame-sharp"><img src="/assets/img/play-korea.webp" alt="실제 인게임 화면: 크레인 집게와 스테이지 1-1 인형들" width="432" height="993"></div>
+        <div class="frame-sharp">
+          <video src="/assets/video/ingame-physics-play.mp4" poster="/assets/img/play-korea.webp" autoplay muted loop playsinline preload="metadata" aria-label="실제 인게임 화면: 3D 크레인 집게가 스테이지 1-1 인형을 집어 올리는 영상"></video>
+          <span class="frame-tag">실제 인게임 플레이</span>
+        </div>
         <div class="frame-sharp shift"><img src="/assets/img/secret-isle.webp" alt="실제 3D 비밀의 섬 화면: 신전 제단" width="558" height="992"></div>
       </div>
     </div>
@@ -503,7 +732,7 @@
         <a class="cream-more" href="/notice/">전체 공지 보기 &rarr;</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/">
+        <a class="news-card" href="/notice/#launch">
           <div class="news-thumb">
             <img src="/assets/img/home-menu.webp" alt="정식 출시 로비 화면" loading="lazy">
             <span class="news-badge">공지</span>
@@ -514,18 +743,18 @@
             <p class="news-txt">App Store와 Google Play에서 로그인 없이 설치 즉시 무료로 플레이할 수 있습니다.</p>
           </div>
         </a>
-        <a class="news-card" href="/notice/">
+        <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="세계 지도 월드투어 화면" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="한국에서 일본·프랑스·미국·브라질로 이어지는 세계 지도 경로" loading="lazy">
             <span class="news-badge">업데이트</span>
           </div>
           <div class="news-body">
             <span class="news-meta">2026. 11. 14</span>
-            <h3 class="news-head">미국 뉴욕 브로드웨이 등 8개국 투어</h3>
-            <p class="news-txt">한국, 일본, 프랑스에 이어 미국·브라질까지 각국의 특색 있는 기계를 확인하세요.</p>
+            <h3 class="news-head">세계 지도로 떠나는 8개국 월드투어</h3>
+            <p class="news-txt">한국부터 일본, 프랑스, 미국, 브라질까지 나라마다 20스테이지가 길로 이어집니다.</p>
           </div>
         </a>
-        <a class="news-card" href="/notice/">
+        <a class="news-card" href="/notice/#secret-isle">
           <div class="news-thumb">
             <img src="/assets/img/secret-isle.webp" alt="3D 비밀의 섬 제단 화면" loading="lazy">
             <span class="news-badge">안내</span>
@@ -533,7 +762,7 @@
           <div class="news-body">
             <span class="news-meta">상시 운영</span>
             <h3 class="news-head">3D 비밀의 섬과 황금 트로피 안내</h3>
-            <p class="news-txt">나라별 스테이지를 정복하면 열리는 3D 비밀의 섬에서 황금 트로피를 모아 보세요.</p>
+            <p class="news-txt">세계 지도에서 누구나 3D 비밀의 섬으로 날아가 트로피 진열장을 볼 수 있어요. 구매·후원 금액에 따라 동·은·금·다이아 트로피가 쌓입니다.</p>
           </div>
         </a>
       </div>
@@ -545,12 +774,23 @@
       <p class="red-kicker" style="color:var(--gold)">COLLECTION</p>
       <h2 class="cream-title" style="color:#fff">48종 세계 인형 도감</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button">전체 대표</button>
-        <button class="tab-btn" data-tab="korea" type="button">한국</button>
-        <button class="tab-btn" data-tab="japan" type="button">일본</button>
-        <button class="tab-btn" data-tab="france" type="button">프랑스</button>
-        <button class="tab-btn" data-tab="usa" type="button">미국</button>
-        <button class="tab-btn" data-tab="brazil" type="button">브라질</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="전체 대표" data-stages="5개국 100스테이지" data-doll="대표 인형 6종" data-boss="나라마다 마지막 스테이지" data-desc="지금 플레이할 수 있는 한국·일본·프랑스·미국·브라질의 대표 인형을 한자리에 모았어요.">전체 대표</button>
+        <button class="tab-btn" data-tab="korea" type="button" data-name="한국" data-stages="20스테이지 · 1-1 ~ 1-20" data-doll="몽글곰 · 달토끼" data-boss="1-20 보스 인형" data-desc="가장 먼저 열려 있는 첫 나라예요. 기본 집게 조작을 익히기 좋아요.">한국</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="일본" data-stages="20스테이지 · 2-1 ~ 2-20" data-doll="황금 다루마" data-boss="2-20 황금 다루마" data-desc="한국을 클리어하면 열려요. 마지막 스테이지 보스가 전설 등급 황금 다루마예요.">일본</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="프랑스" data-stages="20스테이지 · 3-1 ~ 3-20" data-doll="프렌치 불독" data-boss="3-20 보스 인형" data-desc="일본을 클리어하거나 국가 해금권으로 입장할 수 있어요.">프랑스</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="미국" data-stages="20스테이지 · 4-1 ~ 4-20" data-doll="아스트로베어" data-boss="4-20 보스 인형" data-desc="프랑스를 클리어하거나 국가 해금권으로 입장할 수 있어요.">미국</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="브라질" data-stages="20스테이지 · 5-1 ~ 5-20" data-doll="트로피컬 투칸" data-boss="5-20 보스 인형" data-desc="미국을 클리어하거나 국가 해금권으로 입장할 수 있어요.">브라질</button>
+      </div>
+      <div class="country-banner">
+        <div class="cb-top">
+          <span class="cb-name" id="cb-name">전체 대표</span>
+          <span class="cb-desc" id="cb-desc">지금 플레이할 수 있는 한국·일본·프랑스·미국·브라질의 대표 인형을 한자리에 모았어요.</span>
+        </div>
+        <dl class="cb-facts">
+          <div><dt>스테이지</dt><dd id="cb-stages">5개국 100스테이지</dd></div>
+          <div><dt>대표 인형</dt><dd id="cb-doll">대표 인형 6종</dd></div>
+          <div><dt>보스</dt><dd id="cb-boss">나라마다 마지막 스테이지</dd></div>
+        </dl>
       </div>
       <div class="doll-grid">
         <article class="doll-card" data-country="korea">
@@ -597,9 +837,16 @@
     <div class="wrap">
       <p class="start-kicker">PLAY NOW</p>
       <h2 class="start-title">지금 시작하세요</h2>
-      <p class="start-sub">App Store와 Google Play에서 무료로 다운로드하고 48종 세계 인형 도감을 완성하세요.</p>
-      <div class="tft-btn-wrap">
-        <a class="tft-btn" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">무료로 플레이하기</a>
+      <p class="start-sub">App Store와 Google Play에서 무료로 내려받고 48종 세계 인형 도감을 완성하세요.</p>
+      <div class="start-actions">
+        <div class="start-store">
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name">App Store에서 받기</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name">Google Play에서 받기</span></a>
+        </div>
+        <div class="qr-box">
+          <img src="/assets/img/qr-download.png" alt="한 판 더! 인형뽑기 다운로드 QR 코드 (스마트폰으로 스캔하면 스토어로 이동)" width="96" height="96">
+          <p><strong>스마트폰 카메라로 스캔하면 바로 다운로드</strong>QR을 찍으면 휴대폰에 맞는 App Store나 Google Play로 바로 이동해요.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -629,7 +876,7 @@
       <div class="foot-biz">
         <p>상호: 엔제이스튜디오(NJ Studio) · 대표: 김종욱 · 사업자등록번호: 840-37-01529</p>
         <p>통신판매업신고: 2026-서울강동-1664 · 게임제작업등록: 제2026-000010호</p>
-        <p>주소: 서울특별시 강동구 성내로15길 64-11 · 문의: njstudio0603@gmail.com</p>
+        <p>주소: 서울특별시 강동구 성내로15길 64-11 · 전화: 010-9426-4567 · 문의: njstudio0603@gmail.com</p>
       </div>
       <p class="foot-copy">&copy; 2026 NJ Studio. All rights reserved.</p>
     </div>
@@ -641,13 +888,30 @@
   (function () {
     var tabs = document.querySelectorAll('.tab-btn');
     var cards = document.querySelectorAll('.doll-card');
+    var fName = document.getElementById('cb-name');
+    var fDesc = document.getElementById('cb-desc');
+    var fStages = document.getElementById('cb-stages');
+    var fDoll = document.getElementById('cb-doll');
+    var fBoss = document.getElementById('cb-boss');
     Array.prototype.forEach.call(tabs, function (btn) {
+      btn.setAttribute('aria-pressed', btn.classList.contains('is-active') ? 'true' : 'false');
       btn.addEventListener('click', function () {
         var target = btn.getAttribute('data-tab');
-        Array.prototype.forEach.call(tabs, function (b) { b.classList.remove('is-active'); });
+        Array.prototype.forEach.call(tabs, function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+        if (fName) fName.textContent = btn.getAttribute('data-name') || '';
+        if (fDesc) fDesc.textContent = btn.getAttribute('data-desc') || '';
+        if (fStages) fStages.textContent = btn.getAttribute('data-stages') || '';
+        if (fDoll) fDoll.textContent = btn.getAttribute('data-doll') || '';
+        if (fBoss) fBoss.textContent = btn.getAttribute('data-boss') || '';
         Array.prototype.forEach.call(cards, function (c) {
-          c.style.display = (target === 'all' || c.getAttribute('data-country') === target) ? '' : 'none';
+          var hit = target === 'all' || c.getAttribute('data-country') === target;
+          c.classList.toggle('is-dim', !hit);
+          c.classList.toggle('is-hot', target !== 'all' && hit);
         });
       });
     });

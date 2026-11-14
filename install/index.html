@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한 판 더! 인형뽑기 — 스토어로 이동해요</title>
+<meta name="description" content="휴대폰 기기에 맞는 App Store 또는 Google Play로 이동해 한 판 더! 인형뽑기를 내려받으세요.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://onemoregrab.github.io/">
+<meta name="theme-color" content="#0A0D14">
+<link rel="icon" type="image/png" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root { --cobalt:#1D4ED8; --cobalt-hi:#2563EB; --gold:#E5B842; --navy:#0D1321; --line:rgba(255,255,255,.16); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+    background: radial-gradient(circle at 50% 0%, #16233F 0%, var(--navy) 58%, #080B12 100%);
+    color: #F7F7F5;
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card { width: 100%; max-width: 380px; }
+  .kicker { margin: 0 0 10px; font-size: 11px; font-weight: 800; letter-spacing: .18em; color: var(--gold); }
+  h1 { margin: 0; font-size: 27px; font-weight: 900; letter-spacing: -.02em; line-height: 1.25; }
+  .sub { margin: 12px auto 0; max-width: 24em; font-size: 14px; line-height: 1.6; color: #B9C0D0; }
+  .stores { display: grid; gap: 10px; margin-top: 26px; }
+  .store {
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    min-height: 56px; padding: 0 18px; border-radius: 2px;
+    background: var(--cobalt); border: 1px solid rgba(255,255,255,.42); text-align: left;
+  }
+  .store:hover { background: var(--cobalt-hi); border-color: var(--gold); }
+  .store .top { font-size: 9.5px; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.82); text-transform: uppercase; }
+  .store .name { font-size: 16px; font-weight: 800; }
+  .home { display: inline-block; margin-top: 22px; font-size: 12.5px; font-weight: 700; color: #9CA3B5; border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 2px; }
+  .home:hover { color: #fff; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<main class="card">
+  <p class="kicker">ONE MORE GRAB</p>
+  <h1>한 판 더! 인형뽑기<br>내려받기</h1>
+  <p class="sub" id="sub">휴대폰에 맞는 스토어로 이동하고 있어요. 잠시만 기다려 주세요.</p>
+  <div class="stores">
+    <a class="store" id="ios" href="https://apps.apple.com/app/id6832755431"><span class="top">Download on the</span><span class="name">App Store</span></a>
+    <a class="store" id="aos" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame"><span class="top">Get it on</span><span class="name">Google Play</span></a>
+  </div>
+  <a class="home" href="/">게임 소개 페이지로</a>
+</main>
+<script>
+  (function () {
+    var ua = navigator.userAgent || ''
+    var uaData = navigator.userAgentData
+    var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    var android = /Android/i.test(ua) || !!(uaData && uaData.platform === 'Android')
+    var sub = document.getElementById('sub')
+    var url = iOS ? 'https://apps.apple.com/app/id6832755431'
+      : android ? 'https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame'
+      : ''
+    if (url) {
+      if (sub) sub.textContent = iOS ? 'App Store로 이동하고 있어요.' : 'Google Play로 이동하고 있어요.'
+      window.location.replace(url)
+    } else if (sub) {
+      sub.textContent = 'PC에서는 아래에서 스토어를 고르거나, 휴대폰 카메라로 다시 스캔해 주세요.'
+    }
+  })()
+</script>
+</body>
+</html>

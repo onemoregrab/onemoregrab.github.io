@@ -161,6 +161,39 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   background: var(--accent-main);
   color: #fff;
 }
+/* 공식 SNS 처럼 하위 목록을 가진 항목: 버튼으로 열고 닫는다(터치·키보드) */
+button.nav-link {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+button.nav-link:hover { border-bottom-color: var(--accent-main); }
+.nav-item.is-open .nav-dropdown { display: flex; flex-direction: column; }
+.nav-dropdown a[target="_blank"]::after { content: "↗"; font-size: 11px; color: var(--muted-light); margin-left: 6px; }
+
+/* 모바일 메뉴 안의 공식 SNS 묶음 */
+.mob-sns { padding: 12px 4px 4px; border-top: 1px solid rgba(255, 255, 255, 0.07); margin-top: 6px; }
+.mob-sns-title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+.mob-sns-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.mob-sns-links a {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #D1D5DB;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.mob-sns-links a:hover { border-color: var(--gold); color: #fff; }
 
 .bar-right {
   display: flex;
@@ -303,6 +336,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   color: var(--ink-muted);
   font-size: 14px;
 }
+/* 홈의 소식 카드나 상단 메뉴에서 #launch 처럼 바로 걸어 왔을 때 그 공지를 표시 */
+.notices > li[id]:target {
+  border-left-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(229, 184, 66, 0.45);
+}
+.notices > li .n-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  background: var(--accent-main);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  vertical-align: 2px;
+}
+.notices > li[id] { scroll-margin-top: 96px; }
 
 /* 접이식 안내 (고객문의) */
 .tg {

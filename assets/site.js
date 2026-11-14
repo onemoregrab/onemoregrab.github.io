@@ -133,16 +133,22 @@
         lists.forEach(function (ul) { render(ul, items) })
       })
       .catch(function () {
-        lists.forEach(function (ul) { ul.textContent = ''; var li = document.createElement('li'); li.className = 'muted'; li.textContent = '공지를 불러오지 못했어요. 잠시 뒤에 다시 열어 주세요.'; ul.appendChild(li) })
+        // 파일을 못 읽어도 페이지에 미리 넣어 둔 기본 공지는 지우지 않는다(빈 화면 방지)
       })
   }
   function render(ul, items) {
     var limit = parseInt(ul.getAttribute('data-limit') || '0', 10)
     var shown = limit > 0 ? items.slice(0, limit) : items
+    if (!shown.length) {
+      if (ul.querySelector('li[id]')) return // 기본 공지 유지
+      ul.textContent = ''
+      var e0 = document.createElement('li'); e0.className = 'muted'; e0.textContent = '지금 새로 알려 드릴 공지는 없어요.'; ul.appendChild(e0)
+      return
+    }
     ul.textContent = ''
-    if (!shown.length) { var e = document.createElement('li'); e.className = 'muted'; e.textContent = '지금 새로 알려 드릴 공지는 없어요.'; ul.appendChild(e); return }
     shown.forEach(function (n) {
       var li = document.createElement('li')
+      if (n.id) li.id = n.id
       var h = document.createElement('h3'); h.textContent = (n.title.ko || n.title.en)
       li.appendChild(h)
       if (n.from) { var t = document.createElement('time'); t.setAttribute('datetime', n.from); t.textContent = n.from; li.appendChild(t) }
