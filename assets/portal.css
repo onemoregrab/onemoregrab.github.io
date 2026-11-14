@@ -1,16 +1,18 @@
 /* NJ Studio 공식 포털 공용 스타일 — 홈(index.html)과 /notice/, /support/ 가 같은 상단 바와 푸터를 쓴다.
-   색: #0A0D14 바 · #0D1321 네이비 · #D92638 레드 · #F4F3EF 크림 · #E5B842 골드, 모서리 2px 각진 형태. */
+   색: #0A0D14 바 · #0D1321 네이비 · #1D4ED8 코발트 · #F4F5F7 쿨 오프화이트 · #E5B842 골드, 모서리 2px 각진 형태. */
 
 :root {
   --bar-bg: #0A0D14;
   --navy-bg: #0D1321;
   --navy-card: #131B2E;
-  --red-main: #D92638;
-  --red-hi: #F03548;
+  --accent-main: #1D4ED8; /* 코발트 블루 */
+  --accent-hi: #2563EB;
+  --red-main: var(--accent-main); /* 옛 이름 호환 */
+  --red-hi: var(--accent-hi);
   --gold: #E5B842;
-  --cream-bg: #F4F3EF;
+  --cream-bg: #F4F5F7;
   --cream-card: #FFFFFF;
-  --cream-line: #DCDAD2;
+  --cream-line: #DDE2EA;
   --ink-dark: #111318;
   --ink-muted: #555A66;
   --text-light: #F7F7F5;
@@ -39,6 +41,9 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 main { flex: 1 0 auto; }
+/* 서브페이지: 짧은 본문에서도 크림색 본문 영역이 푸터까지 이어진다 */
+body.page-shell main { display: flex; flex-direction: column; }
+body.page-shell .sec-paper { flex: 1 0 auto; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 /* 고정 상단 바에 섹션 제목이 가려지지 않도록 */
@@ -49,7 +54,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   top: 0;
   z-index: 400;
   padding: 10px 18px;
-  background: var(--red-main);
+  background: var(--accent-main);
   color: #fff;
   font-weight: 800;
 }
@@ -128,11 +133,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 .nav-link:hover {
   color: #fff;
-  border-bottom-color: var(--red-main);
+  border-bottom-color: var(--accent-main);
 }
 .nav-link[aria-current="page"] {
   color: #fff;
-  border-bottom-color: var(--red-main);
+  border-bottom-color: var(--accent-main);
 }
 .nav-dropdown {
   display: none;
@@ -153,7 +158,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   color: #D1D5DB;
 }
 .nav-dropdown a:hover {
-  background: var(--red-main);
+  background: var(--accent-main);
   color: #fff;
 }
 
@@ -185,14 +190,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   height: 36px;
   padding: 0 18px;
   border-radius: 2px;
-  background: var(--red-main);
+  background: var(--accent-main);
   font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: #fff;
   white-space: nowrap;
 }
-.bar-btn-cta:hover { background: var(--red-hi); }
+.bar-btn-cta:hover { background: var(--accent-hi); }
 
 .mob-toggle {
   display: none;
@@ -269,7 +274,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .notices > li {
   background: var(--cream-card);
   border: 1px solid var(--cream-line);
-  border-left: 3px solid var(--red-main);
+  border-left: 3px solid var(--accent-main);
   border-radius: 2px;
   padding: 18px 20px;
 }
@@ -285,7 +290,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--red-main);
+  color: var(--accent-main);
 }
 .notices > li p {
   margin: 8px 0 0;
@@ -325,7 +330,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   flex: none;
   font-size: 19px;
   font-weight: 900;
-  color: var(--red-main);
+  color: var(--accent-main);
 }
 .tg[open] > summary::after { content: "\2013"; }
 .tg[open] > summary { border-bottom: 1px solid var(--cream-line); }
@@ -338,7 +343,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   font-weight: 900;
   color: var(--ink-dark);
 }
-.tg-body a { color: var(--red-main); font-weight: 700; }
+.tg-body a { color: var(--accent-main); font-weight: 700; }
 
 .qa {
   background: #FCFCFA;
@@ -374,12 +379,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   flex: none;
   font-size: 13px;
   font-weight: 900;
-  color: var(--red-main);
+  color: var(--accent-main);
   line-height: 1.7;
 }
 .qa[open] > summary { border-bottom: 1px solid var(--cream-line); }
 .qa > p { margin: 0; padding: 14px 16px; font-size: 14px; line-height: 1.7; color: var(--ink-muted); }
-.qa > p a { color: var(--red-main); font-weight: 700; }
+.qa > p a { color: var(--accent-main); font-weight: 700; }
 
 .prose code, .tg-body code, .qa code {
   background: #F1EFE9;
@@ -397,13 +402,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   min-height: 44px;
   padding: 0 20px;
   border-radius: 2px;
-  background: var(--red-main);
+  background: var(--accent-main);
   color: #FFFFFF !important;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.01em;
 }
-.mailbtn:hover { background: var(--red-hi); }
+.mailbtn:hover { background: var(--accent-hi); }
 
 .plain-list {
   list-style: none;
@@ -415,8 +420,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .plain-list a {
   display: inline-block;
   font-weight: 700;
-  color: var(--red-main);
-  border-bottom: 2px solid rgba(217, 38, 56, 0.28);
+  color: var(--accent-main);
+  border-bottom: 2px solid rgba(29, 78, 216, 0.28);
   padding-bottom: 2px;
 }
 
