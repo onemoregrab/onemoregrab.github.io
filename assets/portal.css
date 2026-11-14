@@ -499,9 +499,42 @@ button.nav-link:hover { border-bottom-color: var(--accent-main); }
 .foot-links a:hover { color: #fff; }
 .foot-biz { font-size: 12px; color: #8E94A6; line-height: 1.75; }
 .foot-biz p { margin: 0; }
+/* 사업자 정보는 기본 접힘 — summary 를 누르면 펼쳐진다 */
+.foot-biz-details { margin: 0; padding: 0; }
+.foot-biz-details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 10px 0 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #C9CEDA;
+  transition: color 0.15s;
+}
+.foot-biz-details > summary::-webkit-details-marker { display: none; }
+.foot-biz-details > summary::after {
+  content: "\25B8";
+  font-size: 10px;
+  line-height: 1;
+  color: var(--gold);
+}
+.foot-biz-details[open] > summary { color: #fff; }
+.foot-biz-details[open] > summary::after { content: "\25BE"; }
+.foot-biz-details > summary:hover { color: #fff; }
+.foot-biz-details .foot-biz { margin: 2px 0 6px; }
 .foot-copy { margin: 0; font-size: 11.5px; color: #6D7385; }
 
 /* 5. 반응형 */
+/* 961~1100px: 게임 이름이 길어진 만큼 상단 바 간격을 좀혀 한 줄에 유지 */
+@media (min-width: 961px) and (max-width: 1100px) {
+  .studio-mark { padding-right: 12px; }
+  .bar-left { gap: 14px; }
+  .nav-link { padding: 0 10px; }
+}
 @media (max-width: 960px) {
   .nav-list, .bar-btn-ghost { display: none; }
   .mob-toggle { display: inline-flex; align-items: center; justify-content: center; }
@@ -546,6 +579,8 @@ button.nav-link:hover { border-bottom-color: var(--accent-main); }
 /* 320px 안전장치 */
 @media (max-width: 360px) {
   .riot-bar-inner { gap: 8px; }
+  .game-mark { gap: 6px; font-size: 13px; }
+  .game-mark img { width: 24px; height: 24px; }
   .bar-btn-cta { padding: 0 10px; font-size: 11.5px; }
   .mob-toggle { width: 32px; }
   .page-title { font-size: 27px; }
