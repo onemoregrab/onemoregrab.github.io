@@ -61,6 +61,8 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  /* 고정 상단 바에 섹션 제목이 가려지지 않도록 */
+  #main, section[id] { scroll-margin-top: 82px; }
   .skip {
     position: absolute;
     left: -9999px;
@@ -646,6 +648,10 @@
     .frame-sharp.shift { margin-top: 22px; }
     .foot { padding: 30px 0; }
     .foot-links { gap: 14px 16px; }
+  }
+
+  @media (max-width: 600px) {
+    #main, section[id] { scroll-margin-top: 68px; }
   }
 
   /* 아주 좁은 화면: 스튜디오 표기는 숨기고 게임 마크만 남긴다 */
