@@ -570,6 +570,44 @@
   .foot-links { display: flex; flex-wrap: wrap; gap: 16px; }
   .foot-links a:hover { color: #fff; }
 
+  /* 테마 2: 레트로 오락실 레드 & 네이비 */
+  body[data-theme="red"] {
+    --dark-bg: #0D1321;
+    --dark-card: #161F33;
+    --orange-1: #E63946;
+    --orange-2: #FF6B6B;
+    --cream-bg: #F8F7F4;
+    --cream-card: #FFFFFF;
+    --cream-line: #E2E0D8;
+    --gold: #FFD166;
+  }
+  body[data-theme="red"] .bar-btn-cta { background: linear-gradient(90deg, #E63946, #FF6B6B); color: #fff; }
+  body[data-theme="red"] .sec-orange { background: linear-gradient(135deg, #D62828 0%, #F77F00 100%); color: #FFFEF9; }
+  body[data-theme="red"] .orange-kicker { color: #FFE8CC; }
+  body[data-theme="red"] .orange-title { color: #FFFEF9; }
+  body[data-theme="red"] .orange-lead { color: rgba(255, 254, 249, 0.9); }
+  body[data-theme="red"] .op-card { background: rgba(13, 19, 33, 0.28); border-color: rgba(255, 255, 255, 0.22); }
+  body[data-theme="red"] .op-card span { color: rgba(255, 254, 249, 0.85); }
+
+  /* 테마 3: 에메랄드 민트 & 딥 슬레이트 */
+  body[data-theme="mint"] {
+    --dark-bg: #0B191E;
+    --dark-card: #132830;
+    --orange-1: #00B894;
+    --orange-2: #2ED8B6;
+    --cream-bg: #F4F9F7;
+    --cream-card: #FFFFFF;
+    --cream-line: #D8EAE3;
+    --gold: #FDCB6E;
+  }
+  body[data-theme="mint"] .bar-btn-cta { background: linear-gradient(90deg, #00B894, #2ED8B6); color: #071A15; }
+  body[data-theme="mint"] .sec-orange { background: linear-gradient(135deg, #009E7E 0%, #1ED2AC 100%); color: #06211A; }
+  body[data-theme="mint"] .orange-kicker { color: #04382B; }
+  body[data-theme="mint"] .orange-title { color: #042119; }
+  body[data-theme="mint"] .orange-lead { color: #083328; }
+  body[data-theme="mint"] .op-card { background: rgba(255, 255, 255, 0.28); border-color: rgba(4, 33, 25, 0.14); }
+  body[data-theme="mint"] .op-card span { color: #083328; }
+
   @media (max-width: 960px) {
     .nav-list, .bar-btn-ghost { display: none; }
     .mob-toggle { display: inline-flex; align-items: center; justify-content: center; }
@@ -804,6 +842,11 @@
 
 <script>
   (function () {
+    var params = new URLSearchParams(location.search);
+    var t = params.get('theme');
+    if (t === 'red' || t === 'mint' || t === 'orange') {
+      document.body.setAttribute('data-theme', t);
+    }
     var mobBtn = document.getElementById('mob-btn');
     var mobDrawer = document.getElementById('mob-drawer');
     if (mobBtn && mobDrawer) {
