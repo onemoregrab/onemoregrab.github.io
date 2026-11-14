@@ -24,218 +24,8 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/assets/portal.css">
 <style>
-  :root {
-    --bar-bg: #0A0D14;
-    --navy-bg: #0D1321;
-    --navy-card: #131B2E;
-    --red-main: #D92638;
-    --red-hi: #F03548;
-    --gold: #E5B842;
-    --cream-bg: #F4F3EF;
-    --cream-card: #FFFFFF;
-    --cream-line: #DCDAD2;
-    --ink-dark: #111318;
-    --ink-muted: #555A66;
-    --text-light: #F7F7F5;
-    --muted-light: #9CA3B5;
-    --line-dark: rgba(255, 255, 255, 0.14);
-    --max: 1240px;
-    --pad: clamp(18px, 4vw, 44px);
-    --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--navy-bg);
-    color: var(--text-light);
-    font-family: var(--font-ui);
-    font-size: 15.5px;
-    line-height: 1.6;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-  }
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  /* 고정 상단 바에 섹션 제목이 가려지지 않도록 */
-  #main, section[id] { scroll-margin-top: 82px; }
-  .skip {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-    z-index: 400;
-    padding: 10px 18px;
-    background: var(--red-main);
-    color: #fff;
-    font-weight: 800;
-  }
-  .skip:focus { left: 8px; top: 8px; }
-
-  /* 1. 상단 바: 완전 각진 블랙-네이비 바 */
-  .riot-bar {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    height: 68px;
-    background: var(--bar-bg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .riot-bar-inner {
-    max-width: 1400px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 var(--pad);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  .bar-left {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-  }
-  .studio-mark {
-    display: inline-flex;
-    align-items: center;
-    font-size: 12.5px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: #fff;
-    padding-right: 18px;
-    border-right: 1px solid rgba(255, 255, 255, 0.18);
-    white-space: nowrap;
-  }
-  .game-mark {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: #fff;
-    white-space: nowrap;
-  }
-  .game-mark img {
-    width: 28px;
-    height: 28px;
-    border-radius: 2px;
-  }
-
-  .nav-list {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .nav-item { position: relative; }
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    height: 68px;
-    padding: 0 14px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #D1D5DB;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
-    white-space: nowrap;
-  }
-  .nav-link:hover {
-    color: #fff;
-    border-bottom-color: var(--red-main);
-  }
-  .nav-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 176px;
-    padding: 6px;
-    background: #121726;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
-  }
-  .nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown { display: flex; flex-direction: column; }
-  .nav-dropdown a {
-    padding: 10px 12px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #D1D5DB;
-  }
-  .nav-dropdown a:hover {
-    background: var(--red-main);
-    color: #fff;
-  }
-
-  .bar-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .bar-btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    padding: 0 14px;
-    border-radius: 2px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    color: #fff;
-    white-space: nowrap;
-  }
-  .bar-btn-ghost:hover { border-color: #fff; }
-  .bar-btn-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    padding: 0 18px;
-    border-radius: 2px;
-    background: var(--red-main);
-    font-size: 12.5px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    color: #fff;
-    white-space: nowrap;
-  }
-  .bar-btn-cta:hover { background: var(--red-hi); }
-
-  .mob-toggle {
-    display: none;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    color: #fff;
-    width: 38px;
-    height: 36px;
-    border-radius: 2px;
-    font-size: 17px;
-    cursor: pointer;
-  }
-  .mob-drawer {
-    display: none;
-    background: #101524;
-    border-bottom: 1px solid var(--line-dark);
-    padding: 10px var(--pad) 16px;
-  }
-  .mob-drawer.is-open { display: flex; flex-direction: column; }
-  .mob-drawer a {
-    padding: 11px 4px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #E5E7EB;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  }
-
   /* 2. 풀스크린 중앙 정렬 히어로 — Pretendard 900 각진 타이포 */
   .hero {
     position: relative;
@@ -585,38 +375,8 @@
   .start-title { margin: 0; font-size: clamp(32px, 4.8vw, 50px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF; }
   .start-sub { margin: 12px auto 0; max-width: 30em; font-size: 15px; color: var(--muted-light); }
 
-  .foot {
-    background: #06080D;
-    padding: 36px 0;
-    font-size: 12.5px;
-    color: var(--muted-light);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .foot-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  .foot-brand-col { max-width: 400px; }
-  .foot-brand { margin: 0 0 6px; font-size: 13.5px; font-weight: 800; color: #fff; }
-  .foot-note { margin: 0; line-height: 1.6; }
-  .foot-sns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 700; color: #C9CEDA; }
-  .foot-sns a:hover { color: #fff; }
-  .foot-right { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-  .foot-links { display: flex; flex-wrap: wrap; gap: 16px; font-weight: 700; color: #C9CEDA; }
-  .foot-links a:hover { color: #fff; }
-  .foot-biz { font-size: 12px; color: #8E94A6; line-height: 1.75; }
-  .foot-biz p { margin: 0; }
-  .foot-copy { margin: 0; font-size: 11.5px; color: #6D7385; }
 
   @media (max-width: 960px) {
-    .nav-list, .bar-btn-ghost { display: none; }
-    .mob-toggle { display: inline-flex; align-items: center; justify-content: center; }
-    .bar-left { min-width: 0; flex-shrink: 1; gap: 18px; }
-    .bar-right { flex-shrink: 0; }
-    .game-mark { min-width: 0; }
-    .game-mark span { display: block; overflow: hidden; text-overflow: ellipsis; }
     .red-grid { grid-template-columns: 1fr; }
     .red-specs { grid-template-columns: 1fr; }
     .spec-cell { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
@@ -625,20 +385,10 @@
     .doll-grid { grid-template-columns: repeat(2, 1fr); }
     .hero { min-height: 480px; padding: 48px 0; }
     .cream-header { flex-direction: column; align-items: flex-start; }
-    .foot-inner { flex-direction: column; }
   }
 
-  /* 모바일 상단 바: 좌우 요소가 절대 겹치지 않게 압축 */
+  /* 모바일: 섹션 여백과 타이포 압축 */
   @media (max-width: 600px) {
-    .riot-bar { height: auto; }
-    .riot-bar-inner { gap: 10px; height: auto; min-height: 58px; }
-    .bar-left { gap: 0; }
-    .bar-right { gap: 8px; }
-    .game-mark { gap: 8px; font-size: 14.5px; }
-    .game-mark img { width: 26px; height: 26px; }
-    .bar-btn-cta { height: 32px; padding: 0 12px; font-size: 12px; letter-spacing: 0.02em; }
-    .mob-toggle { width: 34px; height: 32px; font-size: 15px; line-height: 1; }
-    .mob-drawer { padding: 8px var(--pad) 14px; }
     .hero { min-height: 0; padding: 44px 0 52px; }
     .hero-logo-title { font-size: clamp(38px, 10.4vw, 52px); }
     .hero-desc { margin-top: 18px; font-size: 15px; }
@@ -646,24 +396,10 @@
     .red-specs { margin-top: 22px; }
     .red-visual { gap: 10px; }
     .frame-sharp.shift { margin-top: 22px; }
-    .foot { padding: 30px 0; }
-    .foot-links { gap: 14px 16px; }
   }
 
-  @media (max-width: 600px) {
-    #main, section[id] { scroll-margin-top: 68px; }
-  }
-
-  /* 아주 좁은 화면: 스튜디오 표기는 숨기고 게임 마크만 남긴다 */
-  @media (max-width: 560px) {
-    .studio-mark { display: none; }
-  }
-
-  /* 320px 안전장치: 남은 요소도 줄어들 수 있게 */
+  /* 320px 안전장치 */
   @media (max-width: 360px) {
-    .riot-bar-inner { gap: 8px; }
-    .bar-btn-cta { padding: 0 10px; font-size: 11.5px; }
-    .mob-toggle { width: 32px; }
     .hero-logo-title { font-size: 34px; }
   }
 </style>
@@ -696,7 +432,6 @@
       </nav>
     </div>
     <div class="bar-right">
-      <a class="bar-btn-ghost" href="/game/">웹 체험</a>
       <a class="bar-btn-cta" href="#start">지금 다운로드</a>
       <button class="mob-toggle" id="mob-btn" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="mob-drawer">☰</button>
     </div>
@@ -707,7 +442,6 @@
     <a href="/notice/">패치 노트</a>
     <a href="/support/">고객센터</a>
     <a href="#physics">세계 여행</a>
-    <a href="/game/">웹에서 바로 체험</a>
   </nav>
 </header>
 
@@ -722,11 +456,10 @@
         <a class="tft-btn" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">무료로 플레이하기</a>
       </div>
       <div class="hero-platforms">
-        <p>iOS · Android · Web 지원</p>
+        <p>iOS · Android 지원</p>
         <div class="store-row">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener">App Store</a>
           <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener">Google Play</a>
-          <a class="store-rect" href="/game/">웹 체험판</a>
         </div>
       </div>
     </div>
@@ -792,15 +525,15 @@
             <p class="news-txt">한국, 일본, 프랑스에 이어 미국·브라질까지 각국의 특색 있는 기계를 확인하세요.</p>
           </div>
         </a>
-        <a class="news-card" href="/game/">
+        <a class="news-card" href="/notice/">
           <div class="news-thumb">
-            <img src="/assets/img/collection.webp" alt="인형 도감 화면" loading="lazy">
-            <span class="news-badge">체험</span>
+            <img src="/assets/img/secret-isle.webp" alt="3D 비밀의 섬 제단 화면" loading="lazy">
+            <span class="news-badge">안내</span>
           </div>
           <div class="news-body">
             <span class="news-meta">상시 운영</span>
-            <h3 class="news-head">브라우저 웹 체험판 상시 오픈</h3>
-            <p class="news-txt">PC와 모바일 웹에서 3D 집게 물리 조작을 즉시 테스트해 볼 수 있습니다.</p>
+            <h3 class="news-head">3D 비밀의 섬과 황금 트로피 안내</h3>
+            <p class="news-txt">나라별 스테이지를 정복하면 열리는 3D 비밀의 섬에서 황금 트로피를 모아 보세요.</p>
           </div>
         </a>
       </div>
@@ -876,7 +609,7 @@
   <div class="wrap foot-inner">
     <div class="foot-brand-col">
       <p class="foot-brand">한 판 더! 인형뽑기 · NJ Studio</p>
-      <p class="foot-note">NJ Studio가 만드는 3D 물리 인형뽑기 게임. 진짜 기계처럼 흔들리는 집게로 인형을 뽑아 모으는 즐거움을 전합니다.</p>
+      <p class="foot-note">NJ Studio가 만드는 3D 물리 인형뽑기 게임. 진짜 기계처럼 흔들리는 집게로 인형을 뽑아 모으는 즐거움을 전합니다.<br>이 게임은 광고를 포함하며 앱 내 구매가 있어요. 게임 코인은 게임 안에서만 쓰는 가상 재화이고, 실제 인형은 배송되지 않아요.</p>
       <div class="foot-sns">
         <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
@@ -903,23 +636,9 @@
   </div>
 </footer>
 
+<script src="/assets/portal.js" defer></script>
 <script>
   (function () {
-    var mobBtn = document.getElementById('mob-btn');
-    var mobDrawer = document.getElementById('mob-drawer');
-    if (mobBtn && mobDrawer) {
-      mobBtn.addEventListener('click', function () {
-        var open = mobDrawer.classList.toggle('is-open');
-        mobBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      // 모바일 메뉴에서 항목을 고르면 드로어를 닫는다
-      Array.prototype.forEach.call(mobDrawer.querySelectorAll('a'), function (link) {
-        link.addEventListener('click', function () {
-          mobDrawer.classList.remove('is-open');
-          mobBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
     var tabs = document.querySelectorAll('.tab-btn');
     var cards = document.querySelectorAll('.doll-card');
     Array.prototype.forEach.call(tabs, function (btn) {
