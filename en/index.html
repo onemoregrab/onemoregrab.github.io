@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en" data-lang-set="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One More Grab — a 3D physics claw machine that swings like the real thing</title>
+<meta name="description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. 20 stages in every country plus the 3D Secret Isle.">
+<link rel="canonical" href="https://onemoregrab.github.io/en/">
+<link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
+<link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/">
+<link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/">
+<link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/">
+<link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/">
+<link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/">
+<meta name="theme-color" content="#0A0D14">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:site_name" content="One More Grab">
+<meta property="og:title" content="One More Grab — a 3D physics claw machine that swings like the real thing">
+<meta property="og:description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. 20 stages in every country plus the 3D Secret Isle.">
+<meta property="og:url" content="https://onemoregrab.github.io/en/">
+<meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One More Grab — a 3D physics claw machine that swings like the real thing">
+<meta name="twitter:description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. 20 stages in every country plus the 3D Secret Isle.">
+<meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
+<link rel="icon" type="image/png" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/assets/portal.css?v=20261115h">
+<script src="/assets/config.js?v=20261115i"></script>
+<script src="/assets/analytics.js?v=20261115i" defer></script>
+<style>
+  /* 2. 풀스크린 중앙 정렬 히어로 — Pretendard 900 각진 타이포 */
+  .hero {
+    position: relative;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 68px 0 60px;
+    overflow: hidden;
+    background: var(--navy-bg);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10, 13, 20, 0.78) 0%, rgba(13, 19, 33, 0.72) 55%, rgba(13, 19, 33, 0.96) 100%),
+      url("/assets/img/play-korea.webp") center/cover no-repeat;
+    filter: grayscale(20%) contrast(1.08);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .hero-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 4px 12px;
+    border: 1px solid rgba(229, 184, 66, 0.5);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+  }
+  .hero-logo-title {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-weight: 900;
+    font-size: clamp(44px, 6.8vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+  .hero-logo-title span {
+    display: block;
+    font-size: 0.44em;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-top: 8px;
+  }
+  .hero-desc {
+    margin: 22px auto 0;
+    max-width: 34em;
+    font-size: clamp(15.5px, 1.8vw, 18px);
+    font-weight: 500;
+    line-height: 1.6;
+    color: #E2E8F0;
+  }
+
+  /* 이중 테두리 각진 버튼 */
+  .tft-btn-wrap {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    transition: border-color 0.18s;
+  }
+  .tft-btn-wrap:hover { border-color: var(--gold); }
+  .tft-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 230px;
+    height: 50px;
+    padding: 0 32px;
+    background: var(--accent-main);
+    color: #FFFFFF;
+    font-size: 14.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    transition: background 0.18s;
+  }
+  .tft-btn:hover { background: var(--accent-hi); }
+
+  .hero-platforms {
+    margin-top: 34px;
+  }
+  .hero-platforms p {
+    margin: 0 0 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted-light);
+  }
+  .store-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .store-rect {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 18px;
+    border-radius: 2px;
+    background: rgba(10, 13, 20, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .store-rect:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* 3. 코발트 딥 그라데이션 핵심 시스템 섹션 */
+  .sec-accent {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 60%, #1E40AF 100%);
+    color: #FFFFFF;
+    padding: 72px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .red-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .red-kicker {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #DBEAFE;
+  }
+  .red-title {
+    margin: 0;
+    font-size: clamp(30px, 4.2vw, 44px);
+    font-weight: 900;
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+  }
+  .red-lead {
+    margin: 18px 0 0;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .red-specs {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(10, 13, 20, 0.24);
+  }
+  .spec-cell {
+    padding: 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .spec-cell:last-child { border-right: 0; }
+  .spec-cell strong {
+    display: block;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .spec-cell span {
+    display: block;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.45;
+  }
+  .red-visual {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+  }
+  .frame-sharp {
+    width: min(235px, 46%);
+    padding: 6px;
+    border-radius: 4px;
+    background: #0A0D14;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+  }
+  .frame-sharp img {
+    width: 100%;
+    border-radius: 2px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+  .frame-sharp.shift { margin-top: 28px; }
+
+  /* 4. 밝은 오프화이트 최신 소식 섹션 */
+  .sec-cream {
+    background: var(--cream-bg);
+    color: var(--ink-dark);
+    padding: 72px 0;
+  }
+  .cream-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink-dark);
+  }
+  .cream-kicker {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--accent-main);
+  }
+  .cream-title {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    color: var(--ink-dark);
+  }
+  .cream-more {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--accent-main);
+    white-space: nowrap;
+  }
+  .cream-more:hover { text-decoration: underline; }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .news-card {
+    background: var(--cream-card);
+    border: 1px solid var(--cream-line);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.18s, transform 0.18s;
+  }
+  .news-card:hover {
+    border-color: var(--ink-dark);
+    transform: translateY(-3px);
+  }
+  .news-thumb {
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    background: #0D1321;
+  }
+  .news-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .news-badge {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    padding: 4px 12px;
+    background: var(--accent-main);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .news-body { padding: 20px; }
+  .news-meta { font-size: 12px; font-weight: 700; color: var(--ink-muted); }
+  .news-head {
+    margin: 6px 0 8px;
+    font-size: 17.5px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--ink-dark);
+  }
+  .news-txt {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  /* 5. 딥 네이비 인형 도감 섹션 */
+  .sec-dark {
+    background: var(--navy-bg);
+    color: var(--text-light);
+    padding: 72px 0;
+    border-top: 1px solid var(--line-dark);
+  }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 22px 0;
+  }
+  .tab-btn {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 2px;
+    background: var(--navy-card);
+    border: 1px solid var(--line-dark);
+    color: var(--muted-light);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .tab-btn.is-active {
+    background: var(--accent-main);
+    border-color: var(--accent-main);
+    color: #fff;
+  }
+  .doll-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .doll-card {
+    background: var(--navy-card);
+    border: 1px solid var(--line-dark);
+    border-radius: 2px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .doll-card img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 10px; }
+  .doll-grade { font-size: 11px; font-weight: 800; color: var(--gold); }
+  .doll-name { margin: 4px 0 2px; font-size: 14.5px; font-weight: 700; color: #fff; }
+  .doll-stage { font-size: 12px; color: var(--muted-light); }
+
+  /* 6. 하단 시작하기 */
+  .sec-start {
+    background: #0A0D14;
+    padding: 72px 0;
+    text-align: center;
+    border-top: 1px solid var(--line-dark);
+  }
+  .start-kicker { margin: 0 0 6px; font-size: 12.5px; font-weight: 800; color: var(--gold); letter-spacing: 0.14em; }
+  .start-title { margin: 0; font-size: clamp(32px, 4.8vw, 50px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF; }
+  .start-sub { margin: 12px auto 0; max-width: 30em; font-size: 15px; color: var(--muted-light); }
+
+
+  @media (max-width: 960px) {
+    .red-grid { grid-template-columns: 1fr; }
+    .red-specs { grid-template-columns: 1fr; }
+    .spec-cell { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+    .spec-cell:last-child { border-bottom: 0; }
+    .news-grid { grid-template-columns: 1fr; }
+    .doll-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { min-height: 480px; padding: 48px 0; }
+    .cream-header { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* 모바일: 섹션 여백과 타이포 압축 */
+  @media (max-width: 600px) {
+    .hero { min-height: 0; padding: 44px 0 52px; }
+    .hero-logo-title { font-size: clamp(38px, 10.4vw, 52px); }
+    .hero-desc { margin-top: 18px; font-size: 15px; }
+    .sec-accent, .sec-cream, .sec-dark, .sec-start { padding: 52px 0; }
+    .red-specs { margin-top: 22px; }
+    .red-visual { gap: 10px; }
+    .frame-sharp.shift { margin-top: 22px; }
+  }
+
+  /* 320px 안전장치 */
+  @media (max-width: 360px) {
+    .hero-logo-title { font-size: 34px; }
+  }
+
+  /* ==== 이번 개선: 기기별 CTA · 스토어 버튼 · QR · 나라 스포트라이트 · 실제 플레이 영상 ==== */
+  .hero-os-hint {
+    margin: 10px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(226, 232, 240, 0.72);
+  }
+
+  /* 두 줄 스토어 버튼 (위: 작은 안내, 아래: 스토어 이름) */
+  .store-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .store-rect {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 170px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 2px;
+    background: rgba(10, 13, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    line-height: 1.15;
+    text-align: left;
+  }
+  .store-rect .sr-top {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #9CA3B5;
+    text-transform: uppercase;
+  }
+  .store-rect .sr-name {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .store-rect:hover { border-color: var(--gold); }
+  .store-rect:hover .sr-name { color: var(--gold); }
+
+  /* 시작 섹션: 스토어 버튼 두 개 + PC 용 QR */
+  .start-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .start-store { display: flex; flex-wrap: wrap; gap: 10px; }
+  .start-store .store-rect {
+    min-width: 200px;
+    height: 58px;
+    padding: 0 20px;
+    background: var(--accent-main);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .start-store .store-rect .sr-top { color: rgba(255, 255, 255, 0.82); }
+  .start-store .store-rect .sr-name { font-size: 16.5px; }
+  .start-store .store-rect:hover { background: var(--accent-hi); border-color: var(--gold); }
+  .start-store .store-rect:hover .sr-name { color: #fff; }
+  .qr-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: #0D1321;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: 3px solid var(--gold);
+  }
+  .qr-box img {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    padding: 4px;
+    background: #fff;
+  }
+  .qr-box p {
+    margin: 0;
+    max-width: 17.5em;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--muted-light);
+    text-align: left;
+  }
+  .qr-box strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  /* 나라별 스포트라이트 배너 */
+  .country-banner {
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--navy-card);
+    border: 1px solid var(--line-dark);
+    border-left: 3px solid var(--gold);
+  }
+  .cb-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+  }
+  .cb-name {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .cb-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted-light);
+  }
+  .cb-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-dark);
+  }
+  .cb-facts > div { min-width: 0; }
+  .cb-facts dt {
+    margin: 0 0 3px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  .cb-facts dd {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #E5E7EB;
+    word-break: keep-all;
+  }
+
+  .doll-card {
+    position: relative;
+    transition: border-color 0.18s, opacity 0.18s, filter 0.18s, background 0.18s;
+  }
+  .doll-card.is-dim { opacity: 0.55; filter: grayscale(0.45); }
+  .doll-card.is-hot { border-color: var(--gold); background: #16203A; }
+  .doll-card.is-hot::after {
+    content: "이 나라";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 7px;
+    background: var(--gold);
+    color: #1A1206;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  @media (max-width: 600px) {
+    .start-actions { flex-direction: column; gap: 18px; margin-top: 26px; }
+    .start-store { width: 100%; }
+    .start-store .store-rect { flex: 1 1 140px; min-width: 0; height: auto; min-height: 54px; padding: 9px 14px; }
+    .start-store .store-rect .sr-name { font-size: 14.5px; line-height: 1.2; }
+    .qr-box { width: 100%; padding: 12px 14px; }
+    .qr-box img { width: 84px; height: 84px; }
+    .qr-box p { max-width: none; font-size: 11.5px; }
+    .store-rect { flex: 1 1 140px; min-width: 0; }
+    .cb-facts { grid-template-columns: 1fr; gap: 10px; }
+    .country-banner { padding: 16px; }
+    .cb-name { font-size: 17px; }
+    .cb-desc { font-size: 12.5px; }
+  }
+</style>
+</head>
+<body data-page="home">
+<a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<header class="riot-bar">
+  <div class="riot-bar-inner">
+    <div class="bar-left">
+      <a class="studio-mark" href="/">NJ STUDIO</a>
+      <a class="game-mark" href="/">
+        <img src="/assets/img/icon-192.png" alt="One More Grab game icon" data-i18n-alt="img.gameIcon" width="28" height="28">
+        <span data-i18n="brand.game">One More Grab</span>
+      </a>
+      <nav class="nav-list" aria-label="Main menu" data-i18n-aria-label="nav.mainAria">
+        <div class="nav-item">
+          <a class="nav-link" href="#news"><span data-i18n="nav.news">News</span> ▾</a>
+          <div class="nav-dropdown">
+            <a href="/notice/" data-i18n="nav.allNotices">All notices</a>
+            <a href="/notice/#launch" data-i18n="nav.launchEvents">Launch &amp; events</a>
+            <a href="/notice/#worldtour" data-i18n="nav.updates">Update history</a>
+          </div>
+        </div>
+        <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">Dolls</a></div>
+        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">Patch notes</a></div>
+        <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">Support</a></div>
+        <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">World tour</a></div>
+        <div class="nav-item">
+          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false"><span data-i18n="nav.sns">Follow us</span> ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener" data-i18n="sns.x">X (Twitter)</a>
+            <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener" data-i18n="sns.blog">NAVER Blog</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="bar-right">
+      <a class="bar-btn-cta" href="#start" data-i18n="cta.download">Download now</a>
+      <button class="mob-toggle" id="mob-btn" type="button" aria-label="Menu" data-i18n-aria-label="a11y.menu" aria-expanded="false" aria-controls="mob-drawer">☰</button>
+    </div>
+  </div>
+  <nav class="mob-drawer" id="mob-drawer">
+    <a href="#news" data-i18n="nav.news">News</a>
+    <a href="#collection" data-i18n="nav.dolls">Dolls</a>
+    <a href="/notice/" data-i18n="nav.patch">Patch notes</a>
+    <a href="/support/" data-i18n="nav.support">Support</a>
+    <a href="#physics" data-i18n="nav.world">World tour</a>
+    <div class="mob-sns">
+      <span class="mob-sns-title" data-i18n="sns.title">Official SNS</span>
+      <div class="mob-sns-links">
+        <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X</a>
+        <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener" data-i18n="sns.blogShort">Blog</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
+      <h1 class="hero-logo-title" data-i18n-html="hero.title">ONE MORE GRAB<span>CLAW MACHINE · 48 DOLLS</span></h1>
+      <p class="hero-desc" data-i18n-html="hero.desc">A 100% real-time 3D physics arcade with no rigged odds.<br>Win all 48 dolls from around the world with nothing but angle and timing.</p>
+      <div class="tft-btn-wrap">
+        <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_en" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Den%26utm_content%3Dhero">Play for free</a>
+      </div>
+      <p class="hero-os-hint" id="hero-os-hint" data-i18n="hero.osHint">We open the right store for your device</p>
+      <div class="hero-platforms">
+        <p data-i18n="hero.platforms">Available on iOS · Android</p>
+        <div class="store-row">
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_en" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name">App Store</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Den%26utm_content%3Dhero" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name">Google Play</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-accent" id="physics">
+    <div class="wrap red-grid">
+      <div>
+        <p class="red-kicker" data-i18n="physics.kicker">SYSTEM OVERVIEW</p>
+        <h2 class="red-title" data-i18n-html="physics.title">A 100% real physics engine<br>that answers every move</h2>
+        <p class="red-lead" data-i18n="physics.lead">A 3D crane claw that swings on momentum, and dolls that shift with their centre of gravity. Take on 20 stages in each of Korea, Japan, France and the USA, and the 3D Secret Isle.</p>
+        <div class="red-specs">
+          <div class="spec-cell">
+            <strong data-i18n="physics.spec1t">48 dolls worldwide</strong>
+            <span data-i18n="physics.spec1d">Themed machines and boss dolls in every country</span>
+          </div>
+          <div class="spec-cell">
+            <strong data-i18n="physics.spec2t">8+ country tour</strong>
+            <span data-i18n="physics.spec2d">Stage gimmicks and the 3D Secret Isle</span>
+          </div>
+          <div class="spec-cell">
+            <strong data-i18n="physics.spec3t">Live in 146 countries</strong>
+            <span data-i18n="physics.spec3d">Install and play, no sign-in needed</span>
+          </div>
+        </div>
+      </div>
+      <div class="red-visual">
+        <div class="frame-sharp"><img src="/assets/img/play-korea.webp" alt="Real in-game screen: the crane claw and the dolls of stage 1-1" data-i18n-alt="img.playShot" width="432" height="993"></div>
+        <div class="frame-sharp shift"><img src="/assets/img/secret-isle.webp" alt="Real 3D Secret Isle screen: the temple altar" data-i18n-alt="img.isleShot" width="558" height="992"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-cream" id="news">
+    <div class="wrap">
+      <div class="cream-header">
+        <div>
+          <p class="cream-kicker" data-i18n="news.kicker">LATEST NEWS</p>
+          <h2 class="cream-title" data-i18n="news.title">Latest news</h2>
+        </div>
+        <a class="cream-more" href="/notice/" data-i18n="news.more">View all notices →</a>
+      </div>
+      <div class="news-grid">
+        <a class="news-card" href="/notice/#launch">
+          <div class="news-thumb">
+            <img src="/assets/img/home-menu.webp" alt="Lobby screen from launch day" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">Notice</span>
+          </div>
+          <div class="news-body">
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
+            <h3 class="news-head" data-i18n="news.1.head">Now live in 146 countries on both stores</h3>
+            <p class="news-txt" data-i18n="news.1.text">Download it free from the App Store and Google Play and play right away, no sign-in needed.</p>
+          </div>
+        </a>
+        <a class="news-card" href="/notice/#worldtour">
+          <div class="news-thumb">
+            <img src="/assets/img/stage-road.webp" alt="World map route from Korea to Japan, France, the USA and Brazil" data-i18n-alt="img.news2" loading="lazy">
+            <span class="news-badge" data-i18n="news.2.badge">Update</span>
+          </div>
+          <div class="news-body">
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
+            <h3 class="news-head" data-i18n="news.2.head">A world tour across 8 countries</h3>
+            <p class="news-txt" data-i18n="news.2.text">Korea, Japan, France, the USA and Brazil: each country adds 20 stages along one road.</p>
+          </div>
+        </a>
+        <a class="news-card" href="/notice/#secret-isle">
+          <div class="news-thumb">
+            <img src="/assets/img/secret-isle.webp" alt="The altar of the 3D Secret Isle" data-i18n-alt="img.news3" loading="lazy">
+            <span class="news-badge" data-i18n="news.3.badge">Info</span>
+          </div>
+          <div class="news-body">
+            <span class="news-meta" data-i18n="news.3.meta">Always on</span>
+            <h3 class="news-head" data-i18n="news.3.head">The 3D Secret Isle and golden trophies</h3>
+            <p class="news-txt" data-i18n="news.3.text">Anyone can fly to the Secret Isle from the world map and see the 3D trophy hall. Bronze, silver, gold and diamond trophies stack up as your purchases and support add up.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-dark" id="collection">
+    <div class="wrap">
+      <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">COLLECTION</p>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 dolls from around the world</h2>
+      <div class="tabs">
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="All picks" data-stages="5 countries, 100 stages" data-doll="6 featured dolls" data-boss="Final stage of each country" data-desc="The signature dolls of Korea, Japan, France, the USA and Brazil you can play right now." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">All picks</button>
+        <button class="tab-btn" data-tab="korea" type="button" data-name="Korea" data-stages="20 stages · 1-1 to 1-20" data-doll="Mongle Bear · Moon Rabbit" data-boss="1-20 boss doll" data-desc="The first country open to you. A good place to learn the basic claw." data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">Korea</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="Japan" data-stages="20 stages · 2-1 to 2-20" data-doll="Golden Daruma" data-boss="2-20 Golden Daruma" data-desc="Opens once you clear Korea. The boss of the last stage is the legendary Golden Daruma." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">Japan</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="France" data-stages="20 stages · 3-1 to 3-20" data-doll="French Bulldog" data-boss="3-20 boss doll" data-desc="Clear Japan, or enter with a country unlock ticket." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">France</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="USA" data-stages="20 stages · 4-1 to 4-20" data-doll="Astro Bear" data-boss="4-20 boss doll" data-desc="Clear France, or enter with a country unlock ticket." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">USA</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="Brazil" data-stages="20 stages · 5-1 to 5-20" data-doll="Tropical Toucan" data-boss="5-20 boss doll" data-desc="Clear the USA, or enter with a country unlock ticket." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">Brazil</button>
+      </div>
+      <div class="country-banner">
+        <div class="cb-top">
+          <span class="cb-name" id="cb-name">All picks</span>
+          <span class="cb-desc" id="cb-desc">The signature dolls of Korea, Japan, France, the USA and Brazil you can play right now.</span>
+        </div>
+        <dl class="cb-facts">
+          <div><dt data-i18n="cb.stages">Stages</dt><dd id="cb-stages">5 countries, 100 stages</dd></div>
+          <div><dt data-i18n="cb.doll">Featured dolls</dt><dd id="cb-doll">6 featured dolls</dd></div>
+          <div><dt data-i18n="cb.boss">Boss</dt><dd id="cb-boss">Final stage of each country</dd></div>
+        </dl>
+      </div>
+      <div class="doll-grid">
+        <article class="doll-card" data-country="korea">
+          <img src="/assets/img/dolls/mongle.webp" alt="Mongle Bear" data-i18n-alt="doll.mongle.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.mongle.grade">★ Common</span>
+          <h3 class="doll-name" data-i18n="doll.mongle.name">Mongle Bear</h3>
+          <span class="doll-stage" data-i18n="doll.mongle.stage">Korea · 1-1</span>
+        </article>
+        <article class="doll-card" data-country="korea">
+          <img src="/assets/img/dolls/rabbit.webp" alt="Moon Rabbit" data-i18n-alt="doll.rabbit.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.rabbit.grade">★★ Rare</span>
+          <h3 class="doll-name" data-i18n="doll.rabbit.name">Moon Rabbit</h3>
+          <span class="doll-stage" data-i18n="doll.rabbit.stage">Korea · 1-4</span>
+        </article>
+        <article class="doll-card" data-country="japan">
+          <img src="/assets/img/dolls/daruma.webp" alt="Golden Daruma" data-i18n-alt="doll.daruma.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.daruma.grade">★★★★ Legendary</span>
+          <h3 class="doll-name" data-i18n="doll.daruma.name">Golden Daruma</h3>
+          <span class="doll-stage" data-i18n="doll.daruma.stage">Japan · 2-20 boss</span>
+        </article>
+        <article class="doll-card" data-country="france">
+          <img src="/assets/img/dolls/bulldog.webp" alt="French Bulldog" data-i18n-alt="doll.bulldog.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.bulldog.grade">★★ Rare</span>
+          <h3 class="doll-name" data-i18n="doll.bulldog.name">French Bulldog</h3>
+          <span class="doll-stage" data-i18n="doll.bulldog.stage">France · 3-8</span>
+        </article>
+        <article class="doll-card" data-country="usa">
+          <img src="/assets/img/dolls/astrobear.webp" alt="Astro Bear" data-i18n-alt="doll.astrobear.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.astrobear.grade">★★★ Epic</span>
+          <h3 class="doll-name" data-i18n="doll.astrobear.name">Astro Bear</h3>
+          <span class="doll-stage" data-i18n="doll.astrobear.stage">USA · 4-15</span>
+        </article>
+        <article class="doll-card" data-country="brazil">
+          <img src="/assets/img/dolls/toucan.webp" alt="Tropical Toucan" data-i18n-alt="doll.toucan.name" width="84" height="84">
+          <span class="doll-grade" data-i18n="doll.toucan.grade">★★ Rare</span>
+          <h3 class="doll-name" data-i18n="doll.toucan.name">Tropical Toucan</h3>
+          <span class="doll-stage" data-i18n="doll.toucan.stage">Brazil · 5-10</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-start" id="start">
+    <div class="wrap">
+      <p class="start-kicker" data-i18n="start.kicker">PLAY NOW</p>
+      <h2 class="start-title" data-i18n="start.title">Start playing now</h2>
+      <p class="start-sub" data-i18n="start.sub">Download it free from the App Store and Google Play and complete your collection of 48 dolls from around the world.</p>
+      <div class="start-actions">
+        <div class="start-store">
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_en" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Store</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Den%26utm_content%3Dstart" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name" data-i18n="start.android">Google Play</span></a>
+        </div>
+        <div class="qr-box">
+          <img src="/assets/img/qr-download.png" alt="QR code to download One More Grab (scan it with your phone)" data-i18n-alt="img.qr" width="96" height="96">
+          <p><strong data-i18n="start.qrTitle">Scan with your phone camera to download</strong><span data-i18n="start.qrDesc">Scanning the code takes you straight to the App Store or Google Play for your phone.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand-col">
+      <p class="foot-brand" data-i18n="foot.brand">One More Grab · NJ Studio</p>
+      <p class="foot-note" data-i18n-html="foot.note">A 3D physics claw machine game by NJ Studio. We bring you the joy of grabbing dolls with a claw that swings like a real machine.<br>This game contains ads and in-app purchases. Game coins are virtual currency for use only inside the game, and no physical dolls are shipped.</p>
+      <div class="foot-sns">
+        <a href="https://www.instagram.com/njstudio.official.kr/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@onemoregrab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@ongmoregrab" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/njstudio_kr" target="_blank" rel="noopener">X</a>
+        <a href="https://blog.naver.com/njstudio_official" target="_blank" rel="noopener">Naver Blog</a>
+      </div>
+    </div>
+    <div class="foot-right">
+      <nav class="foot-links" aria-label="Terms and policies" data-i18n-aria-label="foot.policyAria">
+        <a href="/legal/terms/" data-i18n="foot.terms">Terms of Service</a>
+        <a href="/legal/privacy/" data-i18n="foot.privacy">Privacy Policy</a>
+        <a href="/legal/refund/" data-i18n="foot.refund">Refund Policy</a>
+        <a href="/legal/delete-request/" data-i18n="foot.delete">Delete my data</a>
+        <a href="/support/" data-i18n="foot.support">Support</a>
+      </nav>
+      <details class="foot-biz-details">
+        <summary data-i18n="foot.bizSummary">Business info</summary>
+        <div class="foot-biz">
+          <p data-i18n="foot.biz1">Business name: NJ Studio · CEO: Jonguk Kim · Business registration no.: 840-37-01529</p>
+          <p data-i18n="foot.biz2">E-commerce registration: 2026-Seoul Gangdong-1664 · Game production registration: No. 2026-000010</p>
+          <p data-i18n="foot.biz3">Address: 64-11, Seongnae-ro 15-gil, Gangdong-gu, Seoul, Korea · Phone: +82 10-9426-4567 · Email: njstudio0603@gmail.com</p>
+        </div>
+      </details>
+      <p class="foot-copy">&copy; 2026 NJ Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/i18n-dict-a.js?v=20261115h" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261115h" defer></script>
+<script src="/assets/i18n.js?v=20261115i" defer></script>
+<script src="/assets/portal.js?v=20261115h" defer></script>
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.tab-btn');
+    var cards = document.querySelectorAll('.doll-card');
+    var fName = document.getElementById('cb-name');
+    var fDesc = document.getElementById('cb-desc');
+    var fStages = document.getElementById('cb-stages');
+    var fDoll = document.getElementById('cb-doll');
+    var fBoss = document.getElementById('cb-boss');
+    Array.prototype.forEach.call(tabs, function (btn) {
+      btn.setAttribute('aria-pressed', btn.classList.contains('is-active') ? 'true' : 'false');
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-tab');
+        Array.prototype.forEach.call(tabs, function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+        if (fName) fName.textContent = btn.getAttribute('data-name') || '';
+        if (fDesc) fDesc.textContent = btn.getAttribute('data-desc') || '';
+        if (fStages) fStages.textContent = btn.getAttribute('data-stages') || '';
+        if (fDoll) fDoll.textContent = btn.getAttribute('data-doll') || '';
+        if (fBoss) fBoss.textContent = btn.getAttribute('data-boss') || '';
+        Array.prototype.forEach.call(cards, function (c) {
+          var hit = target === 'all' || c.getAttribute('data-country') === target;
+          c.classList.toggle('is-dim', !hit);
+          c.classList.toggle('is-hot', target !== 'all' && hit);
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

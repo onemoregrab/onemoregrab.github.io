@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://onemoregrab.github.io/</loc><lastmod>2026-11-14</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://onemoregrab.github.io/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/en/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/ja/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/zh-tw/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/es/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/pt/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
+  <url>
+    <loc>https://onemoregrab.github.io/ar/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/"/>
+  </url>
   <url><loc>https://onemoregrab.github.io/notice/</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://onemoregrab.github.io/support/</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://onemoregrab.github.io/legal/terms/</loc><lastmod>2026-11-14</lastmod></url>

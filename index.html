@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-lang-set="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,13 @@
 <title>한 판 더! 인형뽑기 — 흔들리는 집게의 3D 물리 인형뽑기</title>
 <meta name="description" content="확률 조작 없는 100% 리얼 물리 손맛! 진짜 오락실처럼 흔들리는 집게로 48종 세계 인형을 뽑아 모으세요. 한국·일본·프랑스·미국 등 나라마다 20스테이지와 3D 비밀의 섬 탐험.">
 <link rel="canonical" href="https://onemoregrab.github.io/">
-<link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/?lang=ko">
-<link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/?lang=en">
-<link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/?lang=ja">
-<link rel="alternate" hreflang="zh-Hant" href="https://onemoregrab.github.io/?lang=zh-TW">
-<link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/?lang=es">
-<link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/?lang=pt">
-<link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/?lang=ar">
+<link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
+<link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://onemoregrab.github.io/ja/">
+<link rel="alternate" hreflang="zh-TW" href="https://onemoregrab.github.io/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://onemoregrab.github.io/es/">
+<link rel="alternate" hreflang="pt" href="https://onemoregrab.github.io/pt/">
+<link rel="alternate" hreflang="ar" href="https://onemoregrab.github.io/ar/">
 <link rel="alternate" hreflang="x-default" href="https://onemoregrab.github.io/">
 <meta name="theme-color" content="#0A0D14">
 <meta property="og:type" content="website">
@@ -40,6 +40,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="/assets/portal.css?v=20261115h">
+<script src="/assets/config.js?v=20261115i"></script>
+<script src="/assets/analytics.js?v=20261115i" defer></script>
 <style>
   /* 2. 풀스크린 중앙 정렬 히어로 — Pretendard 900 각진 타이포 */
   .hero {
@@ -669,14 +671,14 @@
       <h1 class="hero-logo-title" data-i18n-html="hero.title">한 판 더!<span>인형뽑기 · ONE MORE GRAB</span></h1>
       <p class="hero-desc" data-i18n-html="hero.desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 전 세계 48종의 인형을 확보하세요.</p>
       <div class="tft-btn-wrap">
-        <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame">무료로 플레이하기</a>
+        <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ko" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dko%26utm_content%3Dhero">무료로 플레이하기</a>
       </div>
       <p class="hero-os-hint" id="hero-os-hint" data-i18n="hero.osHint">기기에 맞는 스토어로 바로 이동해요</p>
       <div class="hero-platforms">
         <p data-i18n="hero.platforms">iOS · Android 지원</p>
         <div class="store-row">
-          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name">App Store</span></a>
-          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name">Google Play</span></a>
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ko" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name">App Store</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dko%26utm_content%3Dhero" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name">Google Play</span></a>
         </div>
       </div>
     </div>
@@ -828,8 +830,8 @@
       <p class="start-sub" data-i18n="start.sub">App Store와 Google Play에서 무료로 내려받고 48종 세계 인형 도감을 완성하세요.</p>
       <div class="start-actions">
         <div class="start-store">
-          <a class="store-rect" href="https://apps.apple.com/app/id6832755431" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Store에서 받기</span></a>
-          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name" data-i18n="start.android">Google Play에서 받기</span></a>
+          <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_ko" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Store에서 받기</span></a>
+          <a class="store-rect" href="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dko%26utm_content%3Dstart" target="_blank" rel="noopener"><span class="sr-top">Get it on</span><span class="sr-name" data-i18n="start.android">Google Play에서 받기</span></a>
         </div>
         <div class="qr-box">
           <img src="/assets/img/qr-download.png" alt="한 판 더! 인형뽑기 다운로드 QR 코드 (스마트폰으로 스캔하면 스토어로 이동)" data-i18n-alt="img.qr" width="96" height="96">
@@ -876,7 +878,7 @@
 
 <script src="/assets/i18n-dict-a.js?v=20261115h" defer></script>
 <script src="/assets/i18n-dict-b.js?v=20261115h" defer></script>
-<script src="/assets/i18n.js?v=20261115h" defer></script>
+<script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>
   (function () {

@@ -1,7 +1,9 @@
 // 공식 포털 다국어(ko · en · ja · zh-TW · es · pt · ar) 전환.
+// - 정적 경로(/en/ /ja/ /zh-tw/ /es/ /pt/ /ar/, 루트는 한국어)를 먼저 본다. 그 경로의 페이지는
+//   이미 그 언어로 그려져 있고(tools/build_i18n_pages.py), 여기서는 언어 단추와 기억만 맞춘다.
+// - 정적 경로가 없는 페이지(/notice/ · /support/ · /legal/*)는 예전처럼 ?lang=xx 로 그 자리에서 바꾼다.
 // - HTML 의 한국어 원문은 그대로 두고, data-i18n 계열 표시가 붙은 요소만 바꾼다.
 //   그래서 한국어로 볼 때 화면은 손대기 전과 완전히 같다(원문을 그대로 되돌려 놓는다).
-// - 언어는 ?lang=xx > 저장해 둔 선택(localStorage) > 브라우저 언어 순으로 고른다.
 // - 사전은 assets/i18n-dict-a.js(영어·일본어·번체중국어), assets/i18n-dict-b.js(스페인어·포르투갈어·아랍어)에 있다.
 (function () {
   'use strict'
@@ -9,6 +11,7 @@
   var LANGS = ['ko', 'en', 'ja', 'zh-TW', 'es', 'pt', 'ar']
   var CODES = { ko: 'KO', en: 'EN', ja: 'JA', 'zh-TW': '繁', es: 'ES', pt: 'PT', ar: 'AR' }
   var NAMES = { ko: '한국어', en: 'English', ja: '日本語', 'zh-TW': '繁體中文', es: 'Español', pt: 'Português', ar: 'العربية' }
+  var PATH = { ko: '/', en: '/en/', ja: '/ja/', 'zh-TW': '/zh-tw/', es: '/es/', pt: '/pt/', ar: '/ar/' }
   var STORE_KEY = 'omg-lang'
   var D = window.OMG_I18N_DICT || {}
   var marks = []
@@ -92,6 +95,19 @@
     updateSwitcher()
   }
 
+  // 2-1. 정적 언어 경로 도우미. 주소가 /en/ 처럼 시작하면 그 언어가 이 페이지의 언어다.
+  function pathLang() {
+    var m = /^\/(en|ja|zh-tw|es|pt|ar)(?:\/|$)/i.exec(location.pathname)
+    if (!m) return null
+    var s = m[1].toLowerCase()
+    for (var i = 0; i < LANGS.length; i++) if (LANGS[i].toLowerCase() === s) return LANGS[i]
+    return null
+  }
+
+  function staticPage() {
+    return document.documentElement.hasAttribute('data-lang-set')
+  }
+
   // 3. 언어 전환 단추(상단 바)와 모바일 메뉴 안의 언어 목록
   function closeMenu() {
     var wrap = document.getElementById('lang-switch')
@@ -116,8 +132,18 @@
   function choose(lang) {
     if (LANGS.indexOf(lang) < 0) lang = null
     if (!lang) return
-    current = lang
     try { localStorage.setItem(STORE_KEY, lang) } catch (e) {}
+
+    // 정적 경로가 있는 페이지(홈과 /en/ 등)에서는 그 언어 주소로 이동한다.
+    // 주소와 화면 언어가 어긋나지 않게 하고, 검색엔진이 한 주소만 색인하게 한다.
+    if (staticPage()) {
+      var target = PATH[lang] + (location.hash || '')
+      closeMenu()
+      if (target !== location.pathname + (location.hash || '')) location.assign(target)
+      return
+    }
+
+    current = lang
     apply()
     try {
       var url = new URL(location.href)
@@ -158,7 +184,7 @@
       menu.setAttribute('role', 'menu')
       LANGS.forEach(function (l) {
         var a = document.createElement('a')
-        a.href = '?lang=' + l
+        a.href = staticPage() ? PATH[l] : '?lang=' + l
         a.setAttribute('role', 'menuitem')
         a.setAttribute('data-lang', l)
         a.innerHTML = '<span>' + NAMES[l] + '</span><span class="code">' + CODES[l] + '</span>'
@@ -206,7 +232,7 @@
     }
   }
 
-  // 4. 언어 고르기: 주소의 lang > 저장된 선택 > 브라우저 언어
+  // 4. 언어 고르기: 정적 경로 > 주소의 lang > 저장된 선택 > 브라우저 언어
   function norm(tag) {
     if (!tag) return null
     var v = String(tag).toLowerCase()
@@ -221,6 +247,8 @@
   }
 
   function detect() {
+    var p = pathLang()
+    if (p) return p // 정적 경로(/en/ 등)가 가장 분명한 신호다
     var q = null
     try { q = new URLSearchParams(location.search).get('lang') } catch (e) {}
     if (q) {
@@ -263,7 +291,35 @@
     refresh: apply
   }
 
+  // 6. 예전 ?lang= 주소는 홈에서만 정적 경로로 보낸다(같은 화면이 두 주소로 색인되지 않게).
+  function migrateQuery() {
+    if (pathLang() || !staticPage()) return false
+    var q = null
+    try { q = new URLSearchParams(location.search).get('lang') } catch (e) {}
+    if (!q) return false
+    var n = null
+    for (var i = 0; i < LANGS.length; i++) if (LANGS[i].toLowerCase() === String(q).toLowerCase()) n = LANGS[i]
+    if (!n) n = norm(q)
+    if (!n) return false
+    if (n === 'ko') {
+      try {
+        var url = new URL(location.href)
+        url.searchParams.delete('lang')
+        history.replaceState(null, '', url.pathname + (url.search || '') + url.hash)
+      } catch (e) {}
+      return false
+    }
+    location.replace(PATH[n] + (location.hash || ''))
+    return true
+  }
+
+  if (migrateQuery()) return
+
   current = detect()
+  // 정적 경로로 들어왔으면 그 언어를 기억해 둔다(공지·고객센터로 걸어가도 같은 언어로 보인다)
+  if (pathLang()) {
+    try { localStorage.setItem(STORE_KEY, current) } catch (e) {}
+  }
   document.documentElement.setAttribute('lang', current === 'zh-TW' ? 'zh-Hant' : current)
   if (current === 'ar') document.documentElement.setAttribute('dir', 'rtl')
   mount()
