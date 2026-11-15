@@ -20,14 +20,23 @@
 <script>
 (function () {
   var pages = [['en', '/en/'], ['ja', '/ja/'], ['ar', '/ar/']]
+  var jobs = [[375, 2600, 'row375'], [1280, 2100, 'row1280']]
   var frames = []
-  pages.forEach(function (p) {
-    var d = document.createElement('div'); d.className = 'item'
-    d.innerHTML = '<h2>' + p[0] + ' 375</h2>'
-    var f = document.createElement('iframe'); f.width = 375; f.height = 2600; f.src = p[1]
-    d.appendChild(f); document.getElementById('row375').appendChild(d); frames.push([p[1], 375, f])
+  jobs.forEach(function (job) {
+    pages.forEach(function (p) {
+      var d = document.createElement('div'); d.className = 'item'
+      var f = document.createElement('iframe')
+      f.width = job[0]; f.height = job[1]; f.src = p[1]
+      f.title = p[0] + ' ' + job[0]
+      d.appendChild(f)
+      document.getElementById(job[2]).appendChild(d)
+      frames.push([p[1], job[0], f, d])
+    })
+    document.querySelectorAll('#' + job[2] + ' .item').forEach(function (item, i) {
+      var h = document.createElement('h2'); h.textContent = pages[i][0] + ' ' + job[0]; item.insertBefore(h, item.firstChild)
+    })
   })
-  document.getElementById('row1280').innerHTML = ''
+
   var out = document.getElementById('out')
   var waits = 0
 
@@ -36,17 +45,19 @@
     frames.forEach(function (x) {
       var f = x[2], label = x[0] + ' @' + x[1]
       try {
-        var doc = f.contentDocument
-        var de = doc.documentElement
+        var doc = f.contentDocument, de = doc.documentElement
+        var box = de.getBoundingClientRect()
         var cw = de.clientWidth, sw = de.scrollWidth
         var over = []
         Array.prototype.forEach.call(doc.querySelectorAll('body *'), function (el) {
           var r = el.getBoundingClientRect()
-          if (r.width > 0 && r.right > cw + 1.5) over.push((el.tagName + '.' + (el.className || '').toString().split(' ')[0]).slice(0, 40) + '=' + Math.round(r.right))
+          if (r.width > 0 && (r.right > box.right + 1.5 || r.left < box.left - 1.5)) {
+            over.push((el.tagName + (el.className ? '.' + String(el.className).split(' ')[0] : '')).slice(0, 34) + '[' + Math.round(r.left) + ',' + Math.round(r.right) + ']')
+          }
         })
         var broken = []
         Array.prototype.forEach.call(doc.images, function (im) { if (im.complete && !im.naturalWidth) broken.push(im.getAttribute('src')) })
-        lines.push(label + ' | clientWidth=' + cw + ' scrollWidth=' + sw + ' hOverflow=' + (sw > cw) + ' | overflowing=' + over.length + (over.length ? ' [' + over.slice(0, 6).join(', ') + ']' : '') + ' | brokenImages=' + broken.length + (broken.length ? ' ' + broken.join(',') : '') + ' | title=' + doc.title)
+        lines.push(label + ' | clientWidth=' + cw + ' scrollWidth=' + sw + ' boxLeft=' + Math.round(box.left) + ' boxRight=' + Math.round(box.right) + ' hOverflow=' + (sw > cw) + ' | outOfBox=' + over.length + (over.length ? ' [' + over.slice(0, 5).join(', ') + ']' : '') + ' | brokenImages=' + broken.length + (broken.length ? ' ' + broken.join(',') : '') + ' | title=' + doc.title)
       } catch (e) {
         lines.push(label + ' ERROR ' + e.message)
       }
@@ -61,7 +72,8 @@
     if (ready || waits > 40) setTimeout(report, 2500)
     else setTimeout(maybe, 400)
   }
-  setTimeout(maybe, 800)
+  setTimeout(maybe, 900)
+  window.__frames = frames
 })()
 </script>
 </body>
