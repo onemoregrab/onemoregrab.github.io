@@ -4,76 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>다국어 정적 페이지 검증 하네스</title>
+<title>다국어 정적 페이지 화면 검증</title>
 <style>
   body { margin:0; background:#111; color:#fff; font-family:system-ui,sans-serif; }
-  .row { display:flex; gap:14px; padding:14px; align-items:flex-start; flex-wrap:wrap; }
-  .item h2 { font-size:12px; margin:0 0 6px; color:#8ef; font-weight:700; }
+  .row { display:flex; gap:12px; padding:12px; align-items:flex-start; }
+  #row1280 { flex-direction:column; }
+  .item h2 { font-size:12px; margin:0 0 5px; color:#8ef; font-weight:700; }
   iframe { border:2px solid #8ef; background:#fff; display:block; }
-  #out { white-space:pre-wrap; font:12px/1.5 ui-monospace,monospace; color:#9f9; padding:14px; }
 </style>
 </head>
 <body>
 <div class="row" id="row375"></div>
 <div class="row" id="row1280"></div>
-<pre id="out">waiting…</pre>
 <script>
 (function () {
+  var sec = (new URLSearchParams(location.search).get('s') || '').replace(/[^a-z0-9-]/gi, '')
   var pages = [['en', '/en/'], ['ja', '/ja/'], ['ar', '/ar/']]
-  var jobs = [[375, 2600, 'row375'], [1280, 2100, 'row1280']]
-  var frames = []
-  jobs.forEach(function (job) {
+  ;[[375, 880, 'row375'], [1280, 880, 'row1280']].forEach(function (job) {
     pages.forEach(function (p) {
       var d = document.createElement('div'); d.className = 'item'
+      var h = document.createElement('h2'); h.textContent = p[0] + ' ' + job[0] + (sec ? ' #' + sec : '')
       var f = document.createElement('iframe')
-      f.width = job[0]; f.height = job[1]; f.src = p[1]
-      f.title = p[0] + ' ' + job[0]
-      d.appendChild(f)
+      f.width = job[0]; f.height = job[1]; f.src = p[1] + (sec ? '#' + sec : '')
+      d.appendChild(h); d.appendChild(f)
       document.getElementById(job[2]).appendChild(d)
-      frames.push([p[1], job[0], f, d])
-    })
-    document.querySelectorAll('#' + job[2] + ' .item').forEach(function (item, i) {
-      var h = document.createElement('h2'); h.textContent = pages[i][0] + ' ' + job[0]; item.insertBefore(h, item.firstChild)
     })
   })
-
-  var out = document.getElementById('out')
-  var waits = 0
-
-  function report() {
-    var lines = []
-    frames.forEach(function (x) {
-      var f = x[2], label = x[0] + ' @' + x[1]
-      try {
-        var doc = f.contentDocument, de = doc.documentElement
-        var box = de.getBoundingClientRect()
-        var cw = de.clientWidth, sw = de.scrollWidth
-        var over = []
-        Array.prototype.forEach.call(doc.querySelectorAll('body *'), function (el) {
-          var r = el.getBoundingClientRect()
-          if (r.width > 0 && (r.right > box.right + 1.5 || r.left < box.left - 1.5)) {
-            over.push((el.tagName + (el.className ? '.' + String(el.className).split(' ')[0] : '')).slice(0, 34) + '[' + Math.round(r.left) + ',' + Math.round(r.right) + ']')
-          }
-        })
-        var broken = []
-        Array.prototype.forEach.call(doc.images, function (im) { if (im.complete && !im.naturalWidth) broken.push(im.getAttribute('src')) })
-        lines.push(label + ' | clientWidth=' + cw + ' scrollWidth=' + sw + ' boxLeft=' + Math.round(box.left) + ' boxRight=' + Math.round(box.right) + ' hOverflow=' + (sw > cw) + ' | outOfBox=' + over.length + (over.length ? ' [' + over.slice(0, 5).join(', ') + ']' : '') + ' | brokenImages=' + broken.length + (broken.length ? ' ' + broken.join(',') : '') + ' | title=' + doc.title)
-      } catch (e) {
-        lines.push(label + ' ERROR ' + e.message)
-      }
-    })
-    out.textContent = lines.join('\n')
-    document.title = 'check done'
-  }
-
-  function maybe() {
-    waits++
-    var ready = frames.every(function (x) { try { return x[2].contentDocument && x[2].contentDocument.readyState === 'complete' } catch (e) { return false } })
-    if (ready || waits > 40) setTimeout(report, 2500)
-    else setTimeout(maybe, 400)
-  }
-  setTimeout(maybe, 900)
-  window.__frames = frames
 })()
 </script>
 </body>
