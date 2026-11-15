@@ -217,7 +217,7 @@ window.OMG_I18N_DICT = Object.assign(window.OMG_I18N_DICT || {}, {
 
     'a11y.skip': '本文へ移動',
     'a11y.menu': 'メニュー',
-    'brand.game': 'もう一回！クレーンゲーム',
+    'brand.game': 'もう一回！',
     'nav.mainAria': 'メインメニュー',
     'nav.news': 'お知らせ',
     'nav.dolls': 'ぬいぐるみ図鑑',
