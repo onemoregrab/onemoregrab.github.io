@@ -89,10 +89,14 @@
 
   // 3. 큰 버튼(무료로 플레이하기): 방문한 기기에 맞는 스토어로 보낸다.
   //    iOS -> App Store, Android -> Google Play, PC -> 이 페이지의 시작 섹션(스토어 버튼 + QR)으로 부드럽게 이동.
+  //    안내 문구는 다국어 사전assets/i18n.js에서 가져온다(사전이 없으면 한국어).
   function initCta() {
     run(function () {
       var cta = document.getElementById('hero-cta') || document.querySelector('[data-cta]')
       if (!cta) return
+
+      var i18n = window.OMG_I18N
+      function tr(key, kr) { return i18n && i18n.t ? i18n.t(key, kr) : kr }
 
       var ua = navigator.userAgent || ''
       var uaData = navigator.userAgentData
@@ -106,15 +110,15 @@
         cta.setAttribute('href', appStore)
         cta.setAttribute('target', '_blank')
         cta.setAttribute('rel', 'noopener')
-        if (hint) hint.textContent = 'App Store로 이동해요'
+        if (hint) hint.textContent = tr('hero.os.ios', 'App Store로 이동해요')
       } else if (isAndroid) {
         cta.setAttribute('href', playStore)
         cta.setAttribute('target', '_blank')
         cta.setAttribute('rel', 'noopener')
-        if (hint) hint.textContent = 'Google Play로 이동해요'
+        if (hint) hint.textContent = tr('hero.os.android', 'Google Play로 이동해요')
       } else {
         cta.setAttribute('href', '#start')
-        if (hint) hint.textContent = 'PC에서는 아래에서 스토어 링크와 QR 코드를 볼 수 있어요'
+        if (hint) hint.textContent = tr('hero.os.pc', 'PC에서는 아래에서 스토어 링크와 QR 코드를 볼 수 있어요')
         cta.addEventListener('click', function (e) {
           var start = document.getElementById('start')
           if (!start) return
@@ -124,6 +128,14 @@
           if (history.replaceState) history.replaceState(null, '', '#start')
         })
       }
+
+      // 언어를 바꾸면 안내 문구도 그 언어로 다시 쓴다
+      document.addEventListener('omg:langchange', function () {
+        if (!hint) return
+        if (isIOS) hint.textContent = tr('hero.os.ios', 'App Store로 이동해요')
+        else if (isAndroid) hint.textContent = tr('hero.os.android', 'Google Play로 이동해요')
+        else hint.textContent = tr('hero.os.pc', 'PC에서는 아래에서 스토어 링크와 QR 코드를 볼 수 있어요')
+      })
     })
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCta)

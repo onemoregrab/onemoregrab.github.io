@@ -121,38 +121,55 @@
   })
 
   // 공지: 앱이 읽는 것과 같은 파일(/omg-policy/notice.json)을 읽어 보여 준다. 기간(from~until, 한국 날짜) 안의 공지만.
+  //    문구는 지금 고른 언어로 쓴다(i18n 사전에 그 언어 문장이 있으면 그것, 없으면 영어, 그다음 한국어).
+  var i18n = window.OMG_I18N
+  var noticeItems = []
+  function tr(key, kr) { return i18n && i18n.t ? i18n.t(key, kr) : kr }
+  function locNotice(n, field) {
+    if (!n) return ''
+    if (i18n && i18n.noticeText) {
+      var s = i18n.noticeText(n.id, field, n[field])
+      if (s) return s
+    }
+    return (n[field] && (n[field].ko || n[field].en)) || ''
+  }
+
   var lists = [document.getElementById('home-notices'), document.getElementById('notice-list')].filter(Boolean)
   if (lists.length) {
     var today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10)
     fetch('/omg-policy/notice.json', { cache: 'no-cache' })
       .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json() })
       .then(function (data) {
-        var items = (data && Array.isArray(data.notices) ? data.notices : []).filter(function (n) {
+        noticeItems = (data && Array.isArray(data.notices) ? data.notices : []).filter(function (n) {
           return n && n.title && (n.title.ko || n.title.en) && (!n.from || n.from <= today) && (!n.until || n.until >= today)
         }).sort(function (x, y) { return String(y.from || '').localeCompare(String(x.from || '')) })
-        lists.forEach(function (ul) { render(ul, items) })
+        lists.forEach(function (ul) { render(ul, noticeItems) })
       })
       .catch(function () {
         // 파일을 못 읽어도 페이지에 미리 넣어 둔 기본 공지는 지우지 않는다(빈 화면 방지)
       })
+    // 언어를 바꾸면 불러온 공지를 그 언어로 다시 그린다
+    document.addEventListener('omg:langchange', function () {
+      if (noticeItems.length) lists.forEach(function (ul) { render(ul, noticeItems) })
+    })
   }
   function render(ul, items) {
     var limit = parseInt(ul.getAttribute('data-limit') || '0', 10)
     var shown = limit > 0 ? items.slice(0, limit) : items
     if (!shown.length) {
-      if (ul.querySelector('li[id]')) return // 기본 공지 유지
+      if (ul.querySelector('li[id]')) return // 페이지에 미리 넣어 둔 기본 공지는 그대로 둔다(문구는 i18n 표시로 바뀐다)
       ul.textContent = ''
-      var e0 = document.createElement('li'); e0.className = 'muted'; e0.textContent = '지금 새로 알려 드릴 공지는 없어요.'; ul.appendChild(e0)
+      var e0 = document.createElement('li'); e0.className = 'muted'; e0.textContent = tr('notice.empty', '지금 새로 알려 드릴 공지는 없어요.'); ul.appendChild(e0)
       return
     }
     ul.textContent = ''
     shown.forEach(function (n) {
       var li = document.createElement('li')
       if (n.id) li.id = n.id
-      var h = document.createElement('h3'); h.textContent = (n.title.ko || n.title.en)
+      var h = document.createElement('h3'); h.textContent = locNotice(n, 'title')
       li.appendChild(h)
       if (n.from) { var t = document.createElement('time'); t.setAttribute('datetime', n.from); t.textContent = n.from; li.appendChild(t) }
-      var body = n.body && (n.body.ko || n.body.en)
+      var body = locNotice(n, 'body')
       if (body) { var p = document.createElement('p'); p.textContent = body; li.appendChild(p) }
       ul.appendChild(li)
     })

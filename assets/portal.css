@@ -20,7 +20,7 @@
   --line-dark: rgba(255, 255, 255, 0.14);
   --max: 1240px;
   --pad: clamp(18px, 4vw, 44px);
-  --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans Arabic", "Geeza Pro", "Segoe UI", Tahoma, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -585,3 +585,98 @@ button.nav-link:hover { border-bottom-color: var(--accent-main); }
   .mob-toggle { width: 32px; }
   .page-title { font-size: 27px; }
 }
+
+/* 6. 언어 전환(상단 바 · 모바일 메뉴) */
+.lang-switch { position: relative; display: inline-flex; align-items: center; }
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 36px;
+  padding: 0 9px;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s;
+}
+.lang-btn:hover, .lang-switch.is-open .lang-btn { border-color: var(--gold); }
+.lang-btn .globe { width: 13px; height: 13px; flex: none; color: #C9CEDA; }
+.lang-btn .caret { font-size: 8px; line-height: 1; color: var(--muted-light); }
+.lang-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 158px;
+  padding: 6px;
+  background: #121726;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+  z-index: 220;
+  flex-direction: column;
+}
+.lang-switch.is-open .lang-menu { display: flex; }
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #D1D5DB;
+}
+.lang-menu a:hover { background: var(--accent-main); color: #fff; }
+.lang-menu a .code { font-size: 9.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--muted-light); }
+.lang-menu a[aria-selected="true"] { background: rgba(29, 78, 216, 0.3); color: #fff; }
+.lang-menu a[aria-selected="true"] .code { color: var(--gold); }
+.lang-menu a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+/* 모바일 메뉴 안의 언어 목록 */
+.mob-lang { padding: 12px 4px 4px; margin-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.07); }
+.mob-lang-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.mob-lang-links button {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: #D1D5DB;
+  cursor: pointer;
+}
+.mob-lang-links button:hover { border-color: var(--gold); color: #fff; }
+.mob-lang-links button.is-active { background: var(--accent-main); border-color: var(--accent-main); color: #fff; }
+
+/* 좁은 화면에서는 상단 바 대신 메뉴 안의 언어 목록을 쓴다(로고·다운로드 버튼과 겹치지 않게) */
+@media (max-width: 600px) {
+  .lang-switch { display: none; }
+}
+
+/* 7. 아랍어(오른쪽에서 왼쪽) */
+[dir="rtl"] .nav-dropdown { left: auto; right: 0; }
+[dir="rtl"] .lang-menu { right: auto; left: 0; }
+[dir="rtl"] .news-badge { left: auto; right: 0; }
+[dir="rtl"] .notices > li { border-left: 0; border-right: 3px solid var(--accent-main); }
+[dir="rtl"] .notices > li.muted { border-right-color: var(--cream-line); }
+[dir="rtl"] .notices > li[id]:target { border-right-color: var(--gold); }
+[dir="rtl"] .foot-sns, [dir="rtl"] .foot-links, [dir="rtl"] .mob-sns-links, [dir="rtl"] .plain-list { text-align: right; }
+[dir="rtl"] .qa > summary::after { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .nav-dropdown a[target="_blank"]::after { margin-left: 0; margin-right: 6px; }
+
+/* 도감에서 지금 고른 나라 표시(언어별) */
+html[lang="en"] .doll-card.is-hot::after { content: "HERE"; }
+html[lang="ja"] .doll-card.is-hot::after { content: "この国"; }
+html[lang="zh-Hant"] .doll-card.is-hot::after { content: "本國"; }
+html[lang="es"] .doll-card.is-hot::after { content: "ESTE PAÍS"; }
+html[lang="pt"] .doll-card.is-hot::after { content: "ESTE PAÍS"; }
+html[lang="ar"] .doll-card.is-hot::after { content: "هذا البلد"; }
