@@ -683,6 +683,9 @@ html[lang="es"] .doll-card.is-hot::after { content: "ESTE PAÍS"; }
 html[lang="pt"] .doll-card.is-hot::after { content: "ESTE PAÍS"; }
 html[lang="ar"] .doll-card.is-hot::after { content: "هذا البلد"; }
 
+/* 아랍어(오른쪽에서 왼쪽)에서 영어로만 된 작은 표제는 글자 순서를 그대로 둔다 */
+[dir="rtl"] .hero-kicker { unicode-bidi: plaintext; }
+
 /* 8. 일본어·중국어는 단어 중간에서도 줄을 바꿔야 좁은 화면에서 넘치지 않는다 */
 html:lang(ja) body,
 html:lang(zh) body { word-break: normal; }
