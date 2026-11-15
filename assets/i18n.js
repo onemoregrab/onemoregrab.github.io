@@ -105,7 +105,7 @@
     var code = document.getElementById('lang-code')
     if (code) code.textContent = CODES[current] || 'KO'
     var btn = document.getElementById('lang-btn')
-    if (btn) btn.setAttribute('aria-label', t('lang.label', '언어') + ' / Language')
+    if (btn) btn.setAttribute('aria-label', t('lang.label', '언어'))
     Array.prototype.forEach.call(document.querySelectorAll('.lang-menu a, .mob-lang-links button'), function (a) {
       var on = a.getAttribute('data-lang') === current
       a.setAttribute('aria-selected', on ? 'true' : 'false')
@@ -168,7 +168,8 @@
 
       wrap.appendChild(btn)
       wrap.appendChild(menu)
-      bar.insertBefore(wrap, bar.querySelector('.mob-toggle'))
+      // 다운로드 버튼 바로 앞에 둔다(오른쪽 끝은 다운로드 버튼이 맡는다)
+      bar.insertBefore(wrap, bar.querySelector('.bar-btn-cta') || bar.querySelector('.mob-toggle'))
 
       btn.addEventListener('click', function (e) {
         e.stopPropagation()

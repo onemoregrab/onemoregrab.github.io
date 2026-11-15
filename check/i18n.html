@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i18n 점검용 임시 하네스</title>
+<style>html,body{margin:0;padding:0;background:#2b2f36}iframe{border:0;display:block;background:#fff}</style>
+</head>
+<body>
+<iframe id="f" title="check"></iframe>
+<script>
+  var q = new URLSearchParams(location.search)
+  var w = parseInt(q.get('w') || '375', 10)
+  var h = parseInt(q.get('h') || '760', 10)
+  var u = q.get('u') || '/?lang=ko'
+  var f = document.getElementById('f')
+  f.style.width = w + 'px'
+  f.style.height = h + 'px'
+  f.src = u
+</script>
+</body>
+</html>

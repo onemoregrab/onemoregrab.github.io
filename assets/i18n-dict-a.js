@@ -145,8 +145,8 @@ window.OMG_I18N_DICT = Object.assign(window.OMG_I18N_DICT || {}, {
     'start.kicker': 'PLAY NOW',
     'start.title': 'Start playing now',
     'start.sub': 'Download it free from the App Store and Google Play and complete your collection of 48 dolls from around the world.',
-    'start.ios': 'Get it on the App Store',
-    'start.android': 'Get it on Google Play',
+    'start.ios': 'App Store',
+    'start.android': 'Google Play',
     'start.qrTitle': 'Scan with your phone camera to download',
     'start.qrDesc': 'Scanning the code takes you straight to the App Store or Google Play for your phone.',
 
