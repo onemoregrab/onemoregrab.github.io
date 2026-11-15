@@ -16,7 +16,7 @@
   var f = document.getElementById('f')
   f.style.width = w + 'px'
   f.style.height = h + 'px'
-  f.src = u
+  f.src = u + (u.indexOf('?') >= 0 ? '&' : '?') + '_=' + Date.now()
 </script>
 </body>
 </html>
