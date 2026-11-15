@@ -685,12 +685,9 @@ html[lang="ar"] .doll-card.is-hot::after { content: "هذا البلد"; }
 
 /* 한국어가 아닌 화면은 상단 메뉴 글자가 길어 961~1200px에서 넘치므로 간격을 줄이고 스튜디오 표기를 잠시 숨긴다 */
 @media (min-width: 961px) and (max-width: 1200px) {
-  html:not([lang="ko"]) .nav-link { padding: 0 7px; font-size: 12.5px; }
-  html:not([lang="ko"]) .bar-left { gap: 14px; }
-  html:not([lang="ko"]) .studio-mark { padding-right: 12px; }
-}
-@media (min-width: 961px) and (max-width: 1090px) {
   html:not([lang="ko"]) .studio-mark { display: none; }
+  html:not([lang="ko"]) .bar-left { gap: 14px; }
+  html:not([lang="ko"]) .nav-link { padding: 0 7px; font-size: 12.5px; }
 }
 
 /* 아랍어(오른쪽에서 왼쪽)에서 영어로만 된 작은 표제는 글자 순서를 그대로 둔다 */
