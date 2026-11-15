@@ -15,7 +15,7 @@ window.OMG_I18N_DICT = Object.assign(window.OMG_I18N_DICT || {}, {
     'brand.game': 'One More Grab',
     'nav.mainAria': 'Main menu',
     'nav.news': 'News',
-    'nav.dolls': 'Doll collection',
+    'nav.dolls': 'Dolls',
     'nav.patch': 'Patch notes',
     'nav.support': 'Support',
     'nav.world': 'World tour',
