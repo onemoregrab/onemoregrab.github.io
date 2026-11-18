@@ -88,6 +88,7 @@
     font-size: clamp(44px, 6.8vw, 76px);
     line-height: 1.05;
     letter-spacing: -0.03em;
+    word-break: keep-all;
     color: #FFFFFF;
     text-transform: uppercase;
   }
@@ -676,7 +677,7 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
-      <h1 class="hero-logo-title" data-i18n-html="hero.title">한 판 더!<span>인형뽑기 · ONE MORE GRAB</span></h1>
+      <h1 class="hero-logo-title" data-i18n-html="hero.title">한 판 더! 인형뽑기<span>ONE MORE GRAB</span></h1>
       <p class="hero-desc" data-i18n-html="hero.desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 8개국 48종의 인형을 확보하세요.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ko" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dko%26utm_content%3Dhero">무료로 플레이하기</a>
@@ -781,7 +782,7 @@
         <button class="tab-btn" data-tab="brazil" type="button" data-name="브라질" data-stages="20스테이지 · 5-1 ~ 5-20" data-doll="트로피컬 투칸" data-boss="5-20 보스 인형" data-desc="리듬 진동 바닥이 박자마다 인형을 흔들어요. 미국을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">브라질</button>
         <button class="tab-btn" data-tab="australia" type="button" data-name="호주" data-stages="20스테이지 · 6-1 ~ 6-20" data-doll="코알라·웜뱃·쿼카·쿠카부라·오리너구리·캥거루" data-boss="6-20 대왕 아기 품은 캥거루" data-desc="깡충 패드가 박자마다 바닥 인형을 톡 튀게 해요. 브라질을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">호주</button>
         <button class="tab-btn" data-tab="newzealand" type="button" data-name="뉴질랜드" data-stages="20스테이지 · 7-1 ~ 7-20" data-doll="뭉치양·키위 열매·꼬마펭귄·투아타라·카카포·키위새" data-boss="7-20 대왕 키위새" data-desc="산들바람이 집게에만 작용해 조준을 흔들어요. 호주를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">뉴질랜드</button>
-        <button class="tab-btn" data-tab="canada" type="button" data-name="캐나다" data-stages="20스테이지 · 8-1 ~ 8-20" data-doll="하키 퍽·푸틴 컴·메이플시럽 병·무스·북극곰·통나무 비버" data-boss="8-20 대왕 통나무 비버" data-desc="얼음 바닥에서 인형이 마끄러워요. 뉴질랜드를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">캐나다</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="캐나다" data-stages="20스테이지 · 8-1 ~ 8-20" data-doll="박새·푸틴 컵·메이플시럽 병·무스·북극곰·통나무 비버" data-boss="8-20 대왕 통나무 비버" data-desc="얼음 바닥에서 인형이 미끄러워요. 뉴질랜드를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">캐나다</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
@@ -888,8 +889,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118c" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118c" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>
