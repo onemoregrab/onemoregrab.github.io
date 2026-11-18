@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>もう一回！クレーンゲーム — アームが揺れる3D物理クレーンゲーム</title>
-<meta name="description" content="確率操作なしの100%リアルな物理の手応え。本物のゲームセンターのように揺れるアームで、世界48種のぬいぐるみを集めよう。8か国ワールドツアー、各国20ステージ。">
+<meta name="description" content="確率操作なし、100%リアルな物理。本物のアーケード機のように揺れるアームで、8か国48種のぬいぐるみを手に入れよう。韓国・日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダの8か国ワールドツアー、各国20ステージ・全160ステージ。">
 <link rel="canonical" href="https://onemoregrab.github.io/ja/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:site_name" content="もう一回！">
 <meta property="og:title" content="もう一回！クレーンゲーム — アームが揺れる3D物理クレーンゲーム">
-<meta property="og:description" content="確率操作なしの100%リアルな物理の手応え。本物のゲームセンターのように揺れるアームで、世界48種のぬいぐるみを集めよう。8か国ワールドツアー、各国20ステージ。">
+<meta property="og:description" content="確率操作なし、100%リアルな物理。本物のアーケード機のように揺れるアームで、8か国48種のぬいぐるみを手に入れよう。韓国・日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダの8か国ワールドツアー、各国20ステージ・全160ステージ。">
 <meta property="og:url" content="https://onemoregrab.github.io/ja/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="もう一回！クレーンゲーム — アームが揺れる3D物理クレーンゲーム">
-<meta name="twitter:description" content="確率操作なしの100%リアルな物理の手応え。本物のゲームセンターのように揺れるアームで、世界48種のぬいぐるみを集めよう。8か国ワールドツアー、各国20ステージ。">
+<meta name="twitter:description" content="確率操作なし、100%リアルな物理。本物のアーケード機のように揺れるアームで、8か国48種のぬいぐるみを手に入れよう。韓国・日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダの8か国ワールドツアー、各国20ステージ・全160ステージ。">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -197,6 +197,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -623,7 +633,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">ぬいぐるみ図鑑</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">パッチノート</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">サポート</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">世界ツアー</a></div>
         <div class="nav-item">
@@ -646,7 +655,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">お知らせ</a>
     <a href="#collection" data-i18n="nav.dolls">ぬいぐるみ図鑑</a>
-    <a href="/notice/" data-i18n="nav.patch">パッチノート</a>
     <a href="/support/" data-i18n="nav.support">サポート</a>
     <a href="#physics" data-i18n="nav.world">世界ツアー</a>
     <div class="mob-sns">
@@ -668,7 +676,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">もう一回！<span>クレーンゲーム · ONE MORE GRAB</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">確率操作なし、100%リアルタイム3D物理アーケード。<br>角度とタイミングだけで、世界中の48体のぬいぐるみを手に入れよう。</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">確率操作なしの100%リアルタイム3D物理アーケード。<br>角度とタイミングだけで、8か国48種のぬいぐるみを手に入れよう。</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ja" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dja%26utm_content%3Dhero">無料でプレイ</a>
       </div>
@@ -688,15 +696,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">システム概要</p>
         <h2 class="red-title" data-i18n-html="physics.title">操作どおりに反応する<br>100%リアル物理エンジン</h2>
-        <p class="red-lead" data-i18n="physics.lead">慣性で揺れる3Dクレーンのアームと、重心で動くぬいぐるみの物理。韓国から始まる8か国ワールドツアー、各国20ステージを制覇しよう。</p>
+        <p class="red-lead" data-i18n="physics.lead">慣性で揺れる3Dクレーンのアームと、重心で動くぬいぐるみの物理。韓国から始まる8か国ワールドツアー、各国20ステージ・全160ステージを制覇しよう。</p>
+        <p class="red-note" data-i18n="physics.gimmick">仕掛けは国ごとに違います。日本はスロープと階段、フランスは棚・引き出し・ピラミッド、アメリカはスロープと転がるぬいぐるみ、ブラジルはリズムで揺れる床、オーストラリアは跳ねるパッド、ニュージーランドはアームにだけ吹く風、カナダは氷の床です。</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">世界のぬいぐるみ48種</strong>
-            <span data-i18n="physics.spec1d">国ごとのテーママシンとボスぬいぐるみを収録</span>
+            <strong data-i18n="physics.spec1t">8か国48種のぬいぐるみ</strong>
+            <span data-i18n="physics.spec1d">各国6種、国ごとのテーママシンとボスぬいぐるみ</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">8か国以上のツアー</strong>
-            <span data-i18n="physics.spec2d">ワールドマップでつながる各国20ステージ</span>
+            <strong data-i18n="physics.spec2t">8か国160ステージ</strong>
+            <span data-i18n="physics.spec2d">各国20ステージと国ごとの仕掛け</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">146か国で配信</strong>
@@ -721,26 +730,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">お知らせ一覧へ →</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="リリース当時のロビー画面" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">お知らせ</span>
+            <img src="/assets/img/home-menu.webp" alt="実際のゲーム画面：ゲーム開始ボタンとワールドマップ" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">アップデート</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">両ストアで146か国に正式リリース</h3>
-            <p class="news-txt" data-i18n="news.1.text">App StoreとGoogle Playで、ログイン不要・インストールするだけですぐ無料でプレイできます。</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">v1.0.5アップデート配信完了</h3>
+            <p class="news-txt" data-i18n="news.1.text">ゲーム内の物理判定とプレイの安定性、画面表示を調整しました。8か国160ステージを収録しています（iOS）。</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="韓国から日本・フランス・アメリカ・ブラジルへ続く世界地図のルート" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="韓国から日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダへ続く世界地図のルート" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">アップデート</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
-            <h3 class="news-head" data-i18n="news.2.head">8か国をめぐる世界ツアー</h3>
-            <p class="news-txt" data-i18n="news.2.text">韓国から日本、フランス、アメリカ、ブラジルまで、国ごとに20ステージが一本の道でつながります。</p>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
+            <h3 class="news-head" data-i18n="news.2.head">世界地図でめぐる8か国ワールドツアー</h3>
+            <p class="news-txt" data-i18n="news.2.text">韓国から日本、フランス、アメリカ、ブラジル、オーストラリア、ニュージーランド、カナダまで、各国20ステージが一本の道でつながります。</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -750,8 +759,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">常時</span>
-            <h3 class="news-head" data-i18n="news.3.head">世界48種のぬいぐるみ図鑑</h3>
-            <p class="news-txt" data-i18n="news.3.text">国ごとに違う48種のぬいぐるみを集めて図鑑を埋めよう。集めたぬいぐるみは国別の図鑑でいつでも見られます。</p>
+            <h3 class="news-head" data-i18n="news.3.head">8か国48種のぬいぐるみ図鑑</h3>
+            <p class="news-txt" data-i18n="news.3.text">各国6種、全部で48種。8か国の図鑑をコンプリートしよう。手に入れたぬいぐるみは国別の図鑑に残ります。</p>
           </div>
         </a>
       </div>
@@ -761,23 +770,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">図鑑</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">世界のぬいぐるみ48種図鑑</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">8か国48種のぬいぐるみ図鑑</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="全体代表" data-stages="5か国100ステージ" data-doll="代表ぬいぐるみ6種" data-boss="各国の最終ステージ" data-desc="今プレイできる韓国・日本・フランス・アメリカ・ブラジルの代表ぬいぐるみを集めました。" data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">全体代表</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="全体代表" data-stages="8か国160ステージ" data-doll="各国6種・全48種" data-boss="各国の最終ステージ" data-desc="韓国・日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダの8か国、各国6種で全部48種。下のカードはそのうちの6種です。" data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">全体代表</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="韓国" data-stages="20ステージ · 1-1 ~ 1-20" data-doll="モングルベア · 月うさぎ" data-boss="1-20 ボスぬいぐるみ" data-desc="最初に開放される国です。基本のアーム操作を覚えるのにぴったり。" data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">韓国</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="日本" data-stages="20ステージ · 2-1 ~ 2-20" data-doll="黄金だるま" data-boss="2-20 黄金だるま" data-desc="韓国をクリアすると開放されます。最終ステージのボスは伝説の黄金だるま。" data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">日本</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="フランス" data-stages="20ステージ · 3-1 ~ 3-20" data-doll="フレンチブルドッグ" data-boss="3-20 ボスぬいぐるみ" data-desc="日本をクリアするか、国アンロック券で入場できます。" data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">フランス</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="アメリカ" data-stages="20ステージ · 4-1 ~ 4-20" data-doll="アストロベア" data-boss="4-20 ボスぬいぐるみ" data-desc="フランスをクリアするか、国アンロック券で入場できます。" data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">アメリカ</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="ブラジル" data-stages="20ステージ · 5-1 ~ 5-20" data-doll="トロピカルトゥーカン" data-boss="5-20 ボスぬいぐるみ" data-desc="アメリカをクリアするか、国アンロック券で入場できます。" data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">ブラジル</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="日本" data-stages="20ステージ · 2-1 ~ 2-20" data-doll="黄金だるま" data-boss="2-20 黄金だるま" data-desc="スロープと階段があるマシンです。最終ステージのボスは伝説の黄金だるま。" data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">日本</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="フランス" data-stages="20ステージ · 3-1 ~ 3-20" data-doll="フレンチブルドッグ" data-boss="3-20 ボスぬいぐるみ" data-desc="棚・引き出し・ピラミッドの構造物がぬいぐるみを隠します。日本をクリアするか、国アンロック券で入場できます。" data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">フランス</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="アメリカ" data-stages="20ステージ · 4-1 ~ 4-20" data-doll="アストロベア" data-boss="4-20 ボスぬいぐるみ" data-desc="スロープと転がるぬいぐるみがあります。フランスをクリアするか、国アンロック券で入場できます。" data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">アメリカ</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="ブラジル" data-stages="20ステージ · 5-1 ~ 5-20" data-doll="トロピカルトゥーカン" data-boss="5-20 ボスぬいぐるみ" data-desc="リズムで揺れる床が拍ごとにぬいぐるみを動かします。アメリカをクリアするか、国アンロック券で入場できます。" data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">ブラジル</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="オーストラリア" data-stages="20ステージ · 6-1 ~ 6-20" data-doll="コアラ・ウォンバット・クオッカ・ワライカワセミ・カモノハシ・カンガルー" data-boss="6-20 大王 赤ちゃんを抱いたカンガルー" data-desc="跳ねるパッドが拍に合わせて床のぬいぐるみを弾ませます。ブラジルをクリアするか、国アンロック券で入場できます。" data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">オーストラリア</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="ニュージーランド" data-stages="20ステージ · 7-1 ~ 7-20" data-doll="ふわふわ羊・キウイフルーツ・コガタペンギン・ムカシトカゲ・カカポ・キーウィ" data-boss="7-20 大王キーウィ" data-desc="アームにだけ吹く風が狙いを揺らします。オーストラリアをクリアするか、国アンロック券で入場できます。" data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">ニュージーランド</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="カナダ" data-stages="20ステージ · 8-1 ~ 8-20" data-doll="ホッケーパック・プーティンカップ・メープルシロップ瓶・ヘラジカ・ホッキョクグマ・丸太ビーバー" data-boss="8-20 大王丸太ビーバー" data-desc="氷の床でぬいぐるみが滑ります。ニュージーランドをクリアするか、国アンロック券で入場できます。" data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">カナダ</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">全体代表</span>
-          <span class="cb-desc" id="cb-desc">今プレイできる韓国・日本・フランス・アメリカ・ブラジルの代表ぬいぐるみを集めました。</span>
+          <span class="cb-desc" id="cb-desc">韓国・日本・フランス・アメリカ・ブラジル・オーストラリア・ニュージーランド・カナダの8か国、各国6種で全部48種。下のカードはそのうちの6種です。</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">ステージ</dt><dd id="cb-stages">5か国100ステージ</dd></div>
-          <div><dt data-i18n="cb.doll">代表ぬいぐるみ</dt><dd id="cb-doll">代表ぬいぐるみ6種</dd></div>
+          <div><dt data-i18n="cb.stages">ステージ</dt><dd id="cb-stages">8か国160ステージ</dd></div>
+          <div><dt data-i18n="cb.doll">代表ぬいぐるみ</dt><dd id="cb-doll">各国6種・全48種</dd></div>
           <div><dt data-i18n="cb.boss">ボス</dt><dd id="cb-boss">各国の最終ステージ</dd></div>
         </dl>
       </div>
@@ -826,7 +838,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">今すぐプレイ</p>
       <h2 class="start-title" data-i18n="start.title">今すぐはじめよう</h2>
-      <p class="start-sub" data-i18n="start.sub">App StoreとGoogle Playで無料ダウンロードして、48種の世界のぬいぐるみ図鑑を完成させよう。</p>
+      <p class="start-sub" data-i18n="start.sub">App StoreとGoogle Playで無料ダウンロードして、8か国48種のぬいぐるみ図鑑を完成させよう。</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_ja" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Storeで入手</span></a>
@@ -875,8 +887,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>

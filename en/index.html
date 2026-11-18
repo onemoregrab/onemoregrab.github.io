@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>One More Grab — a 3D physics claw machine that swings like the real thing</title>
-<meta name="description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. An 8-country world tour with 20 stages in every country.">
+<meta name="description" content="100% real physics, no rigged odds. Win 48 dolls from 8 countries with a claw that swings like a real arcade machine. A world tour through Korea, Japan, France, USA, Brazil, Australia, New Zealand and Canada — 20 stages each, 160 in all.">
 <link rel="canonical" href="https://onemoregrab.github.io/en/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:site_name" content="One More Grab">
 <meta property="og:title" content="One More Grab — a 3D physics claw machine that swings like the real thing">
-<meta property="og:description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. An 8-country world tour with 20 stages in every country.">
+<meta property="og:description" content="100% real physics, no rigged odds. Win 48 dolls from 8 countries with a claw that swings like a real arcade machine. A world tour through Korea, Japan, France, USA, Brazil, Australia, New Zealand and Canada — 20 stages each, 160 in all.">
 <meta property="og:url" content="https://onemoregrab.github.io/en/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="One More Grab — a 3D physics claw machine that swings like the real thing">
-<meta name="twitter:description" content="100% real physics, no rigged odds. Win 48 dolls from around the world with a claw that swings like a real arcade machine. An 8-country world tour with 20 stages in every country.">
+<meta name="twitter:description" content="100% real physics, no rigged odds. Win 48 dolls from 8 countries with a claw that swings like a real arcade machine. A world tour through Korea, Japan, France, USA, Brazil, Australia, New Zealand and Canada — 20 stages each, 160 in all.">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -197,6 +197,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -623,7 +633,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">Dolls</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">Patch notes</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">Support</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">World tour</a></div>
         <div class="nav-item">
@@ -646,7 +655,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">News</a>
     <a href="#collection" data-i18n="nav.dolls">Dolls</a>
-    <a href="/notice/" data-i18n="nav.patch">Patch notes</a>
     <a href="/support/" data-i18n="nav.support">Support</a>
     <a href="#physics" data-i18n="nav.world">World tour</a>
     <div class="mob-sns">
@@ -668,7 +676,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">ONE MORE GRAB<span>CLAW MACHINE · 48 DOLLS</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">A 100% real-time 3D physics arcade with no rigged odds.<br>Win all 48 dolls from around the world with nothing but angle and timing.</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">A 100% real-time 3D physics arcade with no rigged odds.<br>Win all 48 dolls from 8 countries with nothing but angle and timing.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_en" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Den%26utm_content%3Dhero">Play for free</a>
       </div>
@@ -688,15 +696,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">SYSTEM OVERVIEW</p>
         <h2 class="red-title" data-i18n-html="physics.title">A 100% real physics engine<br>that answers every move</h2>
-        <p class="red-lead" data-i18n="physics.lead">A 3D crane claw that swings on momentum, and dolls that shift with their centre of gravity. Start in Korea and work through an 8-country world tour, 20 stages in each.</p>
+        <p class="red-lead" data-i18n="physics.lead">A 3D crane claw that swings on momentum, and dolls that shift with their centre of gravity. Start in Korea and work through a world tour of 8 countries: 20 stages each, 160 in all.</p>
+        <p class="red-note" data-i18n="physics.gimmick">Every country plays differently. Japan has slopes and stairs, France has shelves, drawers and pyramids, the USA has ramps and rolling dolls, Brazil has a rhythm-shaking floor, Australia has bounce pads, New Zealand has a breeze that moves only the claw, and Canada has an icy floor.</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">48 dolls worldwide</strong>
-            <span data-i18n="physics.spec1d">Themed machines and boss dolls in every country</span>
+            <strong data-i18n="physics.spec1t">48 dolls from 8 countries</strong>
+            <span data-i18n="physics.spec1d">6 dolls per country, with themed machines and boss dolls</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">8+ country tour</strong>
-            <span data-i18n="physics.spec2d">20 stages per country on the world map</span>
+            <strong data-i18n="physics.spec2t">160 stages in 8 countries</strong>
+            <span data-i18n="physics.spec2d">20 stages and a different gimmick in every country</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">Live in 146 countries</strong>
@@ -721,26 +730,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">View all notices →</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="Lobby screen from launch day" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">Notice</span>
+            <img src="/assets/img/home-menu.webp" alt="In-game lobby screen: the start button and the world map" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">Update</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">Now live in 146 countries on both stores</h3>
-            <p class="news-txt" data-i18n="news.1.text">Download it free from the App Store and Google Play and play right away, no sign-in needed.</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">v1.0.5 update is live</h3>
+            <p class="news-txt" data-i18n="news.1.text">We refined in-game physics judging, play stability and screen display, with 160 stages across 8 countries (iOS).</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="World map route from Korea to Japan, France, the USA and Brazil" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="World map route from Korea through Japan, France, USA, Brazil, Australia, New Zealand and Canada" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">Update</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
-            <h3 class="news-head" data-i18n="news.2.head">A world tour across 8 countries</h3>
-            <p class="news-txt" data-i18n="news.2.text">Korea, Japan, France, the USA and Brazil: each country adds 20 stages along one road.</p>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
+            <h3 class="news-head" data-i18n="news.2.head">An 8-country world tour on the world map</h3>
+            <p class="news-txt" data-i18n="news.2.text">Korea, Japan, France, the USA, Brazil, Australia, New Zealand and Canada: 20 stages in each country, all on one road.</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -750,8 +759,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">Always on</span>
-            <h3 class="news-head" data-i18n="news.3.head">48 dolls in the world collection</h3>
-            <p class="news-txt" data-i18n="news.3.text">Win 48 different dolls, each country with its own set, and fill the dex. Every doll you collect stays in that country collection.</p>
+            <h3 class="news-head" data-i18n="news.3.head">48 dolls across 8 countries</h3>
+            <p class="news-txt" data-i18n="news.3.text">Six dolls in every country, 48 in all. Fill the dex of all 8 countries, and every doll you win stays in that country collection.</p>
           </div>
         </a>
       </div>
@@ -761,23 +770,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">COLLECTION</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 dolls from around the world</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 dolls across 8 countries</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="All picks" data-stages="5 countries, 100 stages" data-doll="6 featured dolls" data-boss="Final stage of each country" data-desc="The signature dolls of Korea, Japan, France, the USA and Brazil you can play right now." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">All picks</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="All picks" data-stages="160 stages in 8 countries" data-doll="6 dolls per country, 48 in all" data-boss="Final stage of each country" data-desc="Eight countries — Korea, Japan, France, the USA, Brazil, Australia, New Zealand and Canada — with 6 dolls each, 48 in all. The cards below show 6 of them." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">All picks</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="Korea" data-stages="20 stages · 1-1 to 1-20" data-doll="Mongle Bear · Moon Rabbit" data-boss="1-20 boss doll" data-desc="The first country open to you. A good place to learn the basic claw." data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">Korea</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="Japan" data-stages="20 stages · 2-1 to 2-20" data-doll="Golden Daruma" data-boss="2-20 Golden Daruma" data-desc="Opens once you clear Korea. The boss of the last stage is the legendary Golden Daruma." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">Japan</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="France" data-stages="20 stages · 3-1 to 3-20" data-doll="French Bulldog" data-boss="3-20 boss doll" data-desc="Clear Japan, or enter with a country unlock ticket." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">France</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="USA" data-stages="20 stages · 4-1 to 4-20" data-doll="Astro Bear" data-boss="4-20 boss doll" data-desc="Clear France, or enter with a country unlock ticket." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">USA</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="Brazil" data-stages="20 stages · 5-1 to 5-20" data-doll="Tropical Toucan" data-boss="5-20 boss doll" data-desc="Clear the USA, or enter with a country unlock ticket." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">Brazil</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="Japan" data-stages="20 stages · 2-1 to 2-20" data-doll="Golden Daruma" data-boss="2-20 Golden Daruma" data-desc="A machine with slopes and stairs. The final stage boss is the legendary Golden Daruma." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">Japan</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="France" data-stages="20 stages · 3-1 to 3-20" data-doll="French Bulldog" data-boss="3-20 boss doll" data-desc="Shelves, drawers and pyramid structures hide the dolls. Clear Japan or use a country unlock ticket to enter." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">France</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="USA" data-stages="20 stages · 4-1 to 4-20" data-doll="Astro Bear" data-boss="4-20 boss doll" data-desc="Ramps and dolls that roll. Clear France or use a country unlock ticket to enter." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">USA</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="Brazil" data-stages="20 stages · 5-1 to 5-20" data-doll="Tropical Toucan" data-boss="5-20 boss doll" data-desc="A rhythm-shaking floor moves the dolls on every beat. Clear the USA or use a country unlock ticket to enter." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">Brazil</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="Australia" data-stages="20 stages · 6-1 to 6-20" data-doll="Koala · Wombat · Quokka · Kookaburra · Platypus · Kangaroo" data-boss="6-20 Great Kangaroo with a Joey" data-desc="Bounce pads pop the dolls on the floor to the beat. Clear Brazil or use a country unlock ticket to enter." data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">Australia</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="New Zealand" data-stages="20 stages · 7-1 to 7-20" data-doll="Fluffy Sheep · Kiwi Fruit · Little Penguin · Tuatara · Kakapo · Kiwi Bird" data-boss="7-20 Great Kiwi Bird" data-desc="A breeze that moves only the claw makes your aim drift. Clear Australia or use a country unlock ticket to enter." data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">New Zealand</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="Canada" data-stages="20 stages · 8-1 to 8-20" data-doll="Hockey Puck · Poutine Cup · Maple Syrup Bottle · Moose · Polar Bear · Log Beaver" data-boss="8-20 Great Log Beaver" data-desc="The icy floor makes the dolls slide. Clear New Zealand or use a country unlock ticket to enter." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">Canada</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">All picks</span>
-          <span class="cb-desc" id="cb-desc">The signature dolls of Korea, Japan, France, the USA and Brazil you can play right now.</span>
+          <span class="cb-desc" id="cb-desc">Eight countries — Korea, Japan, France, the USA, Brazil, Australia, New Zealand and Canada — with 6 dolls each, 48 in all. The cards below show 6 of them.</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">Stages</dt><dd id="cb-stages">5 countries, 100 stages</dd></div>
-          <div><dt data-i18n="cb.doll">Featured dolls</dt><dd id="cb-doll">6 featured dolls</dd></div>
+          <div><dt data-i18n="cb.stages">Stages</dt><dd id="cb-stages">160 stages in 8 countries</dd></div>
+          <div><dt data-i18n="cb.doll">Featured dolls</dt><dd id="cb-doll">6 dolls per country, 48 in all</dd></div>
           <div><dt data-i18n="cb.boss">Boss</dt><dd id="cb-boss">Final stage of each country</dd></div>
         </dl>
       </div>
@@ -826,7 +838,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">PLAY NOW</p>
       <h2 class="start-title" data-i18n="start.title">Start playing now</h2>
-      <p class="start-sub" data-i18n="start.sub">Download it free from the App Store and Google Play and complete your collection of 48 dolls from around the world.</p>
+      <p class="start-sub" data-i18n="start.sub">Download it free from the App Store and Google Play and complete the 48-doll collection across 8 countries.</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_en" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Store</span></a>
@@ -875,8 +887,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>

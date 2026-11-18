@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mais uma! — máquina de garra com física 3D que balança de verdade</title>
-<meta name="description" content="Física 100% real, sem probabilidade manipulada. Pegue os 48 pelúcias do mundo com uma garra que balança como numa máquina de verdade. Uma turnê mundial de 8 países com 20 fases em cada um.">
+<meta name="description" content="Física 100% real, sem probabilidades manipuladas. Consiga 48 pelúcias de 8 países com uma garra que balança como numa máquina de verdade. Uma volta ao mundo pela Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá: 20 fases em cada país, 160 no total.">
 <link rel="canonical" href="https://onemoregrab.github.io/pt/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:site_name" content="Mais uma!">
 <meta property="og:title" content="Mais uma! — máquina de garra com física 3D que balança de verdade">
-<meta property="og:description" content="Física 100% real, sem probabilidade manipulada. Pegue os 48 pelúcias do mundo com uma garra que balança como numa máquina de verdade. Uma turnê mundial de 8 países com 20 fases em cada um.">
+<meta property="og:description" content="Física 100% real, sem probabilidades manipuladas. Consiga 48 pelúcias de 8 países com uma garra que balança como numa máquina de verdade. Uma volta ao mundo pela Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá: 20 fases em cada país, 160 no total.">
 <meta property="og:url" content="https://onemoregrab.github.io/pt/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mais uma! — máquina de garra com física 3D que balança de verdade">
-<meta name="twitter:description" content="Física 100% real, sem probabilidade manipulada. Pegue os 48 pelúcias do mundo com uma garra que balança como numa máquina de verdade. Uma turnê mundial de 8 países com 20 fases em cada um.">
+<meta name="twitter:description" content="Física 100% real, sem probabilidades manipuladas. Consiga 48 pelúcias de 8 países com uma garra que balança como numa máquina de verdade. Uma volta ao mundo pela Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá: 20 fases em cada país, 160 no total.">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -197,6 +197,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -623,7 +633,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">Pelúcias</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">Atualizações</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">Suporte</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">Turnê mundial</a></div>
         <div class="nav-item">
@@ -646,7 +655,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">Novidades</a>
     <a href="#collection" data-i18n="nav.dolls">Pelúcias</a>
-    <a href="/notice/" data-i18n="nav.patch">Atualizações</a>
     <a href="/support/" data-i18n="nav.support">Suporte</a>
     <a href="#physics" data-i18n="nav.world">Turnê mundial</a>
     <div class="mob-sns">
@@ -668,7 +676,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">Mais uma!<span>MÁQUINA DE GARRA · 48 PELÚCIAS</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">Arcade de física 3D 100% em tempo real, sem probabilidade manipulada.<br>Pegue os 48 pelúcias do mundo só com ângulo e reflexo.</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">Um arcade de física 3D em tempo real 100%, sem probabilidades manipuladas.<br>Ganhe as 48 pelúcias de 8 países só com ângulo e timing.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_pt" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dpt%26utm_content%3Dhero">Jogar grátis</a>
       </div>
@@ -688,15 +696,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">VISÃO DO SISTEMA</p>
         <h2 class="red-title" data-i18n-html="physics.title">Um motor de física 100% real<br>que responde a cada movimento</h2>
-        <p class="red-lead" data-i18n="physics.lead">Uma garra 3D que balança com a inércia e pelúcias que se movem pelo centro de gravidade. Comece na Coreia e percorra uma turnê mundial de 8 países, 20 fases em cada um.</p>
+        <p class="red-lead" data-i18n="physics.lead">Uma garra 3D que balança pela inércia e pelúcias que se movem pelo centro de gravidade. Comece na Coreia e siga numa volta ao mundo de 8 países: 20 fases em cada, 160 no total.</p>
+        <p class="red-note" data-i18n="physics.gimmick">Cada país joga diferente. O Japão tem rampas e escadas; a França, prateleiras, gavetas e pirâmides; os EUA, rampas e pelúcias que rolam; o Brasil, um piso que vibra no ritmo; a Austrália, plataformas que impulsionam; a Nova Zelândia, um vento que move só a garra; o Canadá, um piso de gelo.</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">48 pelúcias do mundo</strong>
-            <span data-i18n="physics.spec1d">Máquinas temáticas e pelúcias chefes em cada país</span>
+            <strong data-i18n="physics.spec1t">48 pelúcias de 8 países</strong>
+            <span data-i18n="physics.spec1d">6 pelúcias por país, com máquinas temáticas e pelúcias chefe</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">Turnê por mais de 8 países</strong>
-            <span data-i18n="physics.spec2d">20 fases por país no mapa do mundo</span>
+            <strong data-i18n="physics.spec2t">160 fases em 8 países</strong>
+            <span data-i18n="physics.spec2d">20 fases e um mecanismo diferente em cada país</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">Disponível em 146 países</strong>
@@ -721,26 +730,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">Ver todos os avisos →</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="Tela do lobby no dia do lançamento" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">Aviso</span>
+            <img src="/assets/img/home-menu.webp" alt="Tela real do jogo: o botão de início e o mapa do mundo" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">Atualização</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">Já disponível em 146 países nas duas lojas</h3>
-            <p class="news-txt" data-i18n="news.1.text">Baixe grátis na App Store e no Google Play e jogue na hora, sem login.</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">A atualização v1.0.5 já está no ar</h3>
+            <p class="news-txt" data-i18n="news.1.text">Ajustamos a física do jogo, a estabilidade e a exibição na tela, com 160 fases em 8 países (iOS).</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="Rota do mapa da Coreia até o Japão, a França, os EUA e o Brasil" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="Rota do mapa da Coreia até Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">Atualização</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
-            <h3 class="news-head" data-i18n="news.2.head">Uma turnê mundial por 8 países</h3>
-            <p class="news-txt" data-i18n="news.2.text">Da Coreia ao Japão, França, EUA e Brasil: cada país soma 20 fases em um só caminho.</p>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
+            <h3 class="news-head" data-i18n="news.2.head">Uma volta ao mundo por 8 países no mapa</h3>
+            <p class="news-txt" data-i18n="news.2.text">Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá: 20 fases em cada país, tudo num só caminho.</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -750,8 +759,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">Sempre ativo</span>
-            <h3 class="news-head" data-i18n="news.3.head">48 pelúcias na coleção mundial</h3>
-            <p class="news-txt" data-i18n="news.3.text">Pegue 48 pelúcias diferentes, cada país com o seu conjunto, e complete o catálogo. As pelúcias que você juntar ficam na coleção de cada país.</p>
+            <h3 class="news-head" data-i18n="news.3.head">48 pelúcias em 8 países</h3>
+            <p class="news-txt" data-i18n="news.3.text">Seis pelúcias em cada país, 48 no total. Complete a coleção dos 8 países e cada pelúcia que você ganhar fica no país dela.</p>
           </div>
         </a>
       </div>
@@ -761,23 +770,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">COLEÇÃO</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 pelúcias do mundo todo</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 pelúcias em 8 países</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="Todos" data-stages="5 países, 100 fases" data-doll="6 pelúcias destaque" data-boss="Última fase de cada país" data-desc="Os pelúcias principais da Coreia, do Japão, da França, dos EUA e do Brasil que você já pode jogar." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">Todos</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="Todos" data-stages="160 fases em 8 países" data-doll="6 pelúcias por país, 48 no total" data-boss="Última fase de cada país" data-desc="Oito países — Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá — com 6 pelúcias cada, 48 no total. Os cartões abaixo mostram 6 delas." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">Todos</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="Coreia" data-stages="20 fases · 1-1 a 1-20" data-doll="Urso Mongle · Coelho Lua" data-boss="Pelúcia chefe 1-20" data-desc="O primeiro país aberto. Bom para aprender o controle básico da garra." data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">Coreia</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="Japão" data-stages="20 fases · 2-1 a 2-20" data-doll="Daruma Dourado" data-boss="2-20 Daruma Dourado" data-desc="Abre quando você conclui a Coreia. O chefe da última fase é o lendário Daruma Dourado." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">Japão</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="França" data-stages="20 fases · 3-1 a 3-20" data-doll="Buldogue Francês" data-boss="Pelúcia chefe 3-20" data-desc="Conclua o Japão ou entre com um passe de desbloqueio de país." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">França</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="EUA" data-stages="20 fases · 4-1 a 4-20" data-doll="Urso Astro" data-boss="Pelúcia chefe 4-20" data-desc="Conclua a França ou entre com um passe de desbloqueio de país." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">EUA</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="Brasil" data-stages="20 fases · 5-1 a 5-20" data-doll="Tucano Tropical" data-boss="Pelúcia chefe 5-20" data-desc="Conclua os EUA ou entre com um passe de desbloqueio de país." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">Brasil</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="Japão" data-stages="20 fases · 2-1 a 2-20" data-doll="Daruma Dourado" data-boss="2-20 Daruma Dourado" data-desc="Uma máquina com rampas e escadas. O chefe da última fase é o lendário Daruma Dourado." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">Japão</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="França" data-stages="20 fases · 3-1 a 3-20" data-doll="Buldogue Francês" data-boss="Pelúcia chefe 3-20" data-desc="Prateleiras, gavetas e pirâmides escondem as pelúcias. Conclua o Japão ou use um passe de desbloqueio de país para entrar." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">França</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="EUA" data-stages="20 fases · 4-1 a 4-20" data-doll="Urso Astro" data-boss="Pelúcia chefe 4-20" data-desc="Rampas e pelúcias que rolam. Conclua a França ou use um passe de desbloqueio de país para entrar." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">EUA</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="Brasil" data-stages="20 fases · 5-1 a 5-20" data-doll="Tucano Tropical" data-boss="Pelúcia chefe 5-20" data-desc="Um piso que vibra no ritmo move as pelúcias a cada batida. Conclua os EUA ou use um passe de desbloqueio de país para entrar." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">Brasil</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="Austrália" data-stages="20 fases · 6-1 a 6-20" data-doll="Coala · Vombate · Quokka · Cucaburra · Ornitorrinco · Canguru" data-boss="6-20 Canguru gigante com filhote" data-desc="As plataformas de impulso fazem as pelúcias do chão saltarem no ritmo. Conclua o Brasil ou use um passe de desbloqueio de país para entrar." data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">Austrália</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="Nova Zelândia" data-stages="20 fases · 7-1 a 7-20" data-doll="Ovelha fofinha · Kiwi · Pinguim-anão · Tuatara · Kakapo · Pássaro kiwi" data-boss="7-20 Pássaro kiwi gigante" data-desc="Um vento que move só a garra faz a mira desviar. Conclua a Austrália ou use um passe de desbloqueio de país para entrar." data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">Nova Zelândia</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="Canadá" data-stages="20 fases · 8-1 a 8-20" data-doll="Disco de hóquei · Copo de poutine · Garrafa de xarope de bordo · Alce · Urso-polar · Castor do tronco" data-boss="8-20 Castor gigante do tronco" data-desc="O piso de gelo faz as pelúcias escorregarem. Conclua a Nova Zelândia ou use um passe de desbloqueio de país para entrar." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">Canadá</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">Todos</span>
-          <span class="cb-desc" id="cb-desc">Os pelúcias principais da Coreia, do Japão, da França, dos EUA e do Brasil que você já pode jogar.</span>
+          <span class="cb-desc" id="cb-desc">Oito países — Coreia, Japão, França, EUA, Brasil, Austrália, Nova Zelândia e Canadá — com 6 pelúcias cada, 48 no total. Os cartões abaixo mostram 6 delas.</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">Fases</dt><dd id="cb-stages">5 países, 100 fases</dd></div>
-          <div><dt data-i18n="cb.doll">Pelúcias destaque</dt><dd id="cb-doll">6 pelúcias destaque</dd></div>
+          <div><dt data-i18n="cb.stages">Fases</dt><dd id="cb-stages">160 fases em 8 países</dd></div>
+          <div><dt data-i18n="cb.doll">Pelúcias destaque</dt><dd id="cb-doll">6 pelúcias por país, 48 no total</dd></div>
           <div><dt data-i18n="cb.boss">Chefe</dt><dd id="cb-boss">Última fase de cada país</dd></div>
         </dl>
       </div>
@@ -826,7 +838,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">JOGUE AGORA</p>
       <h2 class="start-title" data-i18n="start.title">Comece agora</h2>
-      <p class="start-sub" data-i18n="start.sub">Baixe grátis na App Store e no Google Play e complete a coleção de 48 pelúcias do mundo.</p>
+      <p class="start-sub" data-i18n="start.sub">Baixe grátis na App Store e no Google Play e complete a coleção de 48 pelúcias de 8 países.</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_pt" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">Baixar na App Store</span></a>
@@ -875,8 +887,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>مرة أخرى! — لعبة كلّاب ثلاثية الأبعاد بفيزياء حقيقية</title>
-<meta name="description" content="فيزياء حقيقية 100% بلا احتمالات معدّلة. اجمع 48 دمية من حول العالم بكلّاب يتأرجح كالآلة الحقيقية. جولة عالمية في 8 بلدان، 20 مرحلة في كل بلد.">
+<meta name="description" content="فيزياء حقيقية 100% بلا احتمالات مُتلاعب بها. اجمع 48 دمية من 8 دول بذراع يتأرجح مثل ماكينة أركيد حقيقية. جولة عالمية في كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا: 20 مرحلة لكل دولة و160 مرحلة إجمالًا.">
 <link rel="canonical" href="https://onemoregrab.github.io/ar/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:site_name" content="مرة أخرى!">
 <meta property="og:title" content="مرة أخرى! — لعبة كلّاب ثلاثية الأبعاد بفيزياء حقيقية">
-<meta property="og:description" content="فيزياء حقيقية 100% بلا احتمالات معدّلة. اجمع 48 دمية من حول العالم بكلّاب يتأرجح كالآلة الحقيقية. جولة عالمية في 8 بلدان، 20 مرحلة في كل بلد.">
+<meta property="og:description" content="فيزياء حقيقية 100% بلا احتمالات مُتلاعب بها. اجمع 48 دمية من 8 دول بذراع يتأرجح مثل ماكينة أركيد حقيقية. جولة عالمية في كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا: 20 مرحلة لكل دولة و160 مرحلة إجمالًا.">
 <meta property="og:url" content="https://onemoregrab.github.io/ar/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="مرة أخرى! — لعبة كلّاب ثلاثية الأبعاد بفيزياء حقيقية">
-<meta name="twitter:description" content="فيزياء حقيقية 100% بلا احتمالات معدّلة. اجمع 48 دمية من حول العالم بكلّاب يتأرجح كالآلة الحقيقية. جولة عالمية في 8 بلدان، 20 مرحلة في كل بلد.">
+<meta name="twitter:description" content="فيزياء حقيقية 100% بلا احتمالات مُتلاعب بها. اجمع 48 دمية من 8 دول بذراع يتأرجح مثل ماكينة أركيد حقيقية. جولة عالمية في كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا: 20 مرحلة لكل دولة و160 مرحلة إجمالًا.">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -197,6 +197,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -623,7 +633,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">مجموعة الدمى</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">ملاحظات التحديث</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">الدعم</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">الجولة العالمية</a></div>
         <div class="nav-item">
@@ -646,7 +655,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">الأخبار</a>
     <a href="#collection" data-i18n="nav.dolls">مجموعة الدمى</a>
-    <a href="/notice/" data-i18n="nav.patch">ملاحظات التحديث</a>
     <a href="/support/" data-i18n="nav.support">الدعم</a>
     <a href="#physics" data-i18n="nav.world">الجولة العالمية</a>
     <div class="mob-sns">
@@ -668,7 +676,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">مرة أخرى!<span>لعبة الكلّاب · ONE MORE GRAB</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">أركيد فيزياء ثلاثي الأبعاد في الوقت الحقيقي 100%، بلا احتمالات معدّلة.<br>اجمع 48 دمية من حول العالم بالزاوية والتوقيت فقط.</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">أركيد فيزياء ثلاثي الأبعاد فوري 100% بلا احتمالات مُتلاعب بها.<br>اجمع 48 دمية من 8 دول بالزاوية والتوقيت فقط.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ar" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dar%26utm_content%3Dhero">العب مجانًا</a>
       </div>
@@ -688,15 +696,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">نظرة على النظام</p>
         <h2 class="red-title" data-i18n-html="physics.title">محرك فيزياء حقيقي 100%<br>يستجيب لكل حركة</h2>
-        <p class="red-lead" data-i18n="physics.lead">كلّاب ثلاثي الأبعاد يتأرجح بالزخم، ودمى تتحرك حسب مركز ثقلها. ابدأ من كوريا وتجوّل في جولة عالمية تشمل 8 بلدان، 20 مرحلة في كل بلد.</p>
+        <p class="red-lead" data-i18n="physics.lead">ذراع ثلاثي الأبعاد يتأرجح بالقصور الذاتي ودمى تتحرك حسب مركز ثقلها. ابدأ في كوريا وأكمل جولة عالمية في 8 دول: 20 مرحلة لكل دولة و160 مرحلة.</p>
+        <p class="red-note" data-i18n="physics.gimmick">كل دولة تُلعب بطريقة مختلفة. اليابان فيها منحدرات وسلالم، وفرنسا أرفف وأدراج وأهرامات، وأمريكا منحدرات ودمى تتدحرج، والبرازيل أرضية تهتز على الإيقاع، وأستراليا منصات نطّ، ونيوزيلندا ريح تحرّك الذراع فقط، وكندا أرضية جليدية.</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">48 دمية من العالم</strong>
-            <span data-i18n="physics.spec1d">آلات بطابع كل بلد ودمى زعماء</span>
+            <strong data-i18n="physics.spec1t">48 دمية من 8 دول</strong>
+            <span data-i18n="physics.spec1d">6 دمى لكل دولة مع ماكينات بطابع خاص ودمى زعيم</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">جولة في أكثر من 8 بلدان</strong>
-            <span data-i18n="physics.spec2d">20 مرحلة لكل بلد على خريطة العالم</span>
+            <strong data-i18n="physics.spec2t">160 مرحلة في 8 دول</strong>
+            <span data-i18n="physics.spec2d">20 مرحلة وآلية مختلفة في كل دولة</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">متوفر في 146 بلدًا</strong>
@@ -721,26 +730,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">كل الإشعارات ←</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="شاشة الردهة في يوم الإطلاق" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">إشعار</span>
+            <img src="/assets/img/home-menu.webp" alt="شاشة اللعبة الفعلية: زر البدء وخريطة العالم" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">تحديث</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">متوفر الآن في 146 بلدًا على المتجرين</h3>
-            <p class="news-txt" data-i18n="news.1.text">نزّله مجانًا من App Store وGoogle Play والعب فورًا بلا تسجيل.</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">تحديث v1.0.5 متاح الآن</h3>
+            <p class="news-txt" data-i18n="news.1.text">حسّنّا حساب الفيزياء داخل اللعبة واستقرار اللعب والعرض على الشاشة، مع 160 مرحلة في 8 دول (iOS).</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="مسار الخريطة من كوريا إلى اليابان وفرنسا والولايات المتحدة والبرازيل" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="مسار الخريطة من كوريا إلى اليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">تحديث</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
-            <h3 class="news-head" data-i18n="news.2.head">جولة عالمية عبر 8 بلدان</h3>
-            <p class="news-txt" data-i18n="news.2.text">من كوريا إلى اليابان وفرنسا والولايات المتحدة والبرازيل: كل بلد يضيف 20 مرحلة على طريق واحد.</p>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
+            <h3 class="news-head" data-i18n="news.2.head">جولة عالمية في 8 دول على الخريطة</h3>
+            <p class="news-txt" data-i18n="news.2.text">كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا: 20 مرحلة في كل دولة على طريق واحد.</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -750,8 +759,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">دائم</span>
-            <h3 class="news-head" data-i18n="news.3.head">دليل الدمى العالمي: 48 دمية</h3>
-            <p class="news-txt" data-i18n="news.3.text">اجمع 48 دمية مختلفة، لكل بلد مجموعتها، واملأ الدليل. الدمى التي تجمعها تبقى في دليل كل بلد.</p>
+            <h3 class="news-head" data-i18n="news.3.head">48 دمية في 8 دول</h3>
+            <p class="news-txt" data-i18n="news.3.text">ست دمى في كل دولة، و48 في المجموع. أكمل سجل الدول الثماني، وتبقى كل دمية تفوز بها في سجل دولتها.</p>
           </div>
         </a>
       </div>
@@ -761,23 +770,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">المجموعة</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 دمية من حول العالم</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 دمية في 8 دول</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="الكل" data-stages="5 بلدان، 100 مرحلة" data-doll="6 دمى مميزة" data-boss="المرحلة الأخيرة في كل بلد" data-desc="أبرز دمى كوريا واليابان وفرنسا والولايات المتحدة والبرازيل التي يمكنك لعبها الآن." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">الكل</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="الكل" data-stages="160 مرحلة في 8 دول" data-doll="6 دمى لكل دولة، 48 في المجموع" data-boss="المرحلة الأخيرة في كل بلد" data-desc="ثماني دول — كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا — 6 دمى لكل دولة و48 في المجموع. البطاقات أدناه تعرض ستًّا منها." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">الكل</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="كوريا" data-stages="20 مرحلة · 1-1 إلى 1-20" data-doll="دب مونغل · أرنب القمر" data-boss="دمية الزعيم 1-20" data-desc="أول بلد يُفتح لك، ومناسب لتعلّم التحكم الأساسي بالكلّاب." data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">كوريا</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="اليابان" data-stages="20 مرحلة · 2-1 إلى 2-20" data-doll="داروما ذهبية" data-boss="2-20 داروما ذهبية" data-desc="تُفتح بعد إتمام كوريا. زعيم المرحلة الأخيرة هو الداروما الذهبية الأسطورية." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">اليابان</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="فرنسا" data-stages="20 مرحلة · 3-1 إلى 3-20" data-doll="بلدوغ فرنسي" data-boss="دمية الزعيم 3-20" data-desc="أتمّ اليابان أو ادخل ببطاقة فتح بلد." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">فرنسا</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="الولايات المتحدة" data-stages="20 مرحلة · 4-1 إلى 4-20" data-doll="دب أسترو" data-boss="دمية الزعيم 4-20" data-desc="أتمّ فرنسا أو ادخل ببطاقة فتح بلد." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">الولايات المتحدة</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="البرازيل" data-stages="20 مرحلة · 5-1 إلى 5-20" data-doll="طوقان استوائي" data-boss="دمية الزعيم 5-20" data-desc="أتمّ الولايات المتحدة أو ادخل ببطاقة فتح بلد." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">البرازيل</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="اليابان" data-stages="20 مرحلة · 2-1 إلى 2-20" data-doll="داروما ذهبية" data-boss="2-20 داروما ذهبية" data-desc="ماكينة بمنحدرات وسلالم. زعيم المرحلة الأخيرة هو داروما الذهبي الأسطوري." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">اليابان</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="فرنسا" data-stages="20 مرحلة · 3-1 إلى 3-20" data-doll="بلدوغ فرنسي" data-boss="دمية الزعيم 3-20" data-desc="الأرفف والأدراج والأهرامات تحجب الدمى. أكمل اليابان أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">فرنسا</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="الولايات المتحدة" data-stages="20 مرحلة · 4-1 إلى 4-20" data-doll="دب أسترو" data-boss="دمية الزعيم 4-20" data-desc="منحدرات ودمى تتدحرج. أكمل فرنسا أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">الولايات المتحدة</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="البرازيل" data-stages="20 مرحلة · 5-1 إلى 5-20" data-doll="طوقان استوائي" data-boss="دمية الزعيم 5-20" data-desc="أرضية تهتز على الإيقاع تحرّك الدمى مع كل نبضة. أكمل أمريكا أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">البرازيل</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="أستراليا" data-stages="20 مرحلة · 6-1 إلى 6-20" data-doll="كوالا · وومبت · كوكا · كوكابورا · خلد الماء · كنغر" data-boss="6-20 الكنغر العملاق حامل صغيره" data-desc="منصات النطّ ترفع الدمى على الأرض مع الإيقاع. أكمل البرازيل أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">أستراليا</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="نيوزيلندا" data-stages="20 مرحلة · 7-1 إلى 7-20" data-doll="خروف صوفي · كيوي · بطريق صغير · توأتارا · كاكابو · طائر الكيوي" data-boss="7-20 طائر الكيوي العملاق" data-desc="ريح تحرّك الذراع فقط تجعل التصويب ينحرف. أكمل أستراليا أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">نيوزيلندا</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="كندا" data-stages="20 مرحلة · 8-1 إلى 8-20" data-doll="قرص الهوكي · كوب بوتين · زجاجة شراب القيقب · موظ · دب قطبي · قندس الجذع" data-boss="8-20 قندس الجذع العملاق" data-desc="الأرضية الجليدية تجعل الدمى تنزلق. أكمل نيوزيلندا أو استخدم تذكرة فتح دولة للدخول." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">كندا</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">الكل</span>
-          <span class="cb-desc" id="cb-desc">أبرز دمى كوريا واليابان وفرنسا والولايات المتحدة والبرازيل التي يمكنك لعبها الآن.</span>
+          <span class="cb-desc" id="cb-desc">ثماني دول — كوريا واليابان وفرنسا وأمريكا والبرازيل وأستراليا ونيوزيلندا وكندا — 6 دمى لكل دولة و48 في المجموع. البطاقات أدناه تعرض ستًّا منها.</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">المراحل</dt><dd id="cb-stages">5 بلدان، 100 مرحلة</dd></div>
-          <div><dt data-i18n="cb.doll">دمى مميّزة</dt><dd id="cb-doll">6 دمى مميزة</dd></div>
+          <div><dt data-i18n="cb.stages">المراحل</dt><dd id="cb-stages">160 مرحلة في 8 دول</dd></div>
+          <div><dt data-i18n="cb.doll">دمى مميّزة</dt><dd id="cb-doll">6 دمى لكل دولة، 48 في المجموع</dd></div>
           <div><dt data-i18n="cb.boss">الزعيم</dt><dd id="cb-boss">المرحلة الأخيرة في كل بلد</dd></div>
         </dl>
       </div>
@@ -826,7 +838,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">العب الآن</p>
       <h2 class="start-title" data-i18n="start.title">ابدأ اللعب الآن</h2>
-      <p class="start-sub" data-i18n="start.sub">نزّله مجانًا من App Store وGoogle Play وأكمل مجموعة الـ48 دمية من حول العالم.</p>
+      <p class="start-sub" data-i18n="start.sub">حمّله مجانًا من App Store وGoogle Play وأكمل سجل 48 دمية في 8 دول.</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_ar" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">احصل عليه من App Store</span></a>
@@ -875,8 +887,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>

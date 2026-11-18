@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>再來一次！夾娃娃機 — 夾爪會晃動的 3D 物理夾娃娃機</title>
-<meta name="description" content="沒有機率操控，100% 即時 3D 物理手感。像真的機台一樣晃動的夾爪，收集全世界 48 種娃娃。8 國世界巡迴，各國 20 關卡。">
+<meta name="description" content="100% 真實物理、沒有機率操作。用像真機台一樣擺動的機械爪，收集 8 國 48 種娃娃。韓國、日本、法國、美國、巴西、澳洲、紐西蘭、加拿大 8 國世界巡迴，各國 20 關卡、共 160 關卡。">
 <link rel="canonical" href="https://onemoregrab.github.io/zh-tw/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:site_name" content="再來一次！夾娃娃機">
 <meta property="og:title" content="再來一次！夾娃娃機 — 夾爪會晃動的 3D 物理夾娃娃機">
-<meta property="og:description" content="沒有機率操控，100% 即時 3D 物理手感。像真的機台一樣晃動的夾爪，收集全世界 48 種娃娃。8 國世界巡迴，各國 20 關卡。">
+<meta property="og:description" content="100% 真實物理、沒有機率操作。用像真機台一樣擺動的機械爪，收集 8 國 48 種娃娃。韓國、日本、法國、美國、巴西、澳洲、紐西蘭、加拿大 8 國世界巡迴，各國 20 關卡、共 160 關卡。">
 <meta property="og:url" content="https://onemoregrab.github.io/zh-tw/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="再來一次！夾娃娃機 — 夾爪會晃動的 3D 物理夾娃娃機">
-<meta name="twitter:description" content="沒有機率操控，100% 即時 3D 物理手感。像真的機台一樣晃動的夾爪，收集全世界 48 種娃娃。8 國世界巡迴，各國 20 關卡。">
+<meta name="twitter:description" content="100% 真實物理、沒有機率操作。用像真機台一樣擺動的機械爪，收集 8 國 48 種娃娃。韓國、日本、法國、美國、巴西、澳洲、紐西蘭、加拿大 8 國世界巡迴，各國 20 關卡、共 160 關卡。">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -197,6 +197,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -623,7 +633,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">娃娃圖鑑</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">更新說明</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">客服中心</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">世界巡迴</a></div>
         <div class="nav-item">
@@ -646,7 +655,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">最新消息</a>
     <a href="#collection" data-i18n="nav.dolls">娃娃圖鑑</a>
-    <a href="/notice/" data-i18n="nav.patch">更新說明</a>
     <a href="/support/" data-i18n="nav.support">客服中心</a>
     <a href="#physics" data-i18n="nav.world">世界巡迴</a>
     <div class="mob-sns">
@@ -668,7 +676,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">再來一次！<span>夾娃娃機 · ONE MORE GRAB</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">沒有機率操控，100% 即時 3D 物理街機。<br>只靠角度與時機，收集全世界 48 種娃娃。</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">沒有機率操作的 100% 即時 3D 物理機台。<br>只靠角度與時機，收集 8 國 48 種娃娃。</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_zhTW" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dzh-TW%26utm_content%3Dhero">免費遊玩</a>
       </div>
@@ -688,15 +696,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">系統概要</p>
         <h2 class="red-title" data-i18n-html="physics.title">照著操作反應的<br>100% 真實物理引擎</h2>
-        <p class="red-lead" data-i18n="physics.lead">隨慣性擺動的 3D 夾爪，以及依重心移動的娃娃物理。從韓國出發的 8 國世界巡迴，征服各國 20 關卡。</p>
+        <p class="red-lead" data-i18n="physics.lead">依慣性擺動的 3D 機械爪，以及隨重心移動的娃娃物理。從韓國出發的 8 國世界巡迴，各國 20 關卡、共 160 關卡等你征服。</p>
+        <p class="red-note" data-i18n="physics.gimmick">各國機關都不一樣。日本是斜坡與樓梯，法國是層架、抽屜與金字塔，美國是斜坡與會滾動的娃娃，巴西是隨節奏震動的地板，澳洲是彈跳墊，紐西蘭是只吹向機械爪的風，加拿大是結冰的地板。</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">48 種世界娃娃</strong>
-            <span data-i18n="physics.spec1d">各國主題機台與頭目娃娃</span>
+            <strong data-i18n="physics.spec1t">8 國 48 種娃娃</strong>
+            <span data-i18n="physics.spec1d">各國 6 種，各國主題機台與頭目娃娃</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">8 國以上巡迴</strong>
-            <span data-i18n="physics.spec2d">在世界地圖上串起的各國 20 關卡</span>
+            <strong data-i18n="physics.spec2t">8 國 160 關卡</strong>
+            <span data-i18n="physics.spec2d">各國 20 關卡與不同機關</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">146 國上市</strong>
@@ -721,26 +730,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">查看全部公告 →</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="正式上市時的遊戲大廳畫面" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">公告</span>
+            <img src="/assets/img/home-menu.webp" alt="實際遊戲畫面：開始按鈕與世界地圖" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">更新</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">雙商店 146 國正式上市完成</h3>
-            <p class="news-txt" data-i18n="news.1.text">在 App Store 與 Google Play 免登入、安裝即可免費遊玩。</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">v1.0.5 更新上線</h3>
+            <p class="news-txt" data-i18n="news.1.text">調整了遊戲內物理判定、遊玩穩定性與畫面顯示，收錄 8 國 160 關卡（iOS）。</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="從韓國通往日本、法國、美國、巴西的世界地圖路線" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="從韓國通往日本、法國、美國、巴西、澳洲、紐西蘭、加拿大的世界地圖路線" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">更新</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
-            <h3 class="news-head" data-i18n="news.2.head">踏上 8 國世界巡迴</h3>
-            <p class="news-txt" data-i18n="news.2.text">從韓國到日本、法國、美國、巴西，每個國家 20 個關卡串成一條路。</p>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
+            <h3 class="news-head" data-i18n="news.2.head">在世界地圖上展開的 8 國巡迴</h3>
+            <p class="news-txt" data-i18n="news.2.text">從韓國到日本、法國、美國、巴西、澳洲、紐西蘭、加拿大，各國 20 關卡連成一條路。</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -750,8 +759,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">常態</span>
-            <h3 class="news-head" data-i18n="news.3.head">48 種世界娃娃圖鑑</h3>
-            <p class="news-txt" data-i18n="news.3.text">各國都有不同的娃娃，共 48 種，收集後填入圖鑑。收集的娃娃隨時可以在各國圖鑑中再看一次。</p>
+            <h3 class="news-head" data-i18n="news.3.head">8 國 48 種娃娃圖鑑</h3>
+            <p class="news-txt" data-i18n="news.3.text">各國 6 種、共 48 種。把 8 國圖鑑補滿吧，獲得的娃娃會留在該國圖鑑中。</p>
           </div>
         </a>
       </div>
@@ -761,23 +770,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">娃娃圖鑑</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48 種世界娃娃圖鑑</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">8 國 48 種娃娃圖鑑</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="全部代表" data-stages="5 國 100 關卡" data-doll="代表娃娃 6 種" data-boss="各國最後一關" data-desc="現在就能玩的韓國、日本、法國、美國、巴西代表娃娃都在這裡。" data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">全部代表</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="全部代表" data-stages="8 國 160 關卡" data-doll="各國 6 種、共 48 種" data-boss="各國最後一關" data-desc="韓國、日本、法國、美國、巴西、澳洲、紐西蘭、加拿大 8 國，各國 6 種、共 48 種。下方卡片是其中 6 種。" data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">全部代表</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="韓國" data-stages="20 關卡 · 1-1 ~ 1-20" data-doll="蒙格熊 · 月兔" data-boss="1-20 頭目娃娃" data-desc="最早開放的國家，適合熟悉基本夾爪操作。" data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">韓國</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="日本" data-stages="20 關卡 · 2-1 ~ 2-20" data-doll="黃金達摩" data-boss="2-20 黃金達摩" data-desc="通過韓國後開放。最後一關的頭目是傳說級黃金達摩。" data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">日本</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="法國" data-stages="20 關卡 · 3-1 ~ 3-20" data-doll="法國鬥牛犬" data-boss="3-20 頭目娃娃" data-desc="通過日本或使用國家解鎖券即可進入。" data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">法國</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="美國" data-stages="20 關卡 · 4-1 ~ 4-20" data-doll="太空熊" data-boss="4-20 頭目娃娃" data-desc="通過法國或使用國家解鎖券即可進入。" data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">美國</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="巴西" data-stages="20 關卡 · 5-1 ~ 5-20" data-doll="熱帶巨嘴鳥" data-boss="5-20 頭目娃娃" data-desc="通過美國或使用國家解鎖券即可進入。" data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">巴西</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="日本" data-stages="20 關卡 · 2-1 ~ 2-20" data-doll="黃金達摩" data-boss="2-20 黃金達摩" data-desc="有斜坡與樓梯的機台。最後一關頭目是傳說級黃金達摩。" data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">日本</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="法國" data-stages="20 關卡 · 3-1 ~ 3-20" data-doll="法國鬥牛犬" data-boss="3-20 頭目娃娃" data-desc="層架、抽屜與金字塔結構會遮住娃娃。通關日本或使用國家解鎖券即可進入。" data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">法國</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="美國" data-stages="20 關卡 · 4-1 ~ 4-20" data-doll="太空熊" data-boss="4-20 頭目娃娃" data-desc="有斜坡與會滾動的娃娃。通關法國或使用國家解鎖券即可進入。" data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">美國</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="巴西" data-stages="20 關卡 · 5-1 ~ 5-20" data-doll="熱帶巨嘴鳥" data-boss="5-20 頭目娃娃" data-desc="隨節奏震動的地板會在每個節拍推動娃娃。通關美國或使用國家解鎖券即可進入。" data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">巴西</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="澳洲" data-stages="20 關卡 · 6-1 ~ 6-20" data-doll="無尾熊・袋熊・短尾矮袋鼠・笑翠鳥・鴨嘴獸・袋鼠" data-boss="6-20 大王 抱著寶寶的袋鼠" data-desc="彈跳墊會隨節拍把地板上的娃娃彈起。通關巴西或使用國家解鎖券即可進入。" data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">澳洲</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="紐西蘭" data-stages="20 關卡 · 7-1 ~ 7-20" data-doll="蓬鬆綿羊・奇異果・小藍企鵝・鱷蜥・鴞鸚鵡・奇異鳥" data-boss="7-20 大王奇異鳥" data-desc="只吹向機械爪的風會讓瞄準偏掉。通關澳洲或使用國家解鎖券即可進入。" data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">紐西蘭</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="加拿大" data-stages="20 關卡 · 8-1 ~ 8-20" data-doll="冰球・肉汁薯條杯・楓糖漿瓶・麋鹿・北極熊・圓木河狸" data-boss="8-20 大王圓木河狸" data-desc="結冰的地板會讓娃娃滑動。通關紐西蘭或使用國家解鎖券即可進入。" data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">加拿大</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">全部代表</span>
-          <span class="cb-desc" id="cb-desc">現在就能玩的韓國、日本、法國、美國、巴西代表娃娃都在這裡。</span>
+          <span class="cb-desc" id="cb-desc">韓國、日本、法國、美國、巴西、澳洲、紐西蘭、加拿大 8 國，各國 6 種、共 48 種。下方卡片是其中 6 種。</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">關卡</dt><dd id="cb-stages">5 國 100 關卡</dd></div>
-          <div><dt data-i18n="cb.doll">代表娃娃</dt><dd id="cb-doll">代表娃娃 6 種</dd></div>
+          <div><dt data-i18n="cb.stages">關卡</dt><dd id="cb-stages">8 國 160 關卡</dd></div>
+          <div><dt data-i18n="cb.doll">代表娃娃</dt><dd id="cb-doll">各國 6 種、共 48 種</dd></div>
           <div><dt data-i18n="cb.boss">頭目</dt><dd id="cb-boss">各國最後一關</dd></div>
         </dl>
       </div>
@@ -826,7 +838,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">立即遊玩</p>
       <h2 class="start-title" data-i18n="start.title">現在就開始</h2>
-      <p class="start-sub" data-i18n="start.sub">在 App Store 與 Google Play 免費下載，完成 48 種世界娃娃圖鑑。</p>
+      <p class="start-sub" data-i18n="start.sub">在 App Store 與 Google Play 免費下載，完成 8 國 48 種娃娃圖鑑。</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_zhTW" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">在 App Store 取得</span></a>
@@ -875,8 +887,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>

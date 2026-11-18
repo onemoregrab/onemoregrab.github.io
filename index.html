@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){try{var L=['ko','en','ja','zh-TW','es','pt','ar'];var p=new URLSearchParams(location.search).get('lang');var s=p||localStorage.getItem('omg-lang')||'';for(var i=0;i<L.length;i++){if(L[i].toLowerCase()===String(s).toLowerCase()){var l=L[i];document.documentElement.lang=(l==='zh-TW'?'zh-Hant':l);if(l==='ar')document.documentElement.dir='rtl';break;}}}catch(e){}})()</script>
 <title>한 판 더! 인형뽑기 — 흔들리는 집게의 3D 물리 인형뽑기</title>
-<meta name="description" content="확률 조작 없는 100% 리얼 물리 손맛! 진짜 오락실처럼 흔들리는 집게로 48종 세계 인형을 뽑아 모으세요. 한국·일본·프랑스·미국 등 8개국 월드투어, 나라마다 20스테이지.">
+<meta name="description" content="확률 조작 없는 100% 리얼 물리 손맛! 진짜 오락실처럼 흔들리는 집게로 8개국 48종 세계 인형을 뽑아 모으세요. 한국·일본·프랑스·미국·브라질·호주·뉴질랜드·캐나다 8개국 월드투어, 나라마다 20스테이지, 모두 160스테이지.">
 <link rel="canonical" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="ko" href="https://onemoregrab.github.io/">
 <link rel="alternate" hreflang="en" href="https://onemoregrab.github.io/en/">
@@ -26,14 +26,14 @@
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:site_name" content="한 판 더! 인형뽑기">
 <meta property="og:title" content="한 판 더! 인형뽑기 — 흔들리는 집게의 3D 물리 인형뽑기">
-<meta property="og:description" content="확률 조작 없는 100% 리얼 물리 손맛! 진짜 오락실처럼 흔들리는 집게로 48종 세계 인형을 뽑아 모으세요.">
+<meta property="og:description" content="확률 조작 없는 100% 리얼 물리 손맛! 진짜 오락실처럼 흔들리는 집게로 8개국 48종 세계 인형을 뽑아 모으세요.">
 <meta property="og:url" content="https://onemoregrab.github.io/">
 <meta property="og:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="한 판 더! 인형뽑기 — 흔들리는 집게의 3D 물리 인형뽑기">
-<meta name="twitter:description" content="확률 조작 없는 100% 리얼 물리 손맛! 48종 세계 인형을 뽑아 모으는 3D 물리 인형뽑기.">
+<meta name="twitter:description" content="확률 조작 없는 100% 리얼 물리 손맛! 8개국 48종 세계 인형을 뽑아 모으는 3D 물리 인형뽑기.">
 <meta name="twitter:image" content="https://onemoregrab.github.io/assets/img/icon-512.png">
 <link rel="icon" type="image/png" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -198,6 +198,16 @@
     font-weight: 400;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
+  }
+  .red-note {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(10, 13, 20, 0.24);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
   }
   .red-specs {
     margin-top: 28px;
@@ -624,7 +634,6 @@
           </div>
         </div>
         <div class="nav-item"><a class="nav-link" href="#collection" data-i18n="nav.dolls">인형 도감</a></div>
-        <div class="nav-item"><a class="nav-link" href="/notice/" data-i18n="nav.patch">패치 노트</a></div>
         <div class="nav-item"><a class="nav-link" href="/support/" data-i18n="nav.support">고객센터</a></div>
         <div class="nav-item"><a class="nav-link" href="#physics" data-i18n="nav.world">세계 여행</a></div>
         <div class="nav-item">
@@ -647,7 +656,6 @@
   <nav class="mob-drawer" id="mob-drawer">
     <a href="#news" data-i18n="nav.news">새소식</a>
     <a href="#collection" data-i18n="nav.dolls">인형 도감</a>
-    <a href="/notice/" data-i18n="nav.patch">패치 노트</a>
     <a href="/support/" data-i18n="nav.support">고객센터</a>
     <a href="#physics" data-i18n="nav.world">세계 여행</a>
     <div class="mob-sns">
@@ -669,7 +677,7 @@
     <div class="hero-content">
       <span class="hero-kicker" data-i18n="hero.kicker">100% REAL PHYSICS ARCADE</span>
       <h1 class="hero-logo-title" data-i18n-html="hero.title">한 판 더!<span>인형뽑기 · ONE MORE GRAB</span></h1>
-      <p class="hero-desc" data-i18n-html="hero.desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 전 세계 48종의 인형을 확보하세요.</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">확률 조작 없는 100% 실시간 3D 물리 아케이드.<br>각도와 타이밍만으로 8개국 48종의 인형을 확보하세요.</p>
       <div class="tft-btn-wrap">
         <a class="tft-btn" id="hero-cta" href="#start" data-cta data-i18n="hero.cta" data-appstore="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_hero_ko" data-playstore="https://play.google.com/store/apps/details?id=com.onemoregrab.clawgame&amp;referrer=utm_source%3Donemoregrab_web%26utm_medium%3Dportal%26utm_campaign%3Dko%26utm_content%3Dhero">무료로 플레이하기</a>
       </div>
@@ -689,15 +697,16 @@
       <div>
         <p class="red-kicker" data-i18n="physics.kicker">SYSTEM OVERVIEW</p>
         <h2 class="red-title" data-i18n-html="physics.title">조작한 그대로 반응하는<br>100% 리얼 물리 엔진</h2>
-        <p class="red-lead" data-i18n="physics.lead">관성에 따라 흔들리는 3D 크레인 집게와 무게 중심에 따라 움직이는 인형 물리. 한국에서 시작해 8개국으로 이어지는 월드투어, 나라별 20스테이지를 정복하세요.</p>
+        <p class="red-lead" data-i18n="physics.lead">관성에 따라 흔들리는 3D 크레인 집게와 무게 중심에 따라 움직이는 인형 물리. 한국에서 시작해 8개국으로 이어지는 월드투어, 나라마다 20스테이지, 모두 160스테이지를 정복하세요.</p>
+        <p class="red-note" data-i18n="physics.gimmick">나라마다 기믹이 달라요. 일본은 경사로와 계단, 프랑스는 선반·서랍·피라미드, 미국은 경사로와 굴러가는 인형, 브라질은 리듬 진동 바닥, 호주는 깡충 패드, 뉴질랜드는 집게에만 부는 산들바람, 캐나다는 얼음 바닥이에요.</p>
         <div class="red-specs">
           <div class="spec-cell">
-            <strong data-i18n="physics.spec1t">48종 세계 인형</strong>
-            <span data-i18n="physics.spec1d">국가별 테마 기계 및 보스 인형 수록</span>
+            <strong data-i18n="physics.spec1t">8개국 48종 세계 인형</strong>
+            <span data-i18n="physics.spec1d">나라마다 6종, 국가별 테마 기계와 보스 인형</span>
           </div>
           <div class="spec-cell">
-            <strong data-i18n="physics.spec2t">8개국+ 투어</strong>
-            <span data-i18n="physics.spec2d">월드맵에서 이어지는 나라별 20스테이지</span>
+            <strong data-i18n="physics.spec2t">8개국 160스테이지</strong>
+            <span data-i18n="physics.spec2d">나라마다 20스테이지와 다른 기믹</span>
           </div>
           <div class="spec-cell">
             <strong data-i18n="physics.spec3t">146개국 출시</strong>
@@ -722,26 +731,26 @@
         <a class="cream-more" href="/notice/" data-i18n="news.more">전체 공지 보기 &rarr;</a>
       </div>
       <div class="news-grid">
-        <a class="news-card" href="/notice/#launch">
+        <a class="news-card" href="/notice/#v105">
           <div class="news-thumb">
-            <img src="/assets/img/home-menu.webp" alt="정식 출시 로비 화면" data-i18n-alt="img.news1" loading="lazy">
-            <span class="news-badge" data-i18n="news.1.badge">공지</span>
+            <img src="/assets/img/home-menu.webp" alt="인게임 로비 화면: 게임 시작과 세계 지도" data-i18n-alt="img.news1" loading="lazy">
+            <span class="news-badge" data-i18n="news.1.badge">업데이트</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 13</span>
-            <h3 class="news-head" data-i18n="news.1.head">양대 마켓 146개국 정식 출시 완료</h3>
-            <p class="news-txt" data-i18n="news.1.text">App Store와 Google Play에서 로그인 없이 설치 즉시 무료로 플레이할 수 있습니다.</p>
+            <span class="news-meta" data-i18n="news.1.meta">2026. 11. 18</span>
+            <h3 class="news-head" data-i18n="news.1.head">v1.0.5 업데이트 배포 완료</h3>
+            <p class="news-txt" data-i18n="news.1.text">인게임 물리 판정과 플레이 안정성, 화면 표시를 다듬었어요. 8개국 월드투어 160스테이지를 담았습니다(iOS).</p>
           </div>
         </a>
         <a class="news-card" href="/notice/#worldtour">
           <div class="news-thumb">
-            <img src="/assets/img/stage-road.webp" alt="한국에서 일본·프랑스·미국·브라질로 이어지는 세계 지도 경로" data-i18n-alt="img.news2" loading="lazy">
+            <img src="/assets/img/stage-road.webp" alt="한국에서 시작해 일본·프랑스·미국·브라질·호주·뉴질랜드·캐나다로 이어지는 세계 지도 경로" data-i18n-alt="img.news2" loading="lazy">
             <span class="news-badge" data-i18n="news.2.badge">업데이트</span>
           </div>
           <div class="news-body">
-            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 14</span>
+            <span class="news-meta" data-i18n="news.2.meta">2026. 11. 16</span>
             <h3 class="news-head" data-i18n="news.2.head">세계 지도로 떠나는 8개국 월드투어</h3>
-            <p class="news-txt" data-i18n="news.2.text">한국부터 일본, 프랑스, 미국, 브라질까지 나라마다 20스테이지가 길로 이어집니다.</p>
+            <p class="news-txt" data-i18n="news.2.text">한국부터 일본, 프랑스, 미국, 브라질, 호주, 뉴질랜드, 캐나다까지 나라마다 20스테이지가 길로 이어집니다.</p>
           </div>
         </a>
         <a class="news-card" href="/#collection">
@@ -751,8 +760,8 @@
           </div>
           <div class="news-body">
             <span class="news-meta" data-i18n="news.3.meta">상시 운영</span>
-            <h3 class="news-head" data-i18n="news.3.head">48종 세계 인형 도감</h3>
-            <p class="news-txt" data-i18n="news.3.text">나라마다 다른 인형 48종을 뽑아 도감을 채워 보세요. 모은 인형은 나라별 도감에서 다시 볼 수 있어요.</p>
+            <h3 class="news-head" data-i18n="news.3.head">8개국 48종 세계 인형 도감</h3>
+            <p class="news-txt" data-i18n="news.3.text">나라마다 인형 6종씩, 모두 48종을 뽑아 8개국 도감을 채워 보세요. 모은 인형은 나라별 도감에서 다시 볼 수 있어요.</p>
           </div>
         </a>
       </div>
@@ -762,23 +771,26 @@
   <section class="sec-dark" id="collection">
     <div class="wrap">
       <p class="red-kicker" style="color:var(--gold)" data-i18n="coll.kicker">COLLECTION</p>
-      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">48종 세계 인형 도감</h2>
+      <h2 class="cream-title" style="color:#fff" data-i18n="coll.title">8개국 48종 인형 도감</h2>
       <div class="tabs">
-        <button class="tab-btn is-active" data-tab="all" type="button" data-name="전체 대표" data-stages="5개국 100스테이지" data-doll="대표 인형 6종" data-boss="나라마다 마지막 스테이지" data-desc="지금 플레이할 수 있는 한국·일본·프랑스·미국·브라질의 대표 인형을 한자리에 모았어요." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">전체 대표</button>
+        <button class="tab-btn is-active" data-tab="all" type="button" data-name="전체 대표" data-stages="8개국 160스테이지" data-doll="나라마다 6종씩 48종" data-boss="나라마다 마지막 스테이지" data-desc="한국·일본·프랑스·미국·브라질·호주·뉴질랜드·캐나다 8개국, 나라마다 인형 6종씩 모두 48종이에요. 아래 카드는 그중 대표 6종이에요." data-i18n="tab.all" data-i18n-data-name="tab.all.name" data-i18n-data-stages="tab.all.stages" data-i18n-data-doll="tab.all.doll" data-i18n-data-boss="tab.all.boss" data-i18n-data-desc="tab.all.desc">전체 대표</button>
         <button class="tab-btn" data-tab="korea" type="button" data-name="한국" data-stages="20스테이지 · 1-1 ~ 1-20" data-doll="몽글곰 · 달토끼" data-boss="1-20 보스 인형" data-desc="가장 먼저 열려 있는 첫 나라예요. 기본 집게 조작을 익히기 좋아요." data-i18n="tab.korea" data-i18n-data-name="tab.korea.name" data-i18n-data-stages="tab.korea.stages" data-i18n-data-doll="tab.korea.doll" data-i18n-data-boss="tab.korea.boss" data-i18n-data-desc="tab.korea.desc">한국</button>
-        <button class="tab-btn" data-tab="japan" type="button" data-name="일본" data-stages="20스테이지 · 2-1 ~ 2-20" data-doll="황금 다루마" data-boss="2-20 황금 다루마" data-desc="한국을 클리어하면 열려요. 마지막 스테이지 보스가 전설 등급 황금 다루마예요." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">일본</button>
-        <button class="tab-btn" data-tab="france" type="button" data-name="프랑스" data-stages="20스테이지 · 3-1 ~ 3-20" data-doll="프렌치 불독" data-boss="3-20 보스 인형" data-desc="일본을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">프랑스</button>
-        <button class="tab-btn" data-tab="usa" type="button" data-name="미국" data-stages="20스테이지 · 4-1 ~ 4-20" data-doll="아스트로베어" data-boss="4-20 보스 인형" data-desc="프랑스를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">미국</button>
-        <button class="tab-btn" data-tab="brazil" type="button" data-name="브라질" data-stages="20스테이지 · 5-1 ~ 5-20" data-doll="트로피컬 투칸" data-boss="5-20 보스 인형" data-desc="미국을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">브라질</button>
+        <button class="tab-btn" data-tab="japan" type="button" data-name="일본" data-stages="20스테이지 · 2-1 ~ 2-20" data-doll="황금 다루마" data-boss="2-20 황금 다루마" data-desc="경사로와 계단이 있는 기계예요. 마지막 스테이지 보스가 전설 등급 황금 다루마예요." data-i18n="tab.japan" data-i18n-data-name="tab.japan.name" data-i18n-data-stages="tab.japan.stages" data-i18n-data-doll="tab.japan.doll" data-i18n-data-boss="tab.japan.boss" data-i18n-data-desc="tab.japan.desc">일본</button>
+        <button class="tab-btn" data-tab="france" type="button" data-name="프랑스" data-stages="20스테이지 · 3-1 ~ 3-20" data-doll="프렌치 불독" data-boss="3-20 보스 인형" data-desc="선반·서랍·피라미드 구조몰이 인형을 가려요. 일본을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.france" data-i18n-data-name="tab.france.name" data-i18n-data-stages="tab.france.stages" data-i18n-data-doll="tab.france.doll" data-i18n-data-boss="tab.france.boss" data-i18n-data-desc="tab.france.desc">프랑스</button>
+        <button class="tab-btn" data-tab="usa" type="button" data-name="미국" data-stages="20스테이지 · 4-1 ~ 4-20" data-doll="아스트로베어" data-boss="4-20 보스 인형" data-desc="경사로와 굴러가는 인형이 있어요. 프랑스를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.usa" data-i18n-data-name="tab.usa.name" data-i18n-data-stages="tab.usa.stages" data-i18n-data-doll="tab.usa.doll" data-i18n-data-boss="tab.usa.boss" data-i18n-data-desc="tab.usa.desc">미국</button>
+        <button class="tab-btn" data-tab="brazil" type="button" data-name="브라질" data-stages="20스테이지 · 5-1 ~ 5-20" data-doll="트로피컬 투칸" data-boss="5-20 보스 인형" data-desc="리듬 진동 바닥이 박자마다 인형을 흔들어요. 미국을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.brazil" data-i18n-data-name="tab.brazil.name" data-i18n-data-stages="tab.brazil.stages" data-i18n-data-doll="tab.brazil.doll" data-i18n-data-boss="tab.brazil.boss" data-i18n-data-desc="tab.brazil.desc">브라질</button>
+        <button class="tab-btn" data-tab="australia" type="button" data-name="호주" data-stages="20스테이지 · 6-1 ~ 6-20" data-doll="코알라·웜뱃·쿼카·쿠카부라·오리너구리·캥거루" data-boss="6-20 대왕 아기 품은 캥거루" data-desc="깡충 패드가 박자마다 바닥 인형을 톡 튀게 해요. 브라질을 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.australia" data-i18n-data-name="tab.australia.name" data-i18n-data-stages="tab.australia.stages" data-i18n-data-doll="tab.australia.doll" data-i18n-data-boss="tab.australia.boss" data-i18n-data-desc="tab.australia.desc">호주</button>
+        <button class="tab-btn" data-tab="newzealand" type="button" data-name="뉴질랜드" data-stages="20스테이지 · 7-1 ~ 7-20" data-doll="뭉치양·키위 열매·꼬마펭귄·투아타라·카카포·키위새" data-boss="7-20 대왕 키위새" data-desc="산들바람이 집게에만 작용해 조준을 흔들어요. 호주를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.newzealand" data-i18n-data-name="tab.newzealand.name" data-i18n-data-stages="tab.newzealand.stages" data-i18n-data-doll="tab.newzealand.doll" data-i18n-data-boss="tab.newzealand.boss" data-i18n-data-desc="tab.newzealand.desc">뉴질랜드</button>
+        <button class="tab-btn" data-tab="canada" type="button" data-name="캐나다" data-stages="20스테이지 · 8-1 ~ 8-20" data-doll="하키 퍽·푸틴 컴·메이플시럽 병·무스·북극곰·통나무 비버" data-boss="8-20 대왕 통나무 비버" data-desc="얼음 바닥에서 인형이 마끄러워요. 뉴질랜드를 클리어하거나 국가 해금권으로 입장할 수 있어요." data-i18n="tab.canada" data-i18n-data-name="tab.canada.name" data-i18n-data-stages="tab.canada.stages" data-i18n-data-doll="tab.canada.doll" data-i18n-data-boss="tab.canada.boss" data-i18n-data-desc="tab.canada.desc">캐나다</button>
       </div>
       <div class="country-banner">
         <div class="cb-top">
           <span class="cb-name" id="cb-name">전체 대표</span>
-          <span class="cb-desc" id="cb-desc">지금 플레이할 수 있는 한국·일본·프랑스·미국·브라질의 대표 인형을 한자리에 모았어요.</span>
+          <span class="cb-desc" id="cb-desc">한국·일본·프랑스·미국·브라질·호주·뉴질랜드·캐나다 8개국, 나라마다 인형 6종씩 모두 48종이에요. 아래 카드는 그중 대표 6종이에요.</span>
         </div>
         <dl class="cb-facts">
-          <div><dt data-i18n="cb.stages">스테이지</dt><dd id="cb-stages">5개국 100스테이지</dd></div>
-          <div><dt data-i18n="cb.doll">대표 인형</dt><dd id="cb-doll">대표 인형 6종</dd></div>
+          <div><dt data-i18n="cb.stages">스테이지</dt><dd id="cb-stages">8개국 160스테이지</dd></div>
+          <div><dt data-i18n="cb.doll">대표 인형</dt><dd id="cb-doll">나라마다 6종씩 48종</dd></div>
           <div><dt data-i18n="cb.boss">보스</dt><dd id="cb-boss">나라마다 마지막 스테이지</dd></div>
         </dl>
       </div>
@@ -827,7 +839,7 @@
     <div class="wrap">
       <p class="start-kicker" data-i18n="start.kicker">PLAY NOW</p>
       <h2 class="start-title" data-i18n="start.title">지금 시작하세요</h2>
-      <p class="start-sub" data-i18n="start.sub">App Store와 Google Play에서 무료로 내려받고 48종 세계 인형 도감을 완성하세요.</p>
+      <p class="start-sub" data-i18n="start.sub">App Store와 Google Play에서 무료로 내려받고 8개국 48종 세계 인형 도감을 완성하세요.</p>
       <div class="start-actions">
         <div class="start-store">
           <a class="store-rect" href="https://apps.apple.com/app/id6832755431?mt=8&amp;ct=omgweb_start_ko" target="_blank" rel="noopener"><span class="sr-top">Download on the</span><span class="sr-name" data-i18n="start.ios">App Store에서 받기</span></a>
@@ -876,8 +888,8 @@
   </div>
 </footer>
 
-<script src="/assets/i18n-dict-a.js?v=20261118a" defer></script>
-<script src="/assets/i18n-dict-b.js?v=20261118a" defer></script>
+<script src="/assets/i18n-dict-a.js?v=20261118b" defer></script>
+<script src="/assets/i18n-dict-b.js?v=20261118b" defer></script>
 <script src="/assets/i18n.js?v=20261115i" defer></script>
 <script src="/assets/portal.js?v=20261115h" defer></script>
 <script>
